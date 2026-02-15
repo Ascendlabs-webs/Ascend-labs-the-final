@@ -198,11 +198,21 @@ class CursorController {
       STATE.mouseY = e.clientY;
     });
 
-    // Hover effects
-    const interactiveElements = document.querySelectorAll('a, button, [data-tilt]');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    // Delegate hover effects instead of attaching per-element listeners.
+    document.addEventListener('pointerover', (e) => {
+      const target = e.target.closest('a, button, [data-tilt]');
+      if (!target) return;
+      const from = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('a, button, [data-tilt]') : null;
+      if (from === target) return;
+      document.body.classList.add('cursor-hover');
+    });
+
+    document.addEventListener('pointerout', (e) => {
+      const target = e.target.closest('a, button, [data-tilt]');
+      if (!target) return;
+      const to = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('a, button, [data-tilt]') : null;
+      if (to === target) return;
+      document.body.classList.remove('cursor-hover');
     });
 
     // Click effect
@@ -252,7 +262,7 @@ class ShaderBackground {
     });
     
     this.resize();
-    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('resize', debounce(() => this.resize(), 120), { passive: true });
 
     // Shader material for fluid gradient effect
     const vertexShader = `
@@ -1713,10 +1723,18 @@ class HeroScene3D {
     });
 
     // Scroll progress for cinematic scene navigation
-    window.addEventListener('scroll', () => this.handleScrollProgress(), { passive: true });
+    this.scrollProgressTicking = false;
+    window.addEventListener('scroll', () => {
+      if (this.scrollProgressTicking) return;
+      this.scrollProgressTicking = true;
+      requestAnimationFrame(() => {
+        this.handleScrollProgress();
+        this.scrollProgressTicking = false;
+      });
+    }, { passive: true });
     
     // Resize handler
-    window.addEventListener('resize', () => this.handleResize());
+    window.addEventListener('resize', debounce(() => this.handleResize(), 120), { passive: true });
   }
 
   handleResize() {
@@ -1876,6 +1894,7 @@ class ParticleSystem {
 class TiltEffect {
   constructor() {
     this.elements = document.querySelectorAll('[data-tilt]');
+    this.rectCache = new WeakMap();
     if (STATE.isTouch || this.elements.length === 0) return;
     
     this.init();
@@ -1890,11 +1909,13 @@ class TiltEffect {
   }
 
   handleMouseEnter(element) {
+    this.rectCache.set(element, element.getBoundingClientRect());
     element.style.transition = 'none';
   }
 
   handleMouseMove(e, element) {
-    const rect = element.getBoundingClientRect();
+    const rect = this.rectCache.get(element) || element.getBoundingClientRect();
+    this.rectCache.set(element, rect);
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
@@ -1911,6 +1932,7 @@ class TiltEffect {
   }
 
   handleMouseLeave(element) {
+    this.rectCache.delete(element);
     element.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
     element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
   }
@@ -1920,6 +1942,7 @@ class TiltEffect {
 class MagneticEffect {
   constructor() {
     this.elements = document.querySelectorAll('.btn--magnetic');
+    this.rectCache = new WeakMap();
     if (STATE.isTouch || this.elements.length === 0) return;
     
     this.init();
@@ -1934,11 +1957,13 @@ class MagneticEffect {
   }
 
   handleMouseEnter(element) {
+    this.rectCache.set(element, element.getBoundingClientRect());
     element.style.transition = 'none';
   }
 
   handleMouseMove(e, element) {
-    const rect = element.getBoundingClientRect();
+    const rect = this.rectCache.get(element) || element.getBoundingClientRect();
+    this.rectCache.set(element, rect);
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
@@ -1952,6 +1977,7 @@ class MagneticEffect {
   }
 
   handleMouseLeave(element) {
+    this.rectCache.delete(element);
     element.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
     element.style.transform = 'translate(0, 0)';
   }
@@ -1991,6 +2017,10 @@ class ScrollAnimations {
 // ===== Navigation Controller (PRESERVED) =====
 class NavigationController {
   constructor() {
+    this.sectionMetrics = [];
+    this.scrollTicking = false;
+    this.refreshSectionMetrics = this.refreshSectionMetrics.bind(this);
+    this.requestScrollEffects = this.requestScrollEffects.bind(this);
     this.init();
   }
 
@@ -2028,8 +2058,14 @@ class NavigationController {
       link.addEventListener('click', (e) => this.smoothScroll(e, link));
     });
 
+    this.refreshSectionMetrics();
+
     // Scroll effects
-    window.addEventListener('scroll', () => this.handleScrollEffects(), { passive: true });
+    window.addEventListener('scroll', this.requestScrollEffects, { passive: true });
+    window.addEventListener('resize', debounce(this.refreshSectionMetrics, 120), { passive: true });
+
+    // Run once to sync state immediately.
+    this.handleScrollEffects(window.scrollY || 0);
   }
 
   toggleHeroProducts() {
@@ -2110,8 +2146,28 @@ class NavigationController {
     });
   }
 
-  handleScrollEffects() {
-    const scrollY = window.scrollY;
+  requestScrollEffects() {
+    if (this.scrollTicking) return;
+    this.scrollTicking = true;
+    requestAnimationFrame(() => {
+      this.handleScrollEffects(window.scrollY || 0);
+      this.scrollTicking = false;
+    });
+  }
+
+  refreshSectionMetrics() {
+    this.sectionMetrics = Array.from(document.querySelectorAll('section[id]')).map(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      return {
+        id: section.getAttribute('id'),
+        top: sectionTop,
+        bottom: sectionTop + sectionHeight
+      };
+    });
+  }
+
+  handleScrollEffects(scrollY = window.scrollY || 0) {
     STATE.scrollY = scrollY;
     
     if (DOM.heroProductsPanel && DOM.heroProductsPanel.classList.contains('is-open')) {
@@ -2138,28 +2194,24 @@ class NavigationController {
     
     // Update progress bar
     if (DOM.navProgress) {
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollY / docHeight) * 100;
-      DOM.navProgress.style.width = `${scrollPercent}%`;
+      const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const scrollProgress = Math.min(Math.max(scrollY / docHeight, 0), 1);
+      DOM.navProgress.style.transform = `scaleX(${scrollProgress})`;
     }
     
     // Highlight active section
-    this.highlightActiveSection();
+    this.highlightActiveSection(scrollY);
   }
 
-  highlightActiveSection() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.scrollY + CONFIG.scrollOffset + 50;
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-      
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        this.updateActiveLink(`#${sectionId}`);
+  highlightActiveSection(scrollY = window.scrollY || 0) {
+    const currentY = scrollY + CONFIG.scrollOffset + 50;
+    for (let i = 0; i < this.sectionMetrics.length; i++) {
+      const section = this.sectionMetrics[i];
+      if (currentY >= section.top && currentY < section.bottom) {
+        this.updateActiveLink(`#${section.id}`);
+        break;
       }
-    });
+    }
   }
 }
 
@@ -2276,6 +2328,8 @@ class WorkLoopCarousel {
     this.current = 0;
     this.touchStartX = 0;
     this.touchDeltaX = 0;
+    this.touchStartLink = null;
+    this.resumeTimer = null;
     this.isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.autoInterval = null;
     this.autoDelay = this.isReducedMotion ? 4600 : 2700;
@@ -2296,22 +2350,24 @@ class WorkLoopCarousel {
       const wasMobile = this.isMobileViewport;
       this.isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
       
+      this.paused = false;
+      this.updateVisualState();
+
       if (this.isMobileViewport) {
-        this.paused = true;
+        this.syncMobileViewport('auto');
       } else if (wasMobile) {
-        this.paused = false;
-        this.updateVisualState();
-        this.startAuto();
+        this.syncMobileViewport('auto');
       }
+
+      this.startAuto();
     };
 
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', debounce(this.handleResize, 120), { passive: true });
     this.handleResize(); // Initial check
     
-    if (!this.isMobileViewport) {
-      this.updateVisualState();
-      this.startAuto();
-    }
+    this.updateVisualState();
+    if (this.isMobileViewport) this.syncMobileViewport('auto');
+    this.startAuto();
     
     this.section.classList.add('is-ready');
   }
@@ -2331,8 +2387,14 @@ class WorkLoopCarousel {
     }, { passive: false });
 
     this.carousel.addEventListener('pointerdown', (event) => {
+      if (this.resumeTimer) {
+        clearTimeout(this.resumeTimer);
+        this.resumeTimer = null;
+      }
+      this.paused = true;
       this.touchStartX = event.clientX;
       this.touchDeltaX = 0;
+      this.touchStartLink = event.target.closest ? event.target.closest('.work-loop__card') : null;
     });
 
     this.carousel.addEventListener('pointermove', (event) => {
@@ -2340,22 +2402,42 @@ class WorkLoopCarousel {
       this.touchDeltaX = event.clientX - this.touchStartX;
     });
 
-    this.carousel.addEventListener('pointerup', () => this.handlePointerEnd());
-    this.carousel.addEventListener('pointercancel', () => this.handlePointerEnd());
-    this.carousel.addEventListener('pointerleave', () => this.handlePointerEnd());
+    this.carousel.addEventListener('pointerup', (event) => this.handlePointerEnd(event, false));
+    this.carousel.addEventListener('pointercancel', (event) => this.handlePointerEnd(event, true));
+    this.carousel.addEventListener('pointerleave', (event) => this.handlePointerEnd(event, true));
   }
 
-  handlePointerEnd() {
+  handlePointerEnd(event, cancelled = false) {
     if (!this.touchStartX) return;
 
     const threshold = 42;
     if (Math.abs(this.touchDeltaX) >= threshold) {
       if (this.touchDeltaX < 0) this.next();
       else this.prev();
+    } else if (!cancelled && this.isMobileViewport) {
+      const endLink = event && event.target && event.target.closest
+        ? event.target.closest('.work-loop__card')
+        : null;
+      const tappedLink = endLink && this.touchStartLink === endLink ? endLink : this.touchStartLink;
+
+      if (tappedLink && tappedLink.href) {
+        if (tappedLink.target === '_blank') {
+          window.open(tappedLink.href, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = tappedLink.href;
+        }
+      }
     }
 
     this.touchStartX = 0;
     this.touchDeltaX = 0;
+    this.touchStartLink = null;
+
+    // Keep autoplay paused briefly after touch so tap navigation can complete.
+    this.resumeTimer = window.setTimeout(() => {
+      this.paused = false;
+      this.resumeTimer = null;
+    }, 1200);
   }
 
   next() {
@@ -2374,6 +2456,7 @@ class WorkLoopCarousel {
     this.section.classList.add('is-orbiting');
     this.section.setAttribute('data-orbit-dir', direction > 0 ? 'next' : 'prev');
     this.updateVisualState();
+    this.syncMobileViewport();
 
     window.setTimeout(() => {
       this.isAnimating = false;
@@ -2413,6 +2496,18 @@ class WorkLoopCarousel {
     });
   }
 
+  syncMobileViewport(behavior = 'smooth') {
+    if (!this.isMobileViewport) return;
+    const activeSlide = this.slides[this.current];
+    if (!activeSlide || !this.carousel) return;
+
+    const targetLeft = activeSlide.offsetLeft - ((this.carousel.clientWidth - activeSlide.clientWidth) / 2);
+    this.carousel.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior
+    });
+  }
+
   startAuto() {
     if (this.autoInterval) clearInterval(this.autoInterval);
 
@@ -2420,6 +2515,12 @@ class WorkLoopCarousel {
       if (this.paused) return;
       this.next();
     }, this.autoDelay);
+  }
+
+  stopAuto() {
+    if (!this.autoInterval) return;
+    clearInterval(this.autoInterval);
+    this.autoInterval = null;
   }
 }
 
@@ -2548,7 +2649,7 @@ class CinematicTransitions {
     this.setupScrollHandlers();
     
     // Handle resize
-    window.addEventListener('resize', () => this.handleResize());
+    window.addEventListener('resize', debounce(() => this.handleResize(), 120), { passive: true });
     
     console.log('🎬 Cinematic transition system initialized');
   }
@@ -2961,19 +3062,97 @@ class PricingExpander {
   constructor() {
     this.container = document.getElementById('pricingExpand');
     this.trigger = document.getElementById('pricingExpandTrigger');
-    if (!this.container || !this.trigger) return;
+    this.menu = this.container ? this.container.querySelector('.pricing-expand__menu') : null;
+    this.items = this.menu ? Array.from(this.menu.querySelectorAll('.pricing-expand__item')) : [];
+    this.current = 0;
+    this.autoInterval = null;
+    this.paused = false;
+    this.autoDelay = 2400;
+    if (!this.container || !this.trigger || this.items.length === 0) return;
     this.init();
   }
 
   init() {
+    this.menu.classList.add('is-loop');
+    this.updateLoopState();
+
     this.trigger.addEventListener('click', () => {
-      this.container.classList.toggle('is-active');
+      const isActive = this.container.classList.toggle('is-active');
       
       const label = this.trigger.querySelector('.pricing-expand__label');
       if (label) {
-        label.textContent = this.container.classList.contains('is-active') ? 'Close' : 'Add on';
+        label.textContent = isActive ? 'Close' : 'Add on';
+      }
+
+      if (isActive) {
+        this.startAuto();
+      } else {
+        this.stopAuto();
       }
     });
+
+    this.menu.addEventListener('mouseenter', () => { this.paused = true; });
+    this.menu.addEventListener('mouseleave', () => { this.paused = false; });
+    this.menu.addEventListener('focusin', () => { this.paused = true; });
+    this.menu.addEventListener('focusout', () => { this.paused = false; });
+
+    this.menu.addEventListener('wheel', (event) => {
+      if (!this.container.classList.contains('is-active')) return;
+      event.preventDefault();
+      if (event.deltaY > 0 || event.deltaX > 0) this.next();
+      else this.prev();
+    }, { passive: false });
+  }
+
+  next() {
+    this.current = (this.current + 1) % this.items.length;
+    this.updateLoopState();
+  }
+
+  prev() {
+    this.current = (this.current - 1 + this.items.length) % this.items.length;
+    this.updateLoopState();
+  }
+
+  updateLoopState() {
+    const total = this.items.length;
+
+    this.items.forEach((item, index) => {
+      let distance = index - this.current;
+      if (distance > total / 2) distance -= total;
+      if (distance < -total / 2) distance += total;
+
+      const abs = Math.abs(distance);
+      const slot = abs > 2 ? (distance < 0 ? -2.6 : 2.6) : distance;
+      const scale = abs === 0 ? 1 : abs === 1 ? 0.92 : 0.82;
+      const lift = abs === 0 ? 0 : abs === 1 ? 6 : 10;
+      const opacity = abs === 0 ? 1 : abs === 1 ? 0.7 : 0.4;
+
+      item.style.setProperty('--slot', String(slot));
+      item.style.setProperty('--item-scale', String(scale));
+      item.style.setProperty('--item-lift', `${lift}px`);
+      item.style.setProperty('--item-opacity', String(opacity));
+      item.style.zIndex = String(30 - Math.min(abs, 2));
+
+      item.classList.remove('is-active', 'is-near', 'is-outer');
+      if (abs === 0) item.classList.add('is-active');
+      else if (abs === 1) item.classList.add('is-near');
+      else item.classList.add('is-outer');
+    });
+  }
+
+  startAuto() {
+    this.stopAuto();
+    this.autoInterval = setInterval(() => {
+      if (this.paused) return;
+      this.next();
+    }, this.autoDelay);
+  }
+
+  stopAuto() {
+    if (!this.autoInterval) return;
+    clearInterval(this.autoInterval);
+    this.autoInterval = null;
   }
 }
 

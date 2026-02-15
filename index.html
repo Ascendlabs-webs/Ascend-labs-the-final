@@ -23,6 +23,7 @@
 
     <title>AscendLabs | Digital Agency</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="assets/work-previews/AscendLabs.jpg" fetchpriority="high">
     
     <!-- Fonts & Performance Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +77,7 @@
     <nav class="nav" id="mainNav">
         <div class="nav__container">
             <a href="#" class="nav__logo">
-                <img src="assets/work-previews/AscendLabs.jpg" alt="AscendLabs Logo" class="nav__logo-image" width="50" height="50">
+                <img src="assets/work-previews/AscendLabs.jpg" alt="AscendLabs Logo" class="nav__logo-image" width="50" height="50" decoding="async" fetchpriority="high">
                 <span class="nav__logo-glow"></span>
             </a>
             
@@ -88,8 +89,8 @@
 
             <ul class="nav__menu" id="navMenu">
                 <li class="nav__item"><a href="#home" class="nav__link" data-text="Home">Home</a></li>
-                <li class="nav__item nav__item--has-dropdown">
-                    <a href="#services" class="nav__link nav__link--dropdown" data-text="Services" data-products-trigger aria-haspopup="true" aria-expanded="false">Services</a>
+                <li class="nav__item">
+                    <a href="#pricing" class="nav__link" data-text="Services">Services</a>
                 </li>
                 <li class="nav__item"><a href="#work" class="nav__link" data-text="Work">Work</a></li>
                 <li class="nav__item"><a href="#pricing" class="nav__link" data-text="Pricing">Pricing</a></li>
@@ -228,43 +229,10 @@
                 </header>
                 <div class="work-loop__carousel" aria-label="Website showcase carousel">
                     <div class="work-loop__track" id="workLoopTrack">
-                        <article class="work-loop__slide" data-index="0">
-                            <a href="https://ascendlabs-webs.github.io/Apex-ultimate/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View APEX Performance website">
-                                <div class="work-loop__card-preview work-loop__card-preview--apex">
-                                    <img src="assets/work-previews/apex-ultimate.png" alt="APEX Performance website preview - High intensity fitness brand" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Elite Fitness Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">APEX Performance</span>
-                                <span class="work-loop__card-subtitle">High-intensity training and sports brand experience.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="1">
-                            <a href="https://ascendlabs-webs.github.io/Aurela-cafe/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Aurelia Cafe website">
-                                <div class="work-loop__card-preview work-loop__card-preview--aurelia">
-                                    <img src="assets/work-previews/aurelia-cafe.png" alt="Aurelia Cafe website preview - Elegant coffee house design" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Premium Cafe Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Aurelia Cafe</span>
-                                <span class="work-loop__card-subtitle">Elegant coffee storytelling with editorial layout.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="2">
-                            <a href="https://ascendlabs-webs.github.io/Ember-Grain/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Ember and Grain website">
-                                <div class="work-loop__card-preview work-loop__card-preview--ember">
-                                    <img src="assets/work-previews/ember-grain.png" alt="Ember and Grain website preview - Artisan food and coffee" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Warm Artisan Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Ember &amp; Grain</span>
-                                <span class="work-loop__card-subtitle">Cozy artisan cafe with warm handcrafted visuals.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
                         <article class="work-loop__slide" data-index="3">
                             <a href="https://ascendlabs-webs.github.io/RollsRoyce/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Rolls Royce website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/rolls-royce.png" alt="Rolls Royce website preview - Luxury automotive concept" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/rolls-royce.png" alt="Rolls Royce website preview - Luxury automotive concept" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Luxury Brand Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Rolls Royce Concept</span>
@@ -275,7 +243,7 @@
                         <article class="work-loop__slide" data-index="4">
                             <a href="https://ascendlabs-webs.github.io/-ascendlabs-site/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View AscendLabs site website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/ascendlabs-site.png" alt="AscendLabs agency website preview" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/ascendlabs-site.png" alt="AscendLabs agency website preview" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Agency Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">AscendLabs Site</span>
@@ -286,7 +254,7 @@
                         <article class="work-loop__slide" data-index="5">
                             <a href="https://ascendlabs-webs.github.io/Ascend-Demo-of-spatial-motion/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View spatial motion demo website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/spatial-motion.png" alt="Spatial motion demo website preview - WebGL interaction" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/spatial-motion.png" alt="Spatial motion demo website preview - WebGL interaction" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Spatial Motion Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Spatial Motion Demo</span>
@@ -297,7 +265,7 @@
                         <article class="work-loop__slide" data-index="6">
                             <a href="https://ascendlabs-webs.github.io/example-of-Luxe-A-Salon/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Luxe A Salon website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/luxe-salon.png" alt="Luxe A Salon website preview - Beauty and wellness" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/luxe-salon.png" alt="Luxe A Salon website preview - Beauty and wellness" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Salon Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Luxe A Salon</span>
@@ -308,7 +276,7 @@
                         <article class="work-loop__slide" data-index="7">
                             <a href="https://ascendlabs-webs.github.io/Gym/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View gym website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/gym.png" alt="Gym website preview - Fitness center" loading="lazy" width="600" height="375" onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/gym.png" alt="Gym website preview - Fitness center" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Gym Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Gym Website</span>
@@ -557,7 +525,6 @@
                         <div class="pricing-card__header">
                             <h3 class="pricing-card__name">Starter</h3>
                             <div class="pricing-card__price">
-                                <span class="pricing-card__currency">$</span>
                                 <span class="pricing-card__amount">18K</span>
                             </div>
                             <p class="pricing-card__description">A refined digital presence for businesses entering the online space</p>
@@ -579,7 +546,6 @@
                         <div class="pricing-card__header">
                             <h3 class="pricing-card__name">Professional</h3>
                             <div class="pricing-card__price">
-                                <span class="pricing-card__currency">$</span>
                                 <span class="pricing-card__amount">28K</span>
                             </div>
                             <p class="pricing-card__description">A structured digital system designed for clarity, performance, and growth</p>
@@ -602,7 +568,6 @@
                         <div class="pricing-card__header">
                             <h3 class="pricing-card__name">Enterprise</h3>
                             <div class="pricing-card__price">
-                                <span class="pricing-card__currency">$</span>
                                 <span class="pricing-card__amount">40K</span>
                             </div>
                             <p class="pricing-card__description">A refined digital experience crafted for brands that demand presence</p>
@@ -622,7 +587,7 @@
 
                 <!-- Enhanced Expandable Pricing Button -->
                 <div class="pricing-expand" id="pricingExpand">
-                    <div class="pricing-expand__menu">
+                    <div class="pricing-expand__menu" role="list">
                         <a href="#contact" class="pricing-expand__item" style="--i:3">
                             Managed support plans
                         </a>
@@ -682,20 +647,6 @@
                     <div class="about__visual-content">
                         <div class="about__image-wrapper" data-stagger-item>
                             <div class="about__image" data-parallax-image style="background-image: url('assets/work-previews/8eaab1ca-002d-4124-8af2-65178fbb88ff.png');"></div>
-                        </div>
-                        <div class="about__stats" data-scroll-stagger>
-                            <div class="stat-card" data-count-up data-stagger-item>
-                                <div class="stat-card__value" data-target="150">0</div>
-                                <div class="stat-card__label">Projects Delivered</div>
-                            </div>
-                            <div class="stat-card" data-count-up data-stagger-item>
-                                <div class="stat-card__value" data-target="98">0</div>
-                                <div class="stat-card__label">Client Satisfaction</div>
-                            </div>
-                            <div class="stat-card" data-count-up data-stagger-item>
-                                <div class="stat-card__value" data-target="24">0</div>
-                                <div class="stat-card__label">Team Members</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -842,7 +793,7 @@
     </footer>
 
     <!-- Three.js for WebGL -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>

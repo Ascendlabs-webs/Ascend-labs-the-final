@@ -71,6 +71,15 @@ class InertialScrollController {
     // RAF
     this.rafId = null;
 
+    // Keep stable handler references for proper cleanup.
+    this.handlers = {
+      onWheel: (e) => this.onWheel(e),
+      onTouchStart: (e) => this.onTouchStart(e),
+      onTouchMove: (e) => this.onTouchMove(e),
+      onTouchEnd: (e) => this.onTouchEnd(e),
+      onResize: () => this.updateBounds()
+    };
+
     this.init();
   }
 
@@ -90,7 +99,7 @@ class InertialScrollController {
     this.start();
 
     // Update bounds on resize
-    window.addEventListener('resize', () => this.updateBounds(), { passive: true });
+    window.addEventListener('resize', this.handlers.onResize, { passive: true });
 
     console.log('🎯 InertialScrollController initialized');
   }
@@ -105,13 +114,13 @@ class InertialScrollController {
 
   bindEvents() {
     // Wheel events (desktop)
-    window.addEventListener('wheel', (e) => this.onWheel(e), { passive: false });
+    window.addEventListener('wheel', this.handlers.onWheel, { passive: false });
     
     // Touch events (mobile)
-    window.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: true });
-    window.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: false });
-    window.addEventListener('touchend', (e) => this.onTouchEnd(e), { passive: true });
-    window.addEventListener('touchcancel', (e) => this.onTouchEnd(e), { passive: true });
+    window.addEventListener('touchstart', this.handlers.onTouchStart, { passive: true });
+    window.addEventListener('touchmove', this.handlers.onTouchMove, { passive: false });
+    window.addEventListener('touchend', this.handlers.onTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', this.handlers.onTouchEnd, { passive: true });
 
     // Mouse events (drag scroll - optional)
     // Can be extended for drag-to-scroll functionality
@@ -309,10 +318,12 @@ class InertialScrollController {
   destroy() {
     this.stop();
     // Remove event listeners
-    window.removeEventListener('wheel', this.onWheel);
-    window.removeEventListener('touchstart', this.onTouchStart);
-    window.removeEventListener('touchmove', this.onTouchMove);
-    window.removeEventListener('touchend', this.onTouchEnd);
+    window.removeEventListener('wheel', this.handlers.onWheel);
+    window.removeEventListener('touchstart', this.handlers.onTouchStart);
+    window.removeEventListener('touchmove', this.handlers.onTouchMove);
+    window.removeEventListener('touchend', this.handlers.onTouchEnd);
+    window.removeEventListener('touchcancel', this.handlers.onTouchEnd);
+    window.removeEventListener('resize', this.handlers.onResize);
   }
 }
 
