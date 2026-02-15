@@ -175,6 +175,15 @@ const STATE = {
   }
 };
 
+// Run non-critical work after first paint/idle to reduce startup jank.
+function scheduleNonCritical(task, timeout = 900, fallbackDelay = 120) {
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(() => task(), { timeout });
+    return;
+  }
+  window.setTimeout(task, fallbackDelay);
+}
+
 // ===== Custom Cursor System =====
 class CursorController {
   constructor() {
@@ -471,8 +480,15 @@ class HeroScene3D {
     
     this.configureRenderer();
     STATE.renderer3D.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
-    STATE.renderer3D.setPixelRatio(Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1.5 : 2)); // Cap pixel ratio for mobile performance
+    const targetPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1.35 : 1.85);
+    const initialPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1 : 1.25);
+    STATE.renderer3D.setPixelRatio(initialPixelRatio);
     STATE.renderer3D.setClearColor(0x000000, 0); // Transparent background
+
+    // Raise render quality after initial load to avoid first-frame hitching.
+    scheduleNonCritical(() => {
+      if (STATE.renderer3D) STATE.renderer3D.setPixelRatio(targetPixelRatio);
+    }, 1700, 380);
     
     // Environment-based reflections for physically based materials
     this.setupEnvironmentLighting();
@@ -3159,6 +3175,7 @@ class PricingExpander {
 // ===== Initialization =====
 class App {
   constructor() {
+    this.heroSystemsBootstrapped = false;
     this.init();
   }
 
@@ -3195,20 +3212,40 @@ class App {
       console.log('✅ Cinematic scroll engine active (lerp:', CONFIG.inertialScroll.lerp, ')');
     }
     
-    // Initialize all systems
+    // Initialize critical interaction systems first
     new CursorController();
-    new ShaderBackground(DOM.heroCanvas); // PRESERVED: Shader background
-    new HeroScene3D(DOM.heroCanvas3D); // NEW: Cinematic 3D scene
-    new CinematicTransitions(DOM.cinematicCanvas); // NEW: Cinematic transitions
-    new ParticleSystem(DOM.heroParticles); // PRESERVED: Particles
     const navController = new NavigationController();
     new FormController();
     new WorkLoopCarousel();
     new SmoothScrollEnhancer();
     new PricingExpander();
+
+    // Defer heavy hero systems to idle frames to prevent first-load hitching.
+    this.bootstrapHeroSystems();
     
     // Initial scroll check
     if (DOM.nav) navController.handleScrollEffects();
+  }
+
+  bootstrapHeroSystems() {
+    if (this.heroSystemsBootstrapped) return;
+    this.heroSystemsBootstrapped = true;
+
+    scheduleNonCritical(() => {
+      new ShaderBackground(DOM.heroCanvas);
+    }, 800, 60);
+
+    scheduleNonCritical(() => {
+      new ParticleSystem(DOM.heroParticles);
+    }, 1000, 120);
+
+    scheduleNonCritical(() => {
+      new HeroScene3D(DOM.heroCanvas3D);
+    }, 1400, 220);
+
+    scheduleNonCritical(() => {
+      new CinematicTransitions(DOM.cinematicCanvas);
+    }, 1700, 320);
   }
 }
 
@@ -3912,7 +3949,9 @@ class MotionOrchestrator {
 class EnhancedApp extends App {
   start() {
     super.start();
-    new MotionOrchestrator().init();
+    scheduleNonCritical(() => {
+      new MotionOrchestrator().init();
+    }, 1500, 260);
   }
 }
 
