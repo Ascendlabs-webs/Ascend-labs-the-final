@@ -8,6 +8,7 @@
 const IS_LOW_END_DEVICE =
   (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
   (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 6);
+const IS_DESKTOP_VIEWPORT = window.matchMedia('(min-width: 769px)').matches;
 
 const CONFIG = {
   scrollOffset: 80,
@@ -260,6 +261,9 @@ class ShaderBackground {
     if (!canvas || STATE.isTouch) return;
     
     this.canvas = canvas;
+    this.lastFrameTime = 0;
+    this.minFrameTime = IS_LOW_END_DEVICE ? 48 : (IS_DESKTOP_VIEWPORT ? 34 : 28);
+    this.isViewportActive = true;
     this.init();
   }
 
@@ -276,6 +280,17 @@ class ShaderBackground {
     
     this.resize();
     window.addEventListener('resize', debounce(() => this.resize(), 120), { passive: true });
+
+    const heroSection = document.getElementById('home');
+    if (heroSection && typeof IntersectionObserver !== 'undefined') {
+      this.heroVisibilityObserver = new IntersectionObserver(
+        (entries) => {
+          this.isViewportActive = entries.some(entry => entry.isIntersecting);
+        },
+        { threshold: 0.05 }
+      );
+      this.heroVisibilityObserver.observe(heroSection);
+    }
 
     // Shader material for fluid gradient effect
     const vertexShader = `
@@ -401,13 +416,24 @@ class ShaderBackground {
     }
   }
 
-  animate() {
+  animate(now = performance.now()) {
+    if (document.hidden || !this.isViewportActive) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+
+    if (now - this.lastFrameTime < this.minFrameTime) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+    this.lastFrameTime = now;
+
     if (STATE.shaderMaterial) {
       STATE.shaderMaterial.uniforms.u_time.value += 0.01;
     }
     
     STATE.renderer.render(STATE.scene, STATE.camera);
-    requestAnimationFrame(() => this.animate());
+    requestAnimationFrame((t) => this.animate(t));
   }
 }
 
@@ -459,7 +485,10 @@ class HeroScene3D {
     this.tempVectorB = new THREE.Vector3();
     this.instanceMatrixTemp = new THREE.Matrix4();
     this.lastFrameTime = 0;
-    this.minFrameTime = CONFIG.scene3D.performanceMode ? 33 : (IS_LOW_END_DEVICE ? 22 : 16);
+    this.minFrameTime = CONFIG.scene3D.performanceMode ? 36 : (IS_LOW_END_DEVICE ? 30 : 24);
+    this.isViewportActive = true;
+    this.cachedScrollY = window.scrollY || window.pageYOffset || 0;
+    this.maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
     this.init();
   }
 
@@ -837,8 +866,8 @@ class HeroScene3D {
   }
 
   handleScrollProgress() {
-    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-    const normalized = window.scrollY / maxScroll;
+    this.cachedScrollY = window.scrollY || window.pageYOffset || 0;
+    const normalized = this.cachedScrollY / this.maxScroll;
     this.scrollNavigation.target = Math.min(Math.max(normalized, 0), 1);
   }
 
@@ -1757,6 +1786,18 @@ class HeroScene3D {
     
     // Resize handler
     window.addEventListener('resize', debounce(() => this.handleResize(), 120), { passive: true });
+
+    // Pause heavy hero rendering when hero is not in viewport.
+    const heroSection = document.getElementById('home');
+    if (heroSection && typeof IntersectionObserver !== 'undefined') {
+      this.heroVisibilityObserver = new IntersectionObserver(
+        (entries) => {
+          this.isViewportActive = entries.some(entry => entry.isIntersecting);
+        },
+        { threshold: 0.05 }
+      );
+      this.heroVisibilityObserver.observe(heroSection);
+    }
   }
 
   handleResize() {
@@ -1768,9 +1809,15 @@ class HeroScene3D {
     
     STATE.renderer3D.setSize(width, height);
     STATE.renderer3D.setPixelRatio(Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1 : 2));
+    this.maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
   }
 
   animate(now = performance.now()) {
+    if (document.hidden || !this.isViewportActive) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+
     if (now - this.lastFrameTime < this.minFrameTime) {
       requestAnimationFrame((t) => this.animate(t));
       return;
@@ -1786,9 +1833,8 @@ class HeroScene3D {
     
     // ⭐ UPDATE CINEMATIC CAMERA RIG ⭐
     if (STATE.scrollEngine.cameraRig) {
-      const scrollY = window.scrollY || window.pageYOffset;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollProgress = maxScroll > 0 ? scrollY / maxScroll : 0;
+      const scrollY = this.cachedScrollY;
+      const scrollProgress = this.maxScroll > 0 ? scrollY / this.maxScroll : 0;
       
       STATE.scrollEngine.cameraRig.update(
         scrollProgress,
@@ -1799,7 +1845,7 @@ class HeroScene3D {
     
     // ⭐ UPDATE VOLUMETRIC PARALLAX ⭐
     if (STATE.scrollEngine.parallaxField) {
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = this.cachedScrollY;
       STATE.scrollEngine.parallaxField.update(
         scrollY,
         STATE.scrollEngine.scrollVelocity
@@ -2159,19 +2205,27 @@ class NavigationController {
           document.body.style.overflow = ''; // Ensure scroll is unlocked on click
         }
         
-        this.updateActiveLink(href);
+        this.updateActiveLinkByLink(link);
       }
     }
   }
 
-  updateActiveLink(activeHref) {
+  updateActiveLinkByLink(selectedLink) {
     DOM.navLinks.forEach(link => {
-      if (link.getAttribute('href') === activeHref) {
-        link.classList.add('is-active');
-      } else {
-        link.classList.remove('is-active');
-      }
+      link.classList.remove('is-active');
     });
+    if (selectedLink) selectedLink.classList.add('is-active');
+  }
+
+  updateActiveLinkBySection(sectionId) {
+    const key = String(sectionId || '').toLowerCase();
+    const targetLink = Array.from(DOM.navLinks).find(link => (link.dataset.navKey || '').toLowerCase() === key);
+
+    DOM.navLinks.forEach(link => {
+      link.classList.remove('is-active');
+    });
+
+    if (targetLink) targetLink.classList.add('is-active');
   }
 
   requestScrollEffects() {
@@ -2236,7 +2290,7 @@ class NavigationController {
     for (let i = 0; i < this.sectionMetrics.length; i++) {
       const section = this.sectionMetrics[i];
       if (currentY >= section.top && currentY < section.bottom) {
-        this.updateActiveLink(`#${section.id}`);
+        this.updateActiveLinkBySection(section.id);
         break;
       }
     }
@@ -2631,6 +2685,8 @@ class CinematicTransitions {
     
     this.canvas = canvas;
     this.time = 0;
+    this.lastFrameTime = 0;
+    this.minFrameTime = IS_LOW_END_DEVICE ? 52 : (IS_DESKTOP_VIEWPORT ? 34 : 30);
     this.sceneConfigs = this.defineSceneConfigurations();
     this.init();
   }
@@ -3037,11 +3093,22 @@ class CinematicTransitions {
   /**
    * Main animation loop
    */
-  animate() {
+  animate(now = performance.now()) {
     // Safety check
     if (!STATE.cinematic.renderer || !STATE.cinematic.scene || !STATE.cinematic.camera) {
       return;
     }
+
+    if (document.hidden) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+
+    if (now - this.lastFrameTime < this.minFrameTime) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+    this.lastFrameTime = now;
     
     this.time += 0.01;
 
@@ -3081,7 +3148,7 @@ class CinematicTransitions {
     // Render scene
     STATE.cinematic.renderer.render(STATE.cinematic.scene, STATE.cinematic.camera);
     
-    requestAnimationFrame(() => this.animate());
+    requestAnimationFrame((t) => this.animate(t));
   }
 }
 

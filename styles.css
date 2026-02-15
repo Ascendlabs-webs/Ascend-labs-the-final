@@ -378,23 +378,11 @@ button {
   padding: var(--space-xs) 0;
   overflow: hidden;
   display: block; /* Ensure hit area */
+  transition: color var(--transition-base);
 }
 
 .nav__link::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: var(--color-white);
-  overflow: hidden;
-  width: 0;
-  transition: width var(--transition-base);
-  white-space: nowrap;
-}
-
-.nav__link:hover::before,
-.nav__link.is-active::before {
-  width: 100%;
+  content: none;
 }
 
 .nav__link::after {
@@ -411,6 +399,11 @@ button {
 .nav__link:hover::after,
 .nav__link.is-active::after {
   width: 100%;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--color-white);
 }
 
 .nav__link--cta {
@@ -1049,6 +1042,11 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
 .work-loop--logoloop .work-loop__slide.is-active .work-loop__card-cta {
   transform: translateY(0);
   opacity: 1;
+}
+@media (min-width: 769px) {
+  .work-loop__card-title {
+    padding-left: var(--space-lg);
+  }
 }
 @media (max-width: 900px) {
   .work-loop__track {
@@ -1814,6 +1812,7 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
 .about__text-content {
   min-width: 0;
   width: 100%;
+  margin-top: -80px;
 }
 
 .about__intro-copy {
@@ -1876,6 +1875,12 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
   margin-top: 0;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 769px) {
+  .about__intro-copy > .about__paragraph:last-child {
+    margin-bottom: var(--space-2xl);
+  }
 }
 
 .about__service-list li {
@@ -2065,6 +2070,10 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
   .about__content {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
+  }
+
+  .about__text-content {
+    margin-top: 0;
   }
 
   .about__capabilities {
@@ -3072,10 +3081,15 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
     text-align: left;
   }
 
+  .about__text-content {
+    margin-top: -26px;
+  }
+
   .about__service-list {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+    transform: translateY(-42px);
   }
 
   .about__headline,
@@ -3130,7 +3144,7 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
 
   .work-loop__track {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-2xl);
     height: auto;
     transform-style: flat;
     padding: 0;
