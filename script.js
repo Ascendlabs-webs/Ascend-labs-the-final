@@ -5,6 +5,10 @@
 // ================================
 
 // ===== Configuration =====
+const IS_LOW_END_DEVICE =
+  (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
+  (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 6);
+
 const CONFIG = {
   scrollOffset: 80,
   navScrollThreshold: 100,
@@ -20,9 +24,9 @@ const CONFIG = {
     mouseSensitivity: 0.0003,
     mouseSmoothing: 0.05,
     autoRotateSpeed: 0.0008,
-    objectCount: 6, // Number of orbiting geometric shapes
+    objectCount: IS_LOW_END_DEVICE ? 4 : 6, // Number of orbiting geometric shapes
     enableDepthOfField: true,
-    performanceMode: window.innerWidth < 768, // Reduced complexity on mobile
+    performanceMode: window.innerWidth < 768 || IS_LOW_END_DEVICE, // Reduced complexity on constrained devices
     identity: {
       palette: {
         primary: 0x6f83ff,
@@ -454,6 +458,8 @@ class HeroScene3D {
     this.tempVectorA = new THREE.Vector3();
     this.tempVectorB = new THREE.Vector3();
     this.instanceMatrixTemp = new THREE.Matrix4();
+    this.lastFrameTime = 0;
+    this.minFrameTime = CONFIG.scene3D.performanceMode ? 33 : (IS_LOW_END_DEVICE ? 22 : 16);
     this.init();
   }
 
@@ -480,8 +486,8 @@ class HeroScene3D {
     
     this.configureRenderer();
     STATE.renderer3D.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
-    const targetPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1.35 : 1.85);
-    const initialPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1 : 1.25);
+    const targetPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1 : 1.5);
+    const initialPixelRatio = Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 0.9 : 1.1);
     STATE.renderer3D.setPixelRatio(initialPixelRatio);
     STATE.renderer3D.setClearColor(0x000000, 0); // Transparent background
 
@@ -1764,7 +1770,13 @@ class HeroScene3D {
     STATE.renderer3D.setPixelRatio(Math.min(window.devicePixelRatio, CONFIG.scene3D.performanceMode ? 1 : 2));
   }
 
-  animate() {
+  animate(now = performance.now()) {
+    if (now - this.lastFrameTime < this.minFrameTime) {
+      requestAnimationFrame((t) => this.animate(t));
+      return;
+    }
+    this.lastFrameTime = now;
+
     this.time += 0.01;
     
     // Smooth mouse tracking with easing
@@ -1851,7 +1863,7 @@ class HeroScene3D {
     // Render scene
     STATE.renderer3D.render(STATE.scene3D, STATE.camera3D);
     
-    requestAnimationFrame(() => this.animate());
+    requestAnimationFrame((t) => this.animate(t));
   }
 }
 
@@ -3176,6 +3188,7 @@ class PricingExpander {
 class App {
   constructor() {
     this.heroSystemsBootstrapped = false;
+    this.cinematicTransitionsBootstrapped = false;
     this.init();
   }
 
@@ -3236,16 +3249,29 @@ class App {
     }, 800, 60);
 
     scheduleNonCritical(() => {
-      new ParticleSystem(DOM.heroParticles);
-    }, 1000, 120);
+      if (document.readyState === 'complete') {
+        new ParticleSystem(DOM.heroParticles);
+      } else {
+        window.addEventListener('load', () => new ParticleSystem(DOM.heroParticles), { once: true });
+      }
+    }, 1200, 220);
 
     scheduleNonCritical(() => {
       new HeroScene3D(DOM.heroCanvas3D);
-    }, 1400, 220);
+    }, 1600, 320);
 
-    scheduleNonCritical(() => {
-      new CinematicTransitions(DOM.cinematicCanvas);
-    }, 1700, 320);
+    const startCinematicTransitions = () => {
+      if (this.cinematicTransitionsBootstrapped) return;
+      this.cinematicTransitionsBootstrapped = true;
+      scheduleNonCritical(() => {
+        new CinematicTransitions(DOM.cinematicCanvas);
+      }, 2000, 420);
+    };
+
+    // Start cinematic transition layer after first real interaction/scroll.
+    window.addEventListener('scroll', startCinematicTransitions, { once: true, passive: true });
+    window.addEventListener('pointerdown', startCinematicTransitions, { once: true, passive: true });
+    window.addEventListener('keydown', startCinematicTransitions, { once: true });
   }
 }
 
@@ -3949,9 +3975,14 @@ class MotionOrchestrator {
 class EnhancedApp extends App {
   start() {
     super.start();
-    scheduleNonCritical(() => {
-      new MotionOrchestrator().init();
-    }, 1500, 260);
+    const startMotion = () => {
+      scheduleNonCritical(() => {
+        new MotionOrchestrator().init();
+      }, 1800, 420);
+    };
+
+    if (document.readyState === 'complete') startMotion();
+    else window.addEventListener('load', startMotion, { once: true });
   }
 }
 
