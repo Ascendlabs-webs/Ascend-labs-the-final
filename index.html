@@ -752,6 +752,7 @@
 
                 <form class="contact-form" id="contactForm" data-form-reveal>
                     <input type="hidden" id="secure_token" name="secure_token" value="FORM_SECRET_ABC123" />
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite" aria-atomic="true" hidden></p>
                     <div class="contact-form__group" data-form-item>
                         <label for="name" class="contact-form__label">Your Name</label>
                         <input type="text" id="name" name="name" class="contact-form__input" required
@@ -788,7 +789,7 @@
                     </div>
 
                     <button type="submit" class="contact-form__submit btn btn--primary" data-form-item>
-                        Send Your Message
+                        <span class="contact-form__submit-text">Send Your Message</span>
                     </button>
                 </form>
             </div>

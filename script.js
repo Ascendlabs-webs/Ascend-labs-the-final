@@ -2300,11 +2300,25 @@ class NavigationController {
 // ===== Form Controller (PRESERVED) =====
 class FormController {
   constructor() {
+    this.statusElement = null;
+    this.submitButton = null;
+    this.submitLabel = null;
+    this.defaultSubmitText = 'Send Your Message';
     this.init();
   }
 
   init() {
     if (DOM.contactForm) {
+      this.statusElement = DOM.contactForm.querySelector('#formStatus');
+      this.submitButton = DOM.contactForm.querySelector('button[type="submit"]');
+      this.submitLabel = DOM.contactForm.querySelector('.contact-form__submit-text');
+      this.defaultSubmitText = (this.submitLabel?.textContent || this.defaultSubmitText).trim();
+
+      DOM.contactForm.addEventListener('input', () => {
+        if (this.statusElement?.classList.contains('form-status--error')) {
+          this.clearStatus();
+        }
+      });
       DOM.contactForm.addEventListener('submit', (e) => this.handleSubmit(e));
     }
   }
@@ -2312,38 +2326,111 @@ class FormController {
   async handleSubmit(e) {
     e.preventDefault();
 
-    const payload = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      company: document.getElementById("company").value,
-      budget: document.getElementById("budget").value,
-      message: document.getElementById("message").value
-    };
+    const payload = this.buildPayload();
+    if (!this.validate(payload)) return;
 
-    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-    const webhookUrl = isLocal
-      ? "https://ascendlabs-com.app.n8n.cloud/webhook-test/contact-form"
-      : "https://ascendlabs-com.app.n8n.cloud/webhook/contact-form";
+    const webhookUrls = this.getWebhookUrls();
+    this.setSubmittingState(true);
+    this.setStatus('sending', 'Sending your message...');
 
     try {
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (response.ok) {
-        alert("Message sent successfully!");
-        DOM.contactForm.reset();
-      } else {
-        alert("There was an error sending the form.");
+      let lastError = null;
+      for (const webhookUrl of webhookUrls) {
+        try {
+          await this.sendJson(webhookUrl, payload);
+          this.setStatus('success', 'Message sent successfully. We will contact you soon.');
+          DOM.contactForm.reset();
+          return;
+        } catch (error) {
+          lastError = error;
+          console.warn("Webhook submit failed:", webhookUrl, error);
+        }
       }
+
+      // CORS/workflow mismatch fallback: browser form POST can still deliver data cross-origin.
+      await this.submitViaHiddenForm(webhookUrls[0], payload);
+      this.setStatus('success', "Message submitted. If you don't hear back, contact us directly.");
+      DOM.contactForm.reset();
+      if (lastError) console.error("Primary webhook request failed before fallback:", lastError);
     } catch (error) {
-      console.error("Error:", error);
-      alert("There was an error sending the form.");
+      console.error("Error submitting form:", error);
+      this.setStatus('error', "Couldn't send your message. Please try again in a moment.");
+    } finally {
+      this.setSubmittingState(false);
     }
+  }
+
+  buildPayload() {
+    return {
+      name: document.getElementById("name")?.value || "",
+      email: document.getElementById("email")?.value || "",
+      company: document.getElementById("company")?.value || "",
+      budget: document.getElementById("budget")?.value || "",
+      message: document.getElementById("message")?.value || "",
+      secure_token: document.getElementById("secure_token")?.value || ""
+    };
+  }
+
+  getWebhookUrls() {
+    const form = DOM.contactForm;
+    const primary = form?.dataset?.webhookUrl || "https://ascendlabs-com.app.n8n.cloud/webhook/contact-form";
+    const fallback = form?.dataset?.webhookFallback || "https://ascendlabs-com.app.n8n.cloud/webhook-test/contact-form";
+
+    // Preserve order while removing accidental duplicates.
+    return Array.from(new Set([primary, fallback].filter(Boolean)));
+  }
+
+  async sendJson(webhookUrl, payload) {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Webhook responded with status ${response.status}`);
+    }
+  }
+
+  submitViaHiddenForm(webhookUrl, payload) {
+    return new Promise((resolve, reject) => {
+      try {
+        const frameName = `contactSubmitFrame_${Date.now()}`;
+        const iframe = document.createElement("iframe");
+        iframe.name = frameName;
+        iframe.style.display = "none";
+
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = webhookUrl;
+        form.target = frameName;
+        form.style.display = "none";
+
+        Object.entries(payload).forEach(([key, value]) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = typeof value === "string" ? value : String(value ?? "");
+          form.appendChild(input);
+        });
+
+        document.body.appendChild(iframe);
+        document.body.appendChild(form);
+        form.submit();
+
+        // Cleanup without relying on cross-origin frame events.
+        window.setTimeout(() => {
+          form.remove();
+          iframe.remove();
+          resolve();
+        }, 1200);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   validate(data) {
@@ -2372,29 +2459,33 @@ class FormController {
   }
 
   showError(message) {
-    let errorElement = DOM.contactForm.querySelector('.form-error');
-    
-    if (!errorElement) {
-      errorElement = document.createElement('div');
-      errorElement.className = 'form-error';
-      errorElement.style.cssText = `
-        background-color: rgba(239, 68, 68, 0.1);
-        color: #ef4444;
-        padding: 1rem;
-        border-radius: 0.75rem;
-        margin-bottom: 1rem;
-        grid-column: 1 / -1;
-        font-size: 0.875rem;
-        border: 1px solid rgba(239, 68, 68, 0.2);
-      `;
-      DOM.contactForm.insertBefore(errorElement, DOM.contactForm.firstChild);
+    this.setStatus('error', message);
+  }
+
+  setSubmittingState(isSubmitting) {
+    if (!this.submitButton) return;
+    this.submitButton.disabled = isSubmitting;
+    this.submitButton.classList.toggle('is-loading', isSubmitting);
+    this.submitButton.setAttribute('aria-busy', isSubmitting ? 'true' : 'false');
+
+    if (this.submitLabel) {
+      this.submitLabel.textContent = isSubmitting ? 'Sending...' : this.defaultSubmitText;
     }
-    
-    errorElement.textContent = message;
-    
-    setTimeout(() => {
-      errorElement.remove();
-    }, 5000);
+  }
+
+  setStatus(type, message) {
+    if (!this.statusElement || !message) return;
+    this.statusElement.hidden = false;
+    this.statusElement.textContent = message;
+    this.statusElement.classList.remove('form-status--sending', 'form-status--success', 'form-status--error');
+    this.statusElement.classList.add('is-visible', `form-status--${type}`);
+  }
+
+  clearStatus() {
+    if (!this.statusElement) return;
+    this.statusElement.textContent = '';
+    this.statusElement.hidden = true;
+    this.statusElement.classList.remove('is-visible', 'form-status--sending', 'form-status--success', 'form-status--error');
   }
 }
 
