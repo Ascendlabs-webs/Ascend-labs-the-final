@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AscendLabs - Premium digital agency crafting exceptional web experiences">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ascendlabs.com/">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ascendlabs.com/">
-    <meta property="og:title" content="AscendLabs | Strategic Web Design & Performance Engineering">
-    <meta property="og:description"
-        content="We build digital experiences that drive measurable growth for ambitious brands — strategic design meets performance engineering.">
+    <meta property="og:title" content="AscendLabs | Digital Agency">
+    <meta property="og:description" content="AscendLabs - Premium digital agency crafting exceptional web experiences. Strategic design and engineering for brands that demand the best.">
     <meta property="og:image" content="https://ascendlabs.com/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ascendlabs.com/">
-    <meta property="twitter:title" content="AscendLabs | Strategic Web Design & Performance Engineering">
-    <meta property="twitter:description"
-        content="We build digital experiences that drive measurable growth for ambitious brands.">
+    <meta property="twitter:title" content="AscendLabs | Digital Agency">
+    <meta property="twitter:description" content="AscendLabs - Premium digital agency crafting exceptional web experiences.">
     <meta property="twitter:image" content="https://ascendlabs.com/assets/og-image.jpg">
 
-    <title>AscendLabs | Strategic Web Design & Performance Engineering</title>
-    <meta name="description"
-        content="AscendLabs builds digital experiences that drive measurable growth. Strategic design meets performance engineering for ambitious brands.">
+    <title>AscendLabs | Digital Agency</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-extra.css">
     <link rel="preload" as="image" href="assets/work-previews/AscendLabs.jpg" fetchpriority="high">
-
+    
     <!-- Fonts & Performance Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -68,30 +59,31 @@
       }
     }
     </script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </head>
-
 <body>
     <!-- Custom Cursor System -->
     <div class="cursor">
         <div class="cursor__inner"></div>
         <div class="cursor__outer"></div>
     </div>
-
+    
     <!-- Page Transition Overlay -->
     <div class="page-transition"></div>
-
+    
     <!-- CINEMATIC WEBGL TRANSITION LAYER -->
     <canvas class="cinematic-canvas" id="cinematicCanvas"></canvas>
-
+    
     <!-- Navigation -->
     <nav class="nav" id="mainNav">
         <div class="nav__container">
             <a href="#" class="nav__logo">
-                <img src="assets/work-previews/AscendLabs.jpg" alt="AscendLabs Logo" class="nav__logo-image" width="50"
-                    height="50" decoding="async" fetchpriority="high">
+                <img src="assets/work-previews/AscendLabs.jpg" alt="AscendLabs Logo" class="nav__logo-image" width="50" height="50" decoding="async" fetchpriority="high">
                 <span class="nav__logo-glow"></span>
             </a>
-
+            
             <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
                 <span class="nav__toggle-line"></span>
                 <span class="nav__toggle-line"></span>
@@ -99,19 +91,14 @@
             </button>
 
             <ul class="nav__menu" id="navMenu">
-                <li class="nav__item"><a href="#home" class="nav__link" data-text="Home" data-nav-key="home">Home</a>
-                </li>
+                <li class="nav__item"><a href="#home" class="nav__link" data-text="Home" data-nav-key="home">Home</a></li>
                 <li class="nav__item">
                     <a href="#services" class="nav__link" data-text="Services" data-nav-key="services">Services</a>
                 </li>
-                <li class="nav__item"><a href="#work" class="nav__link" data-text="Work" data-nav-key="work">Work</a>
-                </li>
-                <li class="nav__item"><a href="#pricing" class="nav__link" data-text="Pricing"
-                        data-nav-key="pricing">Pricing</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link" data-text="About"
-                        data-nav-key="about">About</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta" data-text="Contact"
-                        data-nav-key="contact">Contact</a></li>
+                <li class="nav__item"><a href="#work" class="nav__link" data-text="Work" data-nav-key="work">Work</a></li>
+                <li class="nav__item"><a href="#pricing" class="nav__link" data-text="Pricing" data-nav-key="pricing">Pricing</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link" data-text="About" data-nav-key="about">About</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta" data-text="Contact" data-nav-key="contact">Contact</a></li>
             </ul>
         </div>
         <div class="nav__progress"></div>
@@ -122,16 +109,16 @@
         <section class="hero scene-section" id="home" data-scene="hero">
             <!-- WebGL Shader Background (PRESERVED) -->
             <canvas class="hero__canvas" id="heroCanvas"></canvas>
-
+            
             <!-- NEW: 3D Scene Layer -->
             <canvas class="hero__canvas-3d" id="heroCanvas3D"></canvas>
-
+            
             <!-- Particle Layer (PRESERVED) -->
             <div class="hero__particles" id="heroParticles"></div>
-
+            
             <!-- Gradient Overlay for Depth (PRESERVED) -->
             <div class="hero__gradient"></div>
-
+            
             <!-- Services / Products mega panel (Squarespace-style) -->
             <div class="hero-products" id="heroProductsPanel" aria-hidden="true">
                 <div class="hero-products__inner">
@@ -174,91 +161,63 @@
                             <div class="hero-products__cards">
                                 <a href="#contact" class="hero-products__card">
                                     <strong class="hero-products__card-title">Ascend for Teams</strong>
-                                    <p class="hero-products__card-desc">Dedicated support and scalable delivery for
-                                        growing organizations.</p>
+                                    <p class="hero-products__card-desc">Dedicated support and scalable delivery for growing organizations.</p>
                                 </a>
                                 <a href="#pricing" class="hero-products__card">
                                     <strong class="hero-products__card-title">Enterprise</strong>
-                                    <p class="hero-products__card-desc">Custom solutions and SLAs for enterprises that
-                                        demand the best.</p>
+                                    <p class="hero-products__card-desc">Custom solutions and SLAs for enterprises that demand the best.</p>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="hero__container">
                 <div class="hero__content">
                     <h1 class="hero__title" data-splitting>
                         <span class="hero__title-line" data-aos="hero-reveal" data-aos-delay="200">
-                            <span class="hero__title-word">Strategic</span>
-                            <span class="hero__title-word">Design</span>
+                            <span class="hero__title-word">Designing</span>
+                            <span class="hero__title-word">Digital</span>
+                            <span class="hero__title-word">Presence</span>
                         </span>
                         <span class="hero__title-line" data-aos="hero-reveal" data-aos-delay="400">
-                            <span class="hero__title-word">Meets</span>
-                            <span class="hero__title-word">Performance</span>
-                        </span>
-                        <span class="hero__title-line" data-aos="hero-reveal" data-aos-delay="600">
-                            <span class="hero__title-word">Engineering</span>
+                            <span class="hero__title-word">That</span>
+                            <span class="hero__title-word">Moves</span>
+                            <span class="hero__title-word">Brands</span>
+                            <span class="hero__title-word">Forward</span>
                         </span>
                     </h1>
                     <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="800">
-                        We build digital experiences that drive measurable growth for ambitious brands.
+                        We partner with ambitious brands to create digital experiences that don't just look exceptional—they perform exceptionally. From strategic design to scalable development, we build platforms that drive measurable growth.
                     </p>
-                    <div class="hero__metrics" data-aos="fade-up" data-aos-delay="900"
-                        style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
-                        <span><strong>50+</strong> Satisfied Clients</span>
-                        <span><strong>$10M+</strong> Revenue Generated</span>
-                        <span><strong>98%</strong> Retention Rate</span>
-                    </div>
                     <div class="hero__cta-group" data-aos="fade-up" data-aos-delay="1000">
                         <a href="#contact" class="btn btn--primary btn--magnetic">
                             <span class="btn__text">Start Your Project</span>
                             <span class="btn__glow"></span>
                         </a>
                         <a href="#work" class="btn btn--secondary btn--magnetic">
-                            <span class="btn__text">See Our Work</span>
+                            <span class="btn__text">View Our Work</span>
                             <span class="btn__glow"></span>
                         </a>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Scroll indicator with animated arrow -->
             <div class="hero__scroll-indicator" data-aos="fade-up" data-aos-delay="1200">
                 <span class="hero__scroll-text">Scroll to explore</span>
                 <div class="hero__scroll-arrow">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M19 12l-7 7-7-7" />
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
                     </svg>
                 </div>
             </div>
-
+            
             <!-- Ambient light orbs (PRESERVED) -->
             <div class="hero__orb hero__orb--1"></div>
             <div class="hero__orb hero__orb--2"></div>
             <div class="hero__orb hero__orb--3"></div>
-        </section>
-
-        <!-- Trusted By Section -->
-        <section class="trusted-by"
-            style="padding: 4rem 0; background: var(--color-dark-800); border-bottom: 1px solid var(--glass-border);">
-            <div class="trusted-by__container"
-                style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); text-align: center;">
-                <p
-                    style="color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;">
-                    Trusted by ambitious teams</p>
-                <div class="trusted-by__logos"
-                    style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; opacity: 0.7; filter: grayscale(100%);">
-                    <!-- Placeholder Logos using Text for now (User requested logos or testimonials) -->
-                    <h3 style="font-size: 1.5rem; color: white;">TECHSTART</h3>
-                    <h3 style="font-size: 1.5rem; color: white;">SCALECO</h3>
-                    <h3 style="font-size: 1.5rem; color: white;">NEXUS</h3>
-                    <h3 style="font-size: 1.5rem; color: white;">VENTURE</h3>
-                    <h3 style="font-size: 1.5rem; color: white;">ELEVATE</h3>
-                </div>
-            </div>
         </section>
 
         <!-- Our website work – LogoLoop-style infinite marquee -->
@@ -274,82 +233,57 @@
                 <div class="work-loop__carousel" aria-label="Website showcase carousel">
                     <div class="work-loop__track" id="workLoopTrack">
                         <article class="work-loop__slide" data-index="3">
-                            <a href="https://ascendlabs-webs.github.io/RollsRoyce/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Rolls Royce website">
+                            <a href="https://ascendlabs-webs.github.io/RollsRoyce/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Rolls Royce website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/rolls-royce.png"
-                                        alt="Rolls Royce website preview - Luxury automotive concept" loading="lazy"
-                                        decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/rolls-royce.png" alt="Rolls Royce website preview - Luxury automotive concept" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Luxury Brand Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Rolls Royce Concept</span>
-                                <span class="work-loop__card-subtitle">High-end luxury presentation with premium visual
-                                    rhythm.</span>
+                                <span class="work-loop__card-subtitle">High-end luxury presentation with premium visual rhythm.</span>
                                 <span class="work-loop__card-cta">View site</span>
                             </a>
                         </article>
                         <article class="work-loop__slide" data-index="4">
-                            <a href="https://ascendlabs-webs.github.io/-ascendlabs-site/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View AscendLabs site website">
+                            <a href="https://ascendlabs-webs.github.io/-ascendlabs-site/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View AscendLabs site website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/ascendlabs-site.png"
-                                        alt="AscendLabs agency website preview" loading="lazy" decoding="async"
-                                        fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/ascendlabs-site.png" alt="AscendLabs agency website preview" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Agency Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">AscendLabs Site</span>
-                                <span class="work-loop__card-subtitle">Studio-forward brand layout with modern service
-                                    framing.</span>
+                                <span class="work-loop__card-subtitle">Studio-forward brand layout with modern service framing.</span>
                                 <span class="work-loop__card-cta">View site</span>
                             </a>
                         </article>
                         <article class="work-loop__slide" data-index="5">
-                            <a href="https://ascendlabs-webs.github.io/Ascend-Demo-of-spatial-motion/"
-                                class="work-loop__card" target="_blank" rel="noopener"
-                                aria-label="View spatial motion demo website">
+                            <a href="https://ascendlabs-webs.github.io/Ascend-Demo-of-spatial-motion/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View spatial motion demo website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/spatial-motion.png"
-                                        alt="Spatial motion demo website preview - WebGL interaction" loading="lazy"
-                                        decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/spatial-motion.png" alt="Spatial motion demo website preview - WebGL interaction" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Spatial Motion Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Spatial Motion Demo</span>
-                                <span class="work-loop__card-subtitle">Experimental depth and interaction patterns for
-                                    immersive storytelling.</span>
+                                <span class="work-loop__card-subtitle">Experimental depth and interaction patterns for immersive storytelling.</span>
                                 <span class="work-loop__card-cta">View site</span>
                             </a>
                         </article>
                         <article class="work-loop__slide" data-index="6">
-                            <a href="https://ascendlabs-webs.github.io/example-of-Luxe-A-Salon/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Luxe A Salon website">
+                            <a href="https://ascendlabs-webs.github.io/example-of-Luxe-A-Salon/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View Luxe A Salon website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/luxe-salon.png"
-                                        alt="Luxe A Salon website preview - Beauty and wellness" loading="lazy"
-                                        decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/luxe-salon.png" alt="Luxe A Salon website preview - Beauty and wellness" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Salon Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Luxe A Salon</span>
-                                <span class="work-loop__card-subtitle">Elegant beauty and salon identity with refined
-                                    typography focus.</span>
+                                <span class="work-loop__card-subtitle">Elegant beauty and salon identity with refined typography focus.</span>
                                 <span class="work-loop__card-cta">View site</span>
                             </a>
                         </article>
                         <article class="work-loop__slide" data-index="7">
-                            <a href="https://ascendlabs-webs.github.io/Gym/" class="work-loop__card" target="_blank"
-                                rel="noopener" aria-label="View gym website">
+                            <a href="https://ascendlabs-webs.github.io/Gym/" class="work-loop__card" target="_blank" rel="noopener" aria-label="View gym website">
                                 <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/gym.png" alt="Gym website preview - Fitness center"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
+                                    <img src="assets/work-previews/gym.png" alt="Gym website preview - Fitness center" loading="lazy" decoding="async" fetchpriority="low" width="600" height="375" onerror="this.style.display='none'">
                                     <span class="work-loop__card-placeholder">Gym Theme</span>
                                 </div>
                                 <span class="work-loop__card-title">Gym Website</span>
-                                <span class="work-loop__card-subtitle">Bold fitness-focused layout built for energy and
-                                    conversion.</span>
+                                <span class="work-loop__card-subtitle">Bold fitness-focused layout built for energy and conversion.</span>
                                 <span class="work-loop__card-cta">View site</span>
                             </a>
                         </article>
@@ -359,15 +293,13 @@
         </section>
 
         <!-- Services Section -->
-        <section class="services section-parallax scene-section" id="services" data-section-theme="dark"
-            data-scene="services">
+        <section class="services section-parallax scene-section" id="services" data-section-theme="dark" data-scene="services">
             <div class="services__container">
                 <header class="section-header" data-scroll-reveal="header">
                     <span class="section-header__label" data-reveal="fade-slide">What We Do</span>
                     <h2 class="section-header__title" data-reveal="chars">Services Built for Scale</h2>
                     <p class="section-header__description" data-reveal="fade-up">
-                        Every engagement is tailored to your goals, but our core expertise remains consistent—strategic,
-                        scalable, and designed to last.
+                        Every engagement is tailored to your goals, but our core expertise remains consistent—strategic, scalable, and designed to last.
                     </p>
                 </header>
 
@@ -377,21 +309,19 @@
                         <div class="service-card__glow"></div>
                         <div class="service-card__border"></div>
                         <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
                             </svg>
                         </div>
                         <h3 class="service-card__title">Brand & Strategy</h3>
                         <p class="service-card__description">
-                            **Stand out in a crowded market.** We craft distinct identities that build trust and
-                            position you as the premium choice.
+                            Strategic positioning that defines your market presence. We craft identities that resonate deeply and differentiate decisively.
                         </p>
                         <ul class="service-card__features">
-                            <li>Market Positioning</li>
+                            <li>Brand Architecture</li>
                             <li>Visual Identity Systems</li>
-                            <li>Growth Roadmaps</li>
+                            <li>Digital Strategy</li>
                         </ul>
                     </article>
 
@@ -400,21 +330,19 @@
                         <div class="service-card__glow"></div>
                         <div class="service-card__border"></div>
                         <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                             </svg>
                         </div>
                         <h3 class="service-card__title">Digital Design</h3>
                         <p class="service-card__description">
-                            **Convert visitors into customers.** Beautiful, intuitive interfaces designed to guide users
-                            toward action.
+                            Interfaces that feel native to each platform while maintaining a cohesive brand experience across all touchpoints.
                         </p>
                         <ul class="service-card__features">
-                            <li>High-Conversion UI/UX</li>
-                            <li>Scalable Design Systems</li>
-                            <li>Interactive Motion</li>
+                            <li>UI/UX Design</li>
+                            <li>Design Systems</li>
+                            <li>Motion Design</li>
                         </ul>
                     </article>
 
@@ -423,21 +351,19 @@
                         <div class="service-card__glow"></div>
                         <div class="service-card__border"></div>
                         <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
+                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
                             </svg>
                         </div>
                         <h3 class="service-card__title">Development</h3>
                         <p class="service-card__description">
-                            **Speed equals revenue.** We engineer lightning-fast, secure websites that rank higher and
-                            retain more users.
+                            We build structured, high-performance websites that are reliable, scalable, and built to last.
                         </p>
                         <ul class="service-card__features">
-                            <li>Custom Web Applications</li>
-                            <li>Next.js / React Solutions</li>
-                            <li>90+ Google PSI Scores</li>
+                            <li>Web Applications</li>
+                            <li>Mobile Development</li>
+                            <li>Performance Optimization</li>
                         </ul>
                     </article>
 
@@ -446,8 +372,7 @@
                         <div class="service-card__glow"></div>
                         <div class="service-card__border"></div>
                         <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="18" cy="5" r="3"></circle>
                                 <circle cx="6" cy="12" r="3"></circle>
                                 <circle cx="18" cy="19" r="3"></circle>
@@ -455,17 +380,14 @@
                                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                             </svg>
                         </div>
-                        <h3 class="service-card__title">Growth Systems</h3>
+                        <h3 class="service-card__title">Social Media Management</h3>
                         <p class="service-card__description">
-                            **Automate your lead gen.** We set up the analytics and funnels you need to track ROI and
-                            scale predictably.
+                            We manage your brand’s social presence with clarity and consistency. From content creation to performance monitoring, we ensure your platforms reflect the level of your business.
                         </p>
                         <ul class="service-card__features">
-                            <li>SEO & Content Strategy</li>
-                            <li>Conversion Rate Optimization</li>
-                            <li>Analytics Dashboards</li>
-
-
+                            <li>Content Planning & Design</li>
+                            <li>Profile Optimization</li>
+                            <li>Performance Reporting</li>
                         </ul>
                     </article>
                 </div>
@@ -473,24 +395,20 @@
         </section>
 
         <!-- Work Section -->
-        <section class="work section-parallax scene-section" id="work" data-scene="work">
+                <section class="work section-parallax scene-section" id="work" data-scene="work">
             <div class="work__container">
                 <header class="section-header" data-scroll-reveal="header">
                     <span class="section-header__label">Case Studies</span>
                     <h2 class="section-header__title">Selected Work</h2>
                     <p class="section-header__description">
-                        A showcase of platforms we've built for companies pushing the boundaries of
-                        their industries.
+                        A showcase of platforms we've built for companies pushing the boundaries of their industries.
                     </p>
                 </header>
 
                 <div class="work__grid" data-scroll-stagger>
-                    <a href="https://ascendlabs-webs.github.io/Apex-ultimate/" class="work-card work-card--apex"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open APEX Performance website">
+                    <a href="https://ascendlabs-webs.github.io/Apex-ultimate/" class="work-card work-card--apex" data-stagger-item target="_blank" rel="noopener" aria-label="Open APEX Performance website">
                         <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(8, 18, 20, 0.45) 0%, rgba(15, 39, 45, 0.35) 100%), url('assets/work-previews/apex-ultimate.png'); background-size: cover; background-position: top center;">
-                            </div>
+                            <div class="work-card__image" data-parallax-image style="background-image: linear-gradient(135deg, rgba(8, 18, 20, 0.45) 0%, rgba(15, 39, 45, 0.35) 100%), url('assets/work-previews/apex-ultimate.png'); background-size: cover; background-position: top center;"></div>
                             <div class="work-card__chrome">
                                 <span class="work-card__brand">APEX</span>
                                 <ul class="work-card__menu">
@@ -505,15 +423,14 @@
                             </div>
                             <div class="work-card__hero-actions">
                                 <span class="work-card__chip">Start Journey</span>
-                                <span class="work-card__chip work-card__chip--ghost">Explore
-                                    Programs</span>
+                                <span class="work-card__chip work-card__chip--ghost">Explore Programs</span>
                             </div>
                         </div>
                         <div class="work-card__content">
                             <span class="work-card__category">Fitness Brand Website</span>
                             <h3 class="work-card__title">APEX Performance</h3>
                             <p class="work-card__description">
-                                <strong>Result:</strong> ↑ 40% Increase in Member Signups.
+                                High-intensity performance theme built for premium gym and training brands.
                             </p>
                             <div class="work-card__tags">
                                 <span class="work-card__tag">Apex Ultimate</span>
@@ -523,12 +440,9 @@
                         </div>
                     </a>
 
-                    <a href="https://ascendlabs-webs.github.io/Aurela-cafe/" class="work-card work-card--aurelia"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open Aurelia Cafe website">
+                    <a href="https://ascendlabs-webs.github.io/Aurela-cafe/" class="work-card work-card--aurelia" data-stagger-item target="_blank" rel="noopener" aria-label="Open Aurelia Cafe website">
                         <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(28, 18, 9, 0.45) 0%, rgba(58, 37, 18, 0.35) 100%), url('assets/work-previews/aurelia-cafe.png'); background-size: cover; background-position: top center;">
-                            </div>
+                            <div class="work-card__image" data-parallax-image style="background-image: linear-gradient(135deg, rgba(28, 18, 9, 0.45) 0%, rgba(58, 37, 18, 0.35) 100%), url('assets/work-previews/aurelia-cafe.png'); background-size: cover; background-position: top center;"></div>
                             <div class="work-card__chrome">
                                 <span class="work-card__brand">Aurelia</span>
                                 <ul class="work-card__menu">
@@ -538,8 +452,7 @@
                                 </ul>
                             </div>
                             <div class="work-card__hero-text">
-                                <span class="work-card__kicker">Est. 2024 - Artisanal Coffee
-                                    Culture</span>
+                                <span class="work-card__kicker">Est. 2024 - Artisanal Coffee Culture</span>
                                 <h4 class="work-card__display">Where Coffee<br>Becomes Culture</h4>
                             </div>
                             <div class="work-card__hero-actions">
@@ -551,7 +464,7 @@
                             <span class="work-card__category">Cafe Showcase Website</span>
                             <h3 class="work-card__title">Aurelia Cafe</h3>
                             <p class="work-card__description">
-                                <strong>Result:</strong> 2x Online Orders in 30 Days.
+                                Elegant coffee house experience with refined typography and editorial sections.
                             </p>
                             <div class="work-card__tags">
                                 <span class="work-card__tag">Aurela Cafe</span>
@@ -561,12 +474,9 @@
                         </div>
                     </a>
 
-                    <a href="https://ascendlabs-webs.github.io/Ember-Grain/" class="work-card work-card--ember"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open Ember and Grain website">
+                    <a href="https://ascendlabs-webs.github.io/Ember-Grain/" class="work-card work-card--ember" data-stagger-item target="_blank" rel="noopener" aria-label="Open Ember and Grain website">
                         <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(245, 236, 223, 0.62) 0%, rgba(227, 214, 196, 0.48) 100%), url('assets/work-previews/ember-grain.png'); background-size: cover; background-position: top center;">
-                            </div>
+                            <div class="work-card__image" data-parallax-image style="background-image: linear-gradient(135deg, rgba(245, 236, 223, 0.62) 0%, rgba(227, 214, 196, 0.48) 100%), url('assets/work-previews/ember-grain.png'); background-size: cover; background-position: top center;"></div>
                             <div class="work-card__chrome">
                                 <span class="work-card__brand">Ember &amp; Grain</span>
                                 <ul class="work-card__menu">
@@ -576,8 +486,7 @@
                                 </ul>
                             </div>
                             <div class="work-card__hero-text">
-                                <span class="work-card__kicker">Artisan Coffee &amp; Handcrafted
-                                    Food</span>
+                                <span class="work-card__kicker">Artisan Coffee &amp; Handcrafted Food</span>
                                 <h4 class="work-card__display">Where Every Sip<br>Tells a Story</h4>
                             </div>
                             <div class="work-card__hero-actions">
@@ -589,8 +498,7 @@
                             <span class="work-card__category">Artisan Cafe Website</span>
                             <h3 class="work-card__title">Ember &amp; Grain</h3>
                             <p class="work-card__description">
-                                <strong>Result:</strong> 1.8s Fully Loaded Time (98/100 Mobile
-                                Score).
+                                Cozy artisan concept focused on handcrafted food storytelling and atmosphere.
                             </p>
                             <div class="work-card__tags">
                                 <span class="work-card__tag">Ember Grain</span>
@@ -599,45 +507,6 @@
                             </div>
                         </div>
                     </a>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- Testimonials Section -->
-        <section class="testimonials section-parallax scene-section" id="testimonials" data-scene="testimonials"
-            style="padding: 8rem 0; background: var(--color-dark-700);">
-            <div class="testimonials__container"
-                style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding);">
-                <header class="section-header" data-scroll-reveal="header">
-                    <span class="section-header__label">Testimonials</span>
-                    <h2 class="section-header__title">What Clients Say</h2>
-                </header>
-                <div class="testimonials__grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
-                    <div class="testimonial-card"
-                        style="background: var(--glass-bg); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-                        <p
-                            style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                            "AscendLabs completely transformed our digital presence. Our leads increased by 120% within
-                            90 days of the new site launch."</p>
-                        <div class="testimonial-author">
-                            <strong style="display: block; color: white;">Sarah Jenkins</strong>
-                            <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">CMO, TechStart</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card"
-                        style="background: var(--glass-bg); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-                        <p
-                            style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                            "The team's attention to detail and focus on performance is unmatched. We saw a 3x
-                            improvement in load times."</p>
-                        <div class="testimonial-author">
-                            <strong style="display: block; color: white;">David Chen</strong>
-                            <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Founder, Apex Fitness</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -661,8 +530,7 @@
                             <div class="pricing-card__price">
                                 <span class="pricing-card__amount">18K</span>
                             </div>
-                            <p class="pricing-card__description">A refined digital presence for businesses entering the
-                                online space</p>
+                            <p class="pricing-card__description">A refined digital presence for businesses entering the online space</p>
                         </div>
                         <ul class="pricing-card__features">
                             <li class="pricing-card__feature">Up to 3 Structured Pages</li>
@@ -683,8 +551,7 @@
                             <div class="pricing-card__price">
                                 <span class="pricing-card__amount">28K</span>
                             </div>
-                            <p class="pricing-card__description">A structured digital system designed for clarity,
-                                performance, and growth</p>
+                            <p class="pricing-card__description">A structured digital system designed for clarity, performance, and growth</p>
                         </div>
                         <ul class="pricing-card__features">
                             <li class="pricing-card__feature">Everything in Starter</li>
@@ -706,8 +573,7 @@
                             <div class="pricing-card__price">
                                 <span class="pricing-card__amount">40K</span>
                             </div>
-                            <p class="pricing-card__description">A refined digital experience crafted for brands that
-                                demand presence</p>
+                            <p class="pricing-card__description">A refined digital experience crafted for brands that demand presence</p>
                         </div>
                         <ul class="pricing-card__features">
                             <li class="pricing-card__feature">6+ Custom Designed Pages</li>
@@ -716,19 +582,32 @@
                             <li class="pricing-card__feature"> Strategic CTA Structuring</li>
                             <li class="pricing-card__feature">Smart System Integration</li>
                             <li class="pricing-card__feature">1 Year Managed Hosting</li>
-                            <li class="pricing-card__feature">Estimated Delivery: 14–21 Working Days</li>
+                             <li class="pricing-card__feature">Estimated Delivery: 14–21 Working Days</li>
                         </ul>
                         <a href="#contact" class="pricing-card__cta">Contact Us</a>
                     </article>
                 </div>
 
-                <div class="pricing-expand" id="pricingExpand" style="margin-top: 3rem; text-align: center;">
-                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Not sure which plan is right for you?
-                    </p>
-                    <a href="#contact" class="btn btn--secondary btn--magnetic">
-                        <span class="btn__text">Get a Free Strategy Audit</span>
+                <!-- Enhanced Expandable Pricing Button -->
+                <div class="pricing-expand" id="pricingExpand">
+                    <div class="pricing-expand__menu" role="list">
+                        <a href="#contact" class="pricing-expand__item" style="--i:3">
+                            Managed support plans
+                        </a>
+                        <a href="#contact" class="pricing-expand__item" style="--i:2">
+                            Smart lead setup
+                        </a>
+                        <a href="#contact" class="pricing-expand__item" style="--i:1">
+                            Appointment booking system
+                        </a>
+                        <a href="#contact" class="pricing-expand__item" style="--i:0">
+                            Social media management
+                        </a>
+                    </div>
+                    <button class="pricing-expand__trigger btn btn--primary btn--magnetic" id="pricingExpandTrigger" aria-label="View more options">
+                        <span class="pricing-expand__label">Add on</span>
                         <span class="btn__glow"></span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -745,16 +624,12 @@
                     <div class="about__text-content">
                         <div class="about__intro-copy" data-reveal="fade-up">
                             <h3 class="about__headline">About Ascend Labs</h3>
-                            <p class="about__paragraph">Ascend Labs is a creative digital studio that specializes in
-                                creating structured, modern digital experiences for growing businesses.</p>
-
-                            <p class="about__paragraph">We believe good design is based on simplicity, not noise. Every
-                                project is crafted with intention, combining visual polish, technical accuracy, and
-                                performance.</p>
-
-                            <p class="about__paragraph">Our work extends beyond the website. We assist growing
-                                businesses in establishing their digital footprint with:</p>
-
+                            <p class="about__paragraph">Ascend Labs is a creative digital studio that specializes in creating structured, modern digital experiences for growing businesses.</p>
+                            
+                            <p class="about__paragraph">We believe good design is based on simplicity, not noise. Every project is crafted with intention, combining visual polish, technical accuracy, and performance.</p>
+                            
+                            <p class="about__paragraph">Our work extends beyond the website. We assist growing businesses in establishing their digital footprint with:</p>
+                            
                             <ul class="about__service-list" data-scroll-stagger>
                                 <li data-stagger-item>Website design &amp; development</li>
                                 <li data-stagger-item>Booking &amp; automation solutions</li>
@@ -762,24 +637,19 @@
                                 <li data-stagger-item>Digital marketing strategy</li>
                             </ul>
                             <p class="about__paragraph">
-                                We begin each project with structure. No unnecessary features. No overdesign. Just
-                                efficient systems to allow growing businesses to present themselves with confidence.
+                                We begin each project with structure. No unnecessary features. No overdesign. Just efficient systems to allow growing businesses to present themselves with confidence.
                             </p>
                             <p class="about__paragraph">
-                                From digital foundation to social media growth, we emphasize building foundational
-                                elements to ensure long-term business viability.
+                                From digital foundation to social media growth, we emphasize building foundational elements to ensure long-term business viability.
                             </p>
                             <p class="about__paragraph">
-                                At Ascend Labs, we don’t follow trends. We create digital systems that move growing
-                                businesses forward.
+                                At Ascend Labs, we don’t follow trends. We create digital systems that move growing businesses forward.
                             </p>
                         </div>
                     </div>
                     <div class="about__visual-content">
                         <div class="about__image-wrapper" data-stagger-item>
-                            <img src="assets/work-previews/8eaab1ca-002d-4124-8af2-65178fbb88ff.png"
-                                alt="Ascend Labs Office/Team" class="about__image" loading="lazy"
-                                style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg);">
+                            <div class="about__image" data-parallax-image style="background-image: url('assets/work-previews/8eaab1ca-002d-4124-8af2-65178fbb88ff.png');"></div>
                         </div>
                     </div>
                 </div>
@@ -792,30 +662,45 @@
                 <div class="contact__intro">
                     <h2 class="contact__title" data-reveal="chars">Let's Build Something Great</h2>
                     <p class="contact__description" data-reveal="fade-up">
-                        pressure, just an honest conversation about what's possible.
+                        Tell us about your project and we'll get back to you within 24 hours with next steps. No sales pressure, just an honest conversation about what's possible.
                     </p>
-                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">We respect your
-                        privacy. Your information is never shared.</p>
                 </div>
 
                 <form class="contact-form" id="contactForm" data-form-reveal>
                     <input type="hidden" id="secure_token" name="secure_token" value="FORM_SECRET_ABC123" />
                     <div class="contact-form__group" data-form-item>
                         <label for="name" class="contact-form__label">Your Name</label>
-                        <input type="text" id="name" name="name" class="contact-form__input" required
-                            placeholder="Alex Morrison">
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            class="contact-form__input" 
+                            required
+                            placeholder="Alex Morrison"
+                        >
                     </div>
 
                     <div class="contact-form__group" data-form-item>
                         <label for="email" class="contact-form__label">Email Address</label>
-                        <input type="email" id="email" name="email" class="contact-form__input" required
-                            placeholder="alex@company.com">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="contact-form__input" 
+                            required
+                            placeholder="alex@company.com"
+                        >
                     </div>
 
                     <div class="contact-form__group" data-form-item>
                         <label for="company" class="contact-form__label">Company</label>
-                        <input type="text" id="company" name="company" class="contact-form__input"
-                            placeholder="Your Company Name">
+                        <input 
+                            type="text" 
+                            id="company" 
+                            name="company" 
+                            class="contact-form__input"
+                            placeholder="Your Company Name"
+                        >
                     </div>
 
                     <div class="contact-form__group" data-form-item>
@@ -831,8 +716,14 @@
 
                     <div class="contact-form__group contact-form__group--full" data-form-item>
                         <label for="message" class="contact-form__label">Project Details</label>
-                        <textarea id="message" name="message" class="contact-form__textarea" rows="6" required
-                            placeholder="Tell us about your project goals, timeline, and any specific requirements..."></textarea>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="contact-form__textarea" 
+                            rows="6"
+                            required
+                            placeholder="Tell us about your project goals, timeline, and any specific requirements..."
+                        ></textarea>
                     </div>
 
                     <button type="submit" class="contact-form__submit btn btn--primary" data-form-item>
@@ -870,24 +761,21 @@
                         <li>
                             <a href="#" class="footer__social-link" aria-label="LinkedIn">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="footer__social-link" aria-label="Twitter">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="footer__social-link" aria-label="Dribbble">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.534 8.834c3.081-.028 5.784-.339 8.117-1.038.164.376.312.753.448 1.13-3.243.929-5.938 2.902-8.093 5.917-1.733-1.851-2.776-4.318-2.472-7.009zm4.42 8.674c1.924-2.805 4.321-4.662 7.178-5.565.695 1.797 1.296 3.646 1.804 5.548-1.159.48-2.43.746-3.764.746-2.137 0-4.107-.664-5.754-1.786-.037-.043-.074-.086-.111-.129zm10.651.141c-.443-1.725-.981-3.414-1.614-5.056 1.873-.297 3.905-.263 6.089.132-.479 2.14-1.86 3.967-3.697 5.149-.267-.073-.536-.144-.808-.215z" />
+                                    <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.534 8.834c3.081-.028 5.784-.339 8.117-1.038.164.376.312.753.448 1.13-3.243.929-5.938 2.902-8.093 5.917-1.733-1.851-2.776-4.318-2.472-7.009zm4.42 8.674c1.924-2.805 4.321-4.662 7.178-5.565.695 1.797 1.296 3.646 1.804 5.548-1.159.48-2.43.746-3.764.746-2.137 0-4.107-.664-5.754-1.786-.037-.043-.074-.086-.111-.129zm10.651.141c-.443-1.725-.981-3.414-1.614-5.056 1.873-.297 3.905-.263 6.089.132-.479 2.14-1.86 3.967-3.697 5.149-.267-.073-.536-.144-.808-.215z"/>
                                 </svg>
                             </a>
                         </li>
@@ -909,17 +797,16 @@
 
     <!-- Three.js for WebGL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-
+    
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-
+    
     <!-- ⭐ CINEMATIC SCROLL MOTION ENGINE ⭐ -->
     <script src="cinematic-scroll-engine.js" defer></script>
     <script src="cinematic-transitions-fx.js" defer></script>
-
+    
     <!-- Main Script -->
     <script src="script.js" defer></script>
 </body>
-
 </html>
