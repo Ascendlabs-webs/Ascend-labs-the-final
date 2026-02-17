@@ -76,7 +76,7 @@ class SceneTransitionNarrative {
     // Initialize particle attributes
     for (let i = 0; i < this.options.particleCount; i++) {
       const i3 = i * 3;
-      
+
       // Random initial positions
       positions[i3] = (Math.random() - 0.5) * 10;
       positions[i3 + 1] = (Math.random() - 0.5) * 10;
@@ -311,17 +311,17 @@ class SceneTransitionNarrative {
     if (!this.particleSystem) return;
 
     this.particleSystem.visible = true;
-    
+
     const positions = this.particleSystem.geometry.attributes.position.array;
     const velocities = this.particleSystem.geometry.attributes.velocity.array;
     const alphas = this.particleSystem.geometry.attributes.alpha.array;
 
     // Position particles at source object location
     const sourcePos = sourceObj.position;
-    
+
     for (let i = 0; i < this.options.particleCount; i++) {
       const i3 = i * 3;
-      
+
       // Start at source
       positions[i3] = sourcePos.x + (Math.random() - 0.5) * 2;
       positions[i3 + 1] = sourcePos.y + (Math.random() - 0.5) * 2;
@@ -363,7 +363,7 @@ class SceneTransitionNarrative {
 
     for (let i = 0; i < this.options.particleCount; i++) {
       const i3 = i * 3;
-      
+
       // Update positions
       positions[i3] += velocities[i3];
       positions[i3 + 1] += velocities[i3 + 1];
@@ -387,7 +387,7 @@ class SceneTransitionNarrative {
    */
   hideParticleReflow() {
     if (!this.particleSystem) return;
-    
+
     gsap.to(this.particleSystem.material.uniforms.uTime, {
       value: 0,
       duration: 0.3,
@@ -566,7 +566,7 @@ class ScrollReactiveFX {
     // Subtle FOV oscillation tied to scroll
     const breathCycle = Math.sin(scrollProgress * Math.PI * 2) * 0.5 + 0.5;
     const targetFOV = breathCycle * this.options.fovRange;
-    
+
     this.state.fovOffset += (targetFOV - this.state.fovOffset) * 0.05;
 
     // Note: FOV is typically handled by CinematicCameraRig
@@ -607,7 +607,7 @@ class ScrollReactiveFX {
   updateAudioReactive(audioData) {
     // Placeholder for audio-reactive effects
     // Can be connected to Web Audio API frequency data
-    
+
     // Example: Boost bloom based on bass frequencies
     if (audioData && audioData.bass) {
       this.state.bloomIntensity += audioData.bass * 0.3;
@@ -620,7 +620,7 @@ class ScrollReactiveFX {
   setupPostProcessing() {
     // This requires THREE.EffectComposer and post-processing passes
     // Only if user has these libraries loaded
-    
+
     if (typeof THREE.EffectComposer === 'undefined') {
       console.warn('EffectComposer not available. Skipping post-processing setup.');
       return;
@@ -628,7 +628,7 @@ class ScrollReactiveFX {
 
     // Create composer
     this.composer = new THREE.EffectComposer(this.renderer);
-    
+
     // Render pass
     const renderPass = new THREE.RenderPass(this.scene, this.camera);
     this.composer.addPass(renderPass);

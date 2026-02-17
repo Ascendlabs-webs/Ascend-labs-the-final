@@ -61,7 +61,7 @@ class InertialScrollController {
     this.touchStart = { x: 0, y: 0 };
     this.touchVelocity = { x: 0, y: 0 };
     this.lastTouchTime = 0;
-    
+
     // Callbacks
     this.callbacks = {
       onScroll: null,
@@ -86,7 +86,7 @@ class InertialScrollController {
   init() {
     // Calculate scroll bounds
     this.updateBounds();
-    
+
     // Set initial position
     this.data.current = window.scrollY || window.pageYOffset;
     this.data.target = this.data.current;
@@ -108,14 +108,14 @@ class InertialScrollController {
     const maxScroll = this.options.direction === 'vertical'
       ? document.documentElement.scrollHeight - window.innerHeight
       : document.documentElement.scrollWidth - window.innerWidth;
-    
+
     this.bounds.max = Math.max(0, maxScroll);
   }
 
   bindEvents() {
     // Wheel events (desktop)
     window.addEventListener('wheel', this.handlers.onWheel, { passive: false });
-    
+
     // Touch events (mobile)
     window.addEventListener('touchstart', this.handlers.onTouchStart, { passive: true });
     window.addEventListener('touchmove', this.handlers.onTouchMove, { passive: false });
@@ -128,12 +128,12 @@ class InertialScrollController {
 
   onWheel(e) {
     if (!this.options.smooth) return;
-    
+
     e.preventDefault();
 
     // Normalize wheel delta across browsers
     let delta = e.deltaY;
-    
+
     // Firefox uses different wheel delta
     if (e.deltaMode === 1) {
       delta *= this.options.firefoxMultiplier;
@@ -150,23 +150,23 @@ class InertialScrollController {
   onTouchStart(e) {
     this.isTouch = true;
     const touch = e.touches[0];
-    
+
     this.touchStart = {
       x: touch.clientX,
       y: touch.clientY
     };
-    
+
     this.lastTouchTime = performance.now();
     this.touchVelocity = { x: 0, y: 0 };
   }
 
   onTouchMove(e) {
     if (!this.isTouch) return;
-    
+
     const touch = e.touches[0];
     const now = performance.now();
     const dt = now - this.lastTouchTime;
-    
+
     const deltaX = touch.clientX - this.touchStart.x;
     const deltaY = touch.clientY - this.touchStart.y;
 
@@ -195,17 +195,17 @@ class InertialScrollController {
       x: touch.clientX,
       y: touch.clientY
     };
-    
+
     this.lastTouchTime = now;
   }
 
   onTouchEnd(e) {
     // Apply momentum based on velocity
     if (this.options.smoothTouch && this.isTouch) {
-      const velocity = this.options.direction === 'vertical' 
-        ? this.touchVelocity.y 
+      const velocity = this.options.direction === 'vertical'
+        ? this.touchVelocity.y
         : this.touchVelocity.x;
-      
+
       // Apply momentum impulse
       this.data.momentum = -velocity * 30 * this.options.touchMultiplier;
     }
@@ -234,7 +234,7 @@ class InertialScrollController {
     // Interpolate current towards target with easing
     const delta = this.data.target - this.data.current;
     const lerp = this.options.lerp;
-    
+
     // Apply custom easing curve
     const progress = this.options.ease(lerp);
     this.data.current += delta * progress;
@@ -249,7 +249,7 @@ class InertialScrollController {
     // Calculate velocity & speed
     this.data.velocity = this.data.current - this.data.last;
     this.data.speed = Math.abs(this.data.velocity);
-    
+
     // Calculate direction
     if (this.data.velocity > 0.1) {
       this.data.direction = 1;
@@ -300,7 +300,7 @@ class InertialScrollController {
 
   scrollTo(target, immediate = false) {
     this.data.target = Math.max(this.bounds.min, Math.min(target, this.bounds.max));
-    
+
     if (immediate) {
       this.data.current = this.data.target;
       window.scrollTo(0, this.data.current);
@@ -394,31 +394,31 @@ class CinematicCameraRig {
   noise2D(x, y) {
     const X = Math.floor(x) & 255;
     const Y = Math.floor(y) & 255;
-    
+
     const xf = x - Math.floor(x);
     const yf = y - Math.floor(y);
-    
+
     const u = xf * xf * (3 - 2 * xf);
     const v = yf * yf * (3 - 2 * yf);
-    
+
     const hash = (i, j) => {
       const n = i * 374761393 + j * 668265263;
       return ((n ^ (n >> 13)) * 1274126177) & 0xffffffff;
     };
-    
+
     const a = hash(X, Y);
     const b = hash(X + 1, Y);
     const c = hash(X, Y + 1);
     const d = hash(X + 1, Y + 1);
-    
+
     const k0 = a & 0xff;
     const k1 = b & 0xff;
     const k2 = c & 0xff;
     const k3 = d & 0xff;
-    
+
     const x1 = k0 + u * (k1 - k0);
     const x2 = k2 + u * (k3 - k2);
-    
+
     return (x1 + v * (x2 - x1)) / 255 * 2 - 1;
   }
 
@@ -427,21 +427,21 @@ class CinematicCameraRig {
    */
   calculateArcMotion(progress) {
     const { arcRadius, depthRange } = this.options;
-    
+
     // Create S-curve for smooth arc
     const eased = progress < 0.5
       ? 2 * progress * progress
       : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-    
+
     // Sinusoidal lateral movement
     const x = Math.sin(progress * Math.PI * 2) * arcRadius;
-    
+
     // Depth push/pull with easing
     const z = this.state.basePosition.z + Math.sin(eased * Math.PI) * depthRange;
-    
+
     // Vertical drift
     const y = Math.sin(progress * Math.PI * 1.5) * (arcRadius * 0.5);
-    
+
     return { x, y, z };
   }
 
@@ -450,14 +450,14 @@ class CinematicCameraRig {
    */
   calculateRotationDrift(velocity) {
     const { rotationDrift } = this.options;
-    
+
     // Smooth velocity for stable rotation
     this.motion.smoothVelocity += (velocity - this.motion.smoothVelocity) * 0.1;
-    
+
     const rotX = this.motion.smoothVelocity * rotationDrift * 0.5;
     const rotY = this.motion.smoothVelocity * rotationDrift;
     const rotZ = this.motion.smoothVelocity * rotationDrift * 0.3;
-    
+
     return { x: rotX, y: rotY, z: rotZ };
   }
 
@@ -466,11 +466,11 @@ class CinematicCameraRig {
    */
   calculateMicroShake(time) {
     const { shakeIntensity, noiseScale } = this.options;
-    
+
     const nx = this.state.noiseOffset.x + time * noiseScale;
     const ny = this.state.noiseOffset.y + time * noiseScale * 1.3;
     const nz = (nx + ny) * 0.7;
-    
+
     return {
       x: this.noise2D(nx, ny) * shakeIntensity,
       y: this.noise2D(ny, nz) * shakeIntensity,
@@ -499,21 +499,21 @@ class CinematicCameraRig {
 
     // Calculate arc motion
     const arcMotion = this.calculateArcMotion(scrollProgress);
-    
+
     // Calculate rotation drift
     const rotationDrift = this.calculateRotationDrift(velocity);
-    
+
     // Calculate micro shake
     const shake = this.calculateMicroShake(this.motion.time);
-    
+
     // Calculate FOV breathing
     const fov = this.calculateFOVBreathing(this.motion.time);
 
     // Apply to camera with intensity multiplier
-    this.camera.position.x = this.state.basePosition.x + 
-                             (arcMotion.x + shake.x) * intensity;
-    this.camera.position.y = this.state.basePosition.y + 
-                             (arcMotion.y + shake.y) * intensity;
+    this.camera.position.x = this.state.basePosition.x +
+      (arcMotion.x + shake.x) * intensity;
+    this.camera.position.y = this.state.basePosition.y +
+      (arcMotion.y + shake.y) * intensity;
     this.camera.position.z = arcMotion.z + shake.z * intensity;
 
     // Apply rotation

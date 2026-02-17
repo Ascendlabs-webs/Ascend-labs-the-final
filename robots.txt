@@ -1,6 +1,35 @@
+# Robots.txt for Ascend Labs - Digital Agency
+# Optimized for SEO and search engine crawling
+
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
+
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
 
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 0
+
+# Sitemap location
 Sitemap: https://ascendlabs.com/sitemap.xml
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
