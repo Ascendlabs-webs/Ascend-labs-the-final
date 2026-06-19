@@ -134,6 +134,9 @@ body {
   overflow-x: hidden;
   width: 100%;
   cursor: none; /* Custom cursor enabled */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Custom Cursor System */
@@ -1634,20 +1637,19 @@ body:not(.motion-gsap) .hero__title-line:last-child .hero__title-word:nth-child(
   box-shadow: 0 0 80px rgba(99, 102, 241, 0.3);
 }
 
-.pricing-card__badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  color: var(--color-white);
-  padding: var(--space-xs) var(--space-lg);
-  padding: var(--space-xs) var(--space-lg);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  box-shadow: var(--shadow-glow);
-}
+  .pricing-card__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--shadow-glow);
+  }
 
 .pricing-card__header {
   margin-bottom: var(--space-xl);

@@ -1630,13 +1630,17 @@ class HeroScene3D {
     const edgeMaterial = new THREE.LineBasicMaterial({ 
       color: 0x6366f1,
       transparent: true,
-      opacity: 0.6,
-      linewidth: 2
+      opacity: 0.6
     });
     const edges = new THREE.LineSegments(edgeGeometry, edgeMaterial);
     group.add(edges);
     
     // Floating UI indicators (small abstract elements)
+    const indicatorPositions = [
+      [-0.25, -0.6, 0.15],
+      [0.3, 0.2, 0.15],
+      [-0.1, 0.8, 0.15]
+    ];
     for (let i = 0; i < 3; i++) {
       const indicatorGeometry = new THREE.CircleGeometry(0.08, 16);
       const indicatorMaterial = this.materialPresets.emissiveAccent({
@@ -1647,11 +1651,7 @@ class HeroScene3D {
         opacity: 0.65
       });
       const indicator = new THREE.Mesh(indicatorGeometry, indicatorMaterial);
-      indicator.position.set(
-        Math.random() * 0.8 - 0.4,
-        Math.random() * 2 - 1,
-        0.15
-      );
+      indicator.position.set(indicatorPositions[i][0], indicatorPositions[i][1], indicatorPositions[i][2]);
       group.add(indicator);
     }
     
@@ -3362,6 +3362,15 @@ class App {
   start() {
     console.log('🚀 AscendLabs Experience Initialized with Cinematic Scene Transitions');
     
+    EventManager.init();
+    
+    document.addEventListener('visibilitychange', () => {
+      const isHidden = document.hidden;
+      [STATE.scene, STATE.scene3D, STATE.cinematic.scene].forEach(scene => {
+        if (scene) scene.visible = !isHidden;
+      });
+    });
+
     // ⭐ INITIALIZE CINEMATIC SCROLL ENGINE ⭐
     if (typeof InertialScrollController !== 'undefined' && CONFIG.inertialScroll.enabled) {
       STATE.scrollEngine.controller = new InertialScrollController({
@@ -3431,6 +3440,75 @@ class App {
     window.addEventListener('pointerdown', startCinematicTransitions, { once: true, passive: true });
     window.addEventListener('keydown', startCinematicTransitions, { once: true });
   }
+}
+
+// ===== Centralized Event Manager =====
+const EventManager = {
+  _resizeHandlers: [],
+  _scrollHandlers: [],
+  _ticking: false,
+
+  onResize(handler) {
+    this._resizeHandlers.push(handler);
+  },
+
+  onScroll(handler) {
+    this._scrollHandlers.push(handler);
+  },
+
+  init() {
+    const debouncedResize = debounce(() => {
+      const now = performance.now();
+      for (let i = 0; i < this._resizeHandlers.length; i++) {
+        this._resizeHandlers[i](now);
+      }
+    }, 100);
+
+    window.addEventListener('resize', debouncedResize, { passive: true });
+
+    window.addEventListener('scroll', () => {
+      if (this._ticking) return;
+      this._ticking = true;
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        for (let i = 0; i < this._scrollHandlers.length; i++) {
+          this._scrollHandlers[i](scrollY);
+        }
+        this._ticking = false;
+      });
+    }, { passive: true });
+  }
+};
+
+// ===== Three.js Resource Cleanup =====
+function disposeThreeResources() {
+  const scenes = [
+    { scene: STATE.scene, renderer: STATE.renderer },
+    { scene: STATE.scene3D, renderer: STATE.renderer3D },
+    { scene: STATE.cinematic.scene, renderer: STATE.cinematic.renderer }
+  ];
+
+  scenes.forEach(({ scene, renderer }) => {
+    if (!scene) return;
+    scene.traverse((obj) => {
+      if (obj.geometry) obj.geometry.dispose();
+      if (obj.material) {
+        if (Array.isArray(obj.material)) {
+          obj.material.forEach(m => { if (m) m.dispose(); });
+        } else {
+          obj.material.dispose();
+        }
+      }
+    });
+    if (renderer) renderer.dispose();
+  });
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', disposeThreeResources);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) disposeThreeResources();
+  });
 }
 
 // ================================
