@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascend Labs | Digital Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    try {
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#191b23",
+              "surface": "#0a0a0a",
+              "primary-fixed-dim": "#ffffff",
+              "on-background": "#e1e1e1",
+              "primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#404040",
+              "surface-bright": "#1a1a1a",
+              "on-secondary": "#000000",
+              "on-primary-fixed-variant": "#404040",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#262626",
+              "on-tertiary-container": "#ffffff",
+              "tertiary": "#a3a3a3",
+              "secondary-fixed": "#e5e5e5",
+              "secondary": "#a3a3a3",
+              "surface-container": "#111111",
+              "secondary-container": "#262626",
+              "tertiary-fixed-dim": "#a3a3a3",
+              "surface-container-high": "#1a1a1a",
+              "primary-fixed": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-dim": "#0a0a0a",
+              "on-surface": "#ffffff",
+              "on-secondary-fixed-variant": "#404040",
+              "on-secondary-container": "#e5e5e5",
+              "on-primary-fixed": "#000000",
+              "on-primary": "#000000",
+              "on-error-container": "#ffffff",
+              "on-primary-container": "#000000",
+              "on-surface-variant": "#a3a3a3",
+              "inverse-on-surface": "#1a1a1a",
+              "error-container": "#404040",
+              "on-tertiary-fixed": "#000000",
+              "error": "#ffffff",
+              "surface-tint": "#ffffff",
+              "outline-variant": "#262626",
+              "secondary-fixed-dim": "#a3a3a3",
+              "surface-container-highest": "#262626",
+              "inverse-primary": "#000000",
+              "primary-container": "#ffffff",
+              "background": "#0a0a0a",
+              "on-secondary-fixed": "#000000",
+              "outline": "#404040",
+              "surface-variant": "#1a1a1a",
+              "surface-container-lowest": "#050505",
+              "tertiary-fixed": "#e5e5e5",
+              "inverse-surface": "#ffffff"
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: { unit: "8px", "margin-mobile": "20px", gutter: "32px", "container-max": "1280px", "section-gap": "160px" },
+            fontFamily: {
+              "display-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "label-caps": ["Geist"],
+              "headline-md": ["Inter"],
+              "body-lg": ["Inter"]
+            },
+            fontSize: {
+              "display-lg": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+              "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+              "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+              "headline-md": ["32px", { lineHeight: "1.3", letterSpacing: "-0.02em", fontWeight: "600" }],
+              "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }]
+            }
+          },
+        },
+      }
+    } catch (_e) {}
+  </script>
+  <link rel="stylesheet" href="custom.css">
+  <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+</head>
+<body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
+
+  <header class="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-2xl border-b border-white/10 h-20">
+    <div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+      <a href="index.html" class="header-logo flex items-center gap-3 font-display-lg text-headline-md tracking-tighter text-on-surface"><img src="assets/work-previews/photo_6264793174198915400_y.jpg" alt="Ascend Labs" class="h-7 w-auto rounded">Ascend Labs</a>
+      <nav class="nav-desktop flex gap-10">
+        <a href="index.html" class="nav-link font-label-caps text-sm text-white font-bold tracking-widest uppercase is-active">Home</a>
+        <a href="services.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Services</a>
+        <a href="work.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Work</a>
+        <a href="about.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">About</a>
+        <a href="pricing.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Pricing</a>
+        <a href="contact.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Contact</a>
+      </nav>
+      <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="is-active">Home</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="mobile-cta">Book a Free Call</a>
+  </div>
+
+  <main class="relative">
+    <section class="hero-section pt-48 pb-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+      <div class="max-w-4xl">
+        <span class="font-label-caps text-white uppercase tracking-[0.3em] mb-6 block text-[12px]">Digital Agency</span>
+        <h1 class="font-display-lg text-display-lg-mobile md:text-[84px] mb-8 leading-[1] text-on-surface max-w-5xl">
+          Designing Digital Presence That <span class="text-neutral-400 italic font-light">Moves Brands Forward</span>
+        </h1>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed text-lg md:text-xl">
+          We partner with ambitious brands to create digital experiences that don't just look exceptional—they perform exceptionally. From strategic design to scalable development.
+        </p>
+        <div class="hero-buttons flex gap-4 mt-12">
+          <a href="contact.html" class="bg-white text-black px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Strategy Call</a>
+          <a href="contact.html" class="border border-white/20 text-white px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-white/10 active:scale-95 transition-all">Get a Free Website Audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="value-props-container bg-surface-container-highest rounded-[32px] p-10 md:p-16 border border-white/10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">bolt</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Fast Turnaround</div>
+            <div class="text-on-surface-variant text-xs mt-1">Projects delivered within weeks</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">trending_up</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">SEO Optimized</div>
+            <div class="text-on-surface-variant text-xs mt-1">Built for search visibility</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">smartphone</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Mobile-First</div>
+            <div class="text-on-surface-variant text-xs mt-1">Every experience starts with mobile</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">speed</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Performance Focused</div>
+            <div class="text-on-surface-variant text-xs mt-1">Optimized for speed & conversions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section class="reveal-on-scroll px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="branding">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="order-1 lg:order-1">
+            <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">02 / Narrative Craft</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile lg:text-headline-md mb-6 text-on-surface">Visual Identity & Branding</h2>
+            <p class="font-body-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">Identity is more than a logo—it's a language. We build comprehensive brand systems that communicate authority and innovation at every touchpoint.</p>
+            <a href="services.html" class="flex items-center gap-4 group text-white font-label-caps tracking-widest uppercase text-[12px] hover:text-neutral-400 transition-colors">Explore Services <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span></a>
+          </div>
+          <div class="branding-visual order-2 lg:order-2 grid grid-cols-2 gap-6 h-[400px]">
+            <div class="bg-surface-container rounded-2xl p-8 border border-white/10 flex flex-col justify-between">
+              <span class="material-symbols-outlined text-white text-4xl">pentagon</span>
+              <div class="space-y-2"><div class="h-1 w-full bg-white/20"></div><div class="h-1 w-2/3 bg-white/20"></div></div>
+            </div>
+            <div class="bg-white rounded-2xl p-8 flex flex-col justify-between">
+              <span class="text-black font-display-lg text-2xl font-bold tracking-tighter">ASCEND</span>
+              <div class="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center">
+                <span class="material-symbols-outlined text-black">arrow_outward</span>
+              </div>
+            </div>
+            <div class="col-span-2 bg-surface-container-high rounded-2xl p-8 border border-white/10">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Typography</span>
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Color Theory</span>
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Design Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="py-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll" id="why-ascend">
+      <div class="text-center mb-20">
+        <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">Why Ascend Labs</span>
+        <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile mb-6 text-on-surface">Why businesses choose Ascend Labs</h2>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">We don't just build websites — we build digital platforms that drive real business outcomes.</p>
+      </div>
+      <div class="why-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">psychology</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Strategy before design</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every project starts with research and strategy. We align design decisions with your business goals, audience needs, and market positioning.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">speed</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Performance-first development</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">We engineer for speed from the ground up. Fast load times, optimized assets, and clean code that scales with your business.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">devices</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Mobile-first experiences</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every interface is designed mobile-first and meticulously crafted to feel native across every device and screen size.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">search_insights</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">SEO-ready architecture</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Your site ships with semantic HTML, structured data, and technical SEO foundations so you're discoverable from day one.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">support</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Long-term support</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">We don't disappear after launch. Ongoing maintenance, updates, and scaling support ensure your site stays performant and secure.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">rocket_launch</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Business-first thinking</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every design decision ties back to conversion, retention, and growth. We build systems that serve your bottom line, not just your brand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="text-center mb-16">
+        <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">Featured Work</span>
+        <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile mb-6 text-on-surface">Selected projects</h2>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">Explore a selection of our design concepts and demo projects showcasing our approach to modern digital experiences.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <a href="https://ascendlabs-webs.github.io/Gym/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0s">
+          <div class="portfolio-glow" style="background:#00ff88;top:30%;left:20%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/apex-hero.svg" alt="APEX Performance">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Fitness</span>
+            <h3>APEX Performance</h3>
+            <p>High-intensity fitness brand with bold typography and dynamic layouts.</p>
+            <div class="portfolio-tags">
+              <span>Next.js</span>
+              <span>Framer Motion</span>
+              <span>Tailwind</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+        <a href="https://ascendlabs-webs.github.io/Indian-Restaurant-demo/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.1s">
+          <div class="portfolio-glow" style="background:#c9a84c;top:30%;left:10%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/zaika-hero.svg" alt="Zaika Fine Dining">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Restaurant</span>
+            <h3>Zaika Fine Dining</h3>
+            <p>Indian cuisine restaurant demo with immersive hero and table reservation flow.</p>
+            <div class="portfolio-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>GSAP</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+        <a href="https://ascendlabs-webs.github.io/salon-anti-package-2/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.2s">
+          <div class="portfolio-glow" style="background:#e8a0b5;top:25%;left:30%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/aura-hero.svg" alt="Aura Salon & Spa">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Salon &amp; Spa</span>
+            <h3>Aura Salon &amp; Spa</h3>
+            <p>Luxury salon concept with service catalog and integrated booking.</p>
+            <div class="portfolio-tags">
+              <span>Next.js</span>
+              <span>Tailwind</span>
+              <span>GSAP</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-12">
+        <a href="work.html" class="border border-white/20 text-white px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-white/10 active:scale-95 transition-all inline-block">View All Projects</a>
+      </div>
+    </section>
+
+    <section class="cta-section py-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="cta-inner bg-surface-container-highest rounded-[48px] p-16 md:p-32 text-center relative overflow-hidden border border-white/10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)]"></div>
+        <div class="relative z-10">
+          <h2 class="font-display-lg text-headline-md md:text-display-lg mb-8 text-on-surface tracking-tighter">Ready to Ascend?</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-14 text-lg">Book a free strategy call and discover how we can transform your digital presence into a growth engine.</p>
+          <div class="cta-buttons flex flex-col md:flex-row gap-4 justify-center items-center">
+            <a href="contact.html" class="bg-white text-black px-12 py-5 rounded-full font-label-caps uppercase tracking-[0.2em] text-sm hover:bg-neutral-200 hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-white/10 inline-block">Book a Free Strategy Call</a>
+            <a href="contact.html" class="border border-white/20 text-white px-12 py-5 rounded-full font-label-caps uppercase tracking-[0.2em] text-sm hover:bg-white/10 hover:scale-105 active:scale-95 transition-all inline-block">Get a Free Website Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-surface-container-lowest border-t border-white/10 py-24">
+    <div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+      <div class="footer-grid grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-gutter">
+        <div class="col-span-1 md:col-span-1">
+          <div class="font-display-lg text-headline-md text-on-surface mb-8 tracking-tighter">Ascend Labs</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed max-w-xs">Precision in digital craft. We build the interfaces of tomorrow with the engineering standards of today.</p>
+        </div>
+        <div>
+          <h4 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Pages</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Home</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Services</a></li>
+            <li><a href="work.html" class="font-body-md text-white font-semibold">Work</a></li>
+            <li><a href="pricing.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="about.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">About</a></li>
+            <li><a href="contact.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Services</h4>
+          <ul class="space-y-4">
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Web Design</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Development</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">App Development</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Branding</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">UI/UX Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Contact</h4>
+          <ul class="space-y-4">
+            <li><a href="mailto:ascendlabs.com@gmail.com" class="font-body-md text-on-surface-variant hover:text-white transition-colors">ascendlabs.com@gmail.com</a></li>
+            <li><a href="contact.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="font-body-md text-on-surface-variant/40 text-xs uppercase tracking-widest">&copy; 2026 Ascend Labs. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
