@@ -46,6 +46,25 @@
   </script>
   <link rel="stylesheet" href="custom.css">
   <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Ascend Labs",
+    "url": "https://ascendlabs-webs.github.io/Ascend-labs-the-final/contact.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Ascend Labs",
+      "email": "ascendlabs.com@gmail.com",
+      "telephone": "+916385314684",
+      "address": { "@type": "PostalAddress", "addressLocality": "Chennai", "addressCountry": "IN" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "email": "ascendlabs.com@gmail.com" }
+    }
+  }
+  </script>
 </head>
 <body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
 
@@ -61,12 +80,12 @@
         <a href="contact.html" class="nav-link font-label-caps text-sm text-white font-bold tracking-widest uppercase is-active">Contact</a>
       </nav>
       <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" role="dialog">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="work.html">Work</a>
@@ -127,15 +146,15 @@
         <div>
           <form class="contact-form space-y-6" id="contactForm">
             <div>
-              <label class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Your Name</label>
+              <label for="formName" class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Your Name</label>
               <input type="text" id="formName" name="name" class="w-full bg-surface-container border border-white/10 rounded-2xl px-6 py-4 text-on-surface font-body-md placeholder:text-on-surface-variant/40 focus:outline-none focus:border-white/30 transition-all" placeholder="John Doe" required>
             </div>
             <div>
-              <label class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Email Address</label>
+              <label for="formEmail" class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Email Address</label>
               <input type="email" id="formEmail" name="email" class="w-full bg-surface-container border border-white/10 rounded-2xl px-6 py-4 text-on-surface font-body-md placeholder:text-on-surface-variant/40 focus:outline-none focus:border-white/30 transition-all" placeholder="john@example.com" required>
             </div>
             <div>
-              <label class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Service Interested In</label>
+              <label for="formService" class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Service Interested In</label>
               <select id="formService" name="service" class="w-full bg-surface-container border border-white/10 rounded-2xl px-6 py-4 text-on-surface font-body-md placeholder:text-on-surface-variant/40 focus:outline-none focus:border-white/30 transition-all">
                 <option value="">Select a service</option>
                 <option value="web-design">Web Design</option>
@@ -146,7 +165,7 @@
               </select>
             </div>
             <div>
-              <label class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Project Details</label>
+              <label for="formMessage" class="font-label-caps text-on-surface-variant text-[11px] uppercase tracking-widest mb-2 block">Project Details</label>
               <textarea id="formMessage" name="message" class="w-full bg-surface-container border border-white/10 rounded-2xl px-6 py-4 text-on-surface font-body-md placeholder:text-on-surface-variant/40 focus:outline-none focus:border-white/30 transition-all min-h-[140px]" placeholder="Tell us about your project..." required></textarea>
             </div>
             <button type="submit" class="bg-white text-black px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-neutral-200 active:scale-95 transition-all w-full md:w-auto">Send Message</button>
@@ -168,6 +187,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

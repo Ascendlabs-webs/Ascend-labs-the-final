@@ -1,0 +1,27 @@
+# Ascend Labs
+
+> Ascend Labs is a Chennai-based digital agency specializing in web development, mobile apps, social media management, branding, SEO, and AI automation.
+
+## Services
+
+- Web Development: Custom, fast, SEO-optimized websites for businesses.
+- Mobile App Development: iOS and Android apps built for performance.
+- Social Media Management: Instagram, Reels, posts, and monthly reporting.
+- Branding: Logo design, brand identity, and visual systems.
+- SEO: On-page and technical search optimization.
+- AI & Automation: AI-powered chatbots and workflow automation.
+
+## Key Pages
+
+- [Home](https://ascendlabs-webs.github.io/Ascend-labs-the-final/)
+- [Services](https://ascendlabs-webs.github.io/Ascend-labs-the-final/services.html)
+- [Work](https://ascendlabs-webs.github.io/Ascend-labs-the-final/work.html)
+- [Pricing](https://ascendlabs-webs.github.io/Ascend-labs-the-final/pricing.html)
+- [About](https://ascendlabs-webs.github.io/Ascend-labs-the-final/about.html)
+- [Contact](https://ascendlabs-webs.github.io/Ascend-labs-the-final/contact.html)
+
+## Contact
+
+- Email: ascendlabs.com@gmail.com
+- WhatsApp: https://wa.me/916385314684
+- Location: Chennai, India

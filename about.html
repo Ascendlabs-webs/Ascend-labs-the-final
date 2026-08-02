@@ -46,6 +46,25 @@
   </script>
   <link rel="stylesheet" href="custom.css">
   <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Ascend Labs",
+    "url": "https://ascendlabs-webs.github.io/Ascend-labs-the-final/about.html",
+    "about": {
+      "@type": "Organization",
+      "name": "Ascend Labs",
+      "url": "https://ascendlabs-webs.github.io/Ascend-labs-the-final/",
+      "email": "ascendlabs.com@gmail.com",
+      "description": "Chennai-based digital agency focused on web development, branding, SEO, and AI-driven solutions.",
+      "address": { "@type": "PostalAddress", "addressLocality": "Chennai", "addressCountry": "IN" }
+    }
+  }
+  </script>
 </head>
 <body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
 
@@ -61,12 +80,12 @@
         <a href="contact.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Contact</a>
       </nav>
       <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" role="dialog">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="work.html">Work</a>
@@ -169,6 +188,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

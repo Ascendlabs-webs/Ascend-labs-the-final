@@ -46,6 +46,18 @@
   </script>
   <link rel="stylesheet" href="custom.css">
   <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Work — Ascend Labs Portfolio",
+    "url": "https://ascendlabs-webs.github.io/Ascend-labs-the-final/work.html",
+    "about": "Portfolio of web development, branding, and design projects by Ascend Labs"
+  }
+  </script>
 </head>
 <body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
 
@@ -61,12 +73,12 @@
         <a href="contact.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Contact</a>
       </nav>
       <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" role="dialog">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="work.html" class="is-active">Work</a>
@@ -89,7 +101,7 @@
         <a href="https://ascendlabs-webs.github.io/Gym/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0s">
           <div class="portfolio-glow" style="background:#00ff88;top:30%;left:20%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/apex-hero.svg" alt="APEX Performance">
+            <img src="assets/work-previews/apex-hero.svg" alt="APEX Performance" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Fitness</span>
@@ -107,7 +119,7 @@
         <a href="https://ascendlabs-webs.github.io/Aurela-cafe/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.08s">
           <div class="portfolio-glow" style="background:#d4b896;top:20%;right:10%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/aurelia-hero.svg" alt="Aurelia Cafe">
+            <img src="assets/work-previews/aurelia-hero.svg" alt="Aurelia Cafe" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Cafe</span>
@@ -125,7 +137,7 @@
         <a href="https://ascendlabs-webs.github.io/Indian-Restaurant-demo/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.15s">
           <div class="portfolio-glow" style="background:#c9a84c;top:30%;left:10%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/zaika-hero.svg" alt="Zaika Fine Dining">
+            <img src="assets/work-previews/zaika-hero.svg" alt="Zaika Fine Dining" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Restaurant</span>
@@ -143,7 +155,7 @@
         <a href="https://ascendlabs-webs.github.io/Dental/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.2s">
           <div class="portfolio-glow" style="background:#4fc3f7;top:40%;right:20%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/dental-hero.svg" alt="Dental Castle">
+            <img src="assets/work-previews/dental-hero.svg" alt="Dental Castle" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Healthcare</span>
@@ -161,7 +173,7 @@
         <a href="https://ascendlabs-webs.github.io/salon-anti-package-2/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.25s">
           <div class="portfolio-glow" style="background:#e8a0b5;top:25%;left:30%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/aura-hero.svg" alt="Aura Salon & Spa">
+            <img src="assets/work-previews/aura-hero.svg" alt="Aura Salon & Spa" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Salon &amp; Spa</span>
@@ -179,7 +191,7 @@
         <a href="https://ascendlabs-webs.github.io/salon-package-2/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.3s">
           <div class="portfolio-glow" style="background:#8b5cf6;top:20%;right:10%"></div>
           <div class="portfolio-thumb aspect-video">
-            <img src="assets/work-previews/lumiere-hero.svg" alt="Lumiere Salon">
+            <img src="assets/work-previews/lumiere-hero.svg" alt="Lumiere Salon" loading="lazy" decoding="async" width="640" height="360">
           </div>
           <div class="portfolio-info">
             <span class="category">Beauty</span>
@@ -211,6 +223,7 @@
   </footer>
 
   <script>
+    document.documentElement.classList.add('js');
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.createElement('div');
       container.className = 'stars-container';
@@ -243,8 +256,9 @@
       const mobileMenu = document.getElementById('mobileMenu');
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('open');
-          mobileMenu.classList.toggle('open');
+          const isOpen = mobileMenu.classList.toggle('open');
+          hamburger.classList.toggle('open', isOpen);
+          hamburger.setAttribute('aria-expanded', isOpen);
         });
         mobileMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {

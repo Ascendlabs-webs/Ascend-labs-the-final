@@ -144,6 +144,36 @@
     </style>
 <link rel="stylesheet" href="custom.css">
 <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.tailwindcss.com"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Digital Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "Ascend Labs",
+    "url": "https://ascendlabs-webs.github.io/Ascend-labs-the-final/",
+    "email": "ascendlabs.com@gmail.com"
+  },
+  "areaServed": "Chennai",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Ascend Labs Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation" } }
+    ]
+  }
+}
+</script>
 </head>
 <body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
 <!-- Top Navigation Bar -->
@@ -159,12 +189,12 @@
 <a class="nav-link font-label-caps text-body-md text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase text-[11px]" href="contact.html">Contact</a>
 </nav>
 <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
-<button class="hamburger" id="hamburger" aria-label="Menu">
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
 <span></span><span></span><span></span>
 </button>
 </div>
 </header>
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" role="dialog">
 <a href="index.html">Home</a>
 <a href="services.html" class="is-active">Services</a>
 <a href="work.html">Work</a>
@@ -188,7 +218,7 @@
 <div class="mt-20 relative group overflow-hidden">
 <div class="absolute -inset-10 bg-white/5 rounded-full blur-[120px] opacity-50 group-hover:opacity-70 transition-opacity"></div>
 <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-surface-container" style="aspect-ratio: 16/9">
-<img alt="Hero Visual" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]" src="assets/work-previews/photo_6271569326921945682_y.jpg"/>
+<img alt="Hero Visual" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]" src="assets/work-previews/photo_6271569326921945682_y.jpg" width="1280" height="720" decoding="async"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-40"></div>
 </div>
 </div>
@@ -213,7 +243,7 @@
 </div>
 <div class="order-2 lg:order-2">
 <div class="relative group aspect-square lg:aspect-video rounded-3xl overflow-hidden border border-white/5 bg-surface-container-high shadow-2xl">
-<img alt="Engineering Visual" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rvUNPJZNcaFJXKQMNzPVzKVDMTqZqL1IQAXy8iy2sIcjpSlUTWTiBQ9RAvNfjf7eVUii6o7Zb-HwQRWisWtnbjJOPr2FMVTersR8ZlL4WcFwiXXCplwoSgsgQcp2IjRZBhncdZaODXQ4P_H63gYkTLBgjnLNP7pN9rUtr7iSQyRaBgVW5U-YhXzok76CHSWr2o03zrzmRrCe4oA2TbrYEyh8urRFEmk5mLmOTeUyFHFRqhq5d1zwAQ"/>
+<img alt="Engineering Visual" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rvUNPJZNcaFJXKQMNzPVzKVDMTqZqL1IQAXy8iy2sIcjpSlUTWTiBQ9RAvNfjf7eVUii6o7Zb-HwQRWisWtnbjJOPr2FMVTersR8ZlL4WcFwiXXCplwoSgsgQcp2IjRZBhncdZaODXQ4P_H63gYkTLBgjnLNP7pN9rUtr7iSQyRaBgVW5U-YhXzok76CHSWr2o03zrzmRrCe4oA2TbrYEyh8urRFEmk5mLmOTeUyFHFRqhq5d1zwAQ"/>
 <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
 </div>
 </div>
@@ -225,7 +255,7 @@
 <div class="relative order-2 lg:order-1 overflow-hidden">
 <div class="absolute -inset-20 bg-white/5 rounded-full blur-[100px]"></div>
 <div class="relative aspect-square rounded-3xl overflow-hidden border border-white/10 bg-surface-container shadow-2xl">
-<img alt="Mobile App UI" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebN0FqU4KdJFC-ET36xiVXDOLaoJxpKmoUMwYe_4KYlYdKdrKDnq7TY9E7hlocoAUSQUfJkcumVrbWZpZSyNQ72A9Ks8l2jZHbk8_YfMRtHTZzUAukD0fmXDXg9qMJIhR-gQ7n7Mm7U0Ve5NbMET9aMAUOsp5_UqwWP0dFnszmyD3zgpZ_bKM37YmMxVGyj8oh84rAJRXxKFQ7QgodkLjrjhAdlVIRDjEgxddDDrGvh8ZneEgvpG0JQ"/>
+<img alt="Mobile App UI" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebN0FqU4KdJFC-ET36xiVXDOLaoJxpKmoUMwYe_4KYlYdKdrKDnq7TY9E7hlocoAUSQUfJkcumVrbWZpZSyNQ72A9Ks8l2jZHbk8_YfMRtHTZzUAukD0fmXDXg9qMJIhR-gQ7n7Mm7U0Ve5NbMET9aMAUOsp5_UqwWP0dFnszmyD3zgpZ_bKM37YmMxVGyj8oh84rAJRXxKFQ7QgodkLjrjhAdlVIRDjEgxddDDrGvh8ZneEgvpG0JQ"/>
 </div>
 </div>
 <div class="order-1 lg:order-2">
@@ -518,6 +548,7 @@ Grow your brand with consistent, high-quality content across every platform.
 </div>
 </footer>
 <script>
+        document.documentElement.classList.add('js');
         // Floating stars
         const starsContainer = document.createElement('div');
         starsContainer.className = 'stars-container';
@@ -564,8 +595,9 @@ Grow your brand with consistent, high-quality content across every platform.
         const mobileMenu = document.getElementById('mobileMenu');
         if (hamburger && mobileMenu) {
           hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
           });
           mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {

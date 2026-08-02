@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ascendlabs-webs.github.io/Ascend-labs-the-final/sitemap.xml

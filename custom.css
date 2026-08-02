@@ -18,14 +18,17 @@
 .pulse-live {
   animation: pulseGlow 2s ease-in-out infinite;
 }
-.reveal-on-scroll {
+.js .reveal-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
 }
-.reveal-on-scroll.visible {
+.js .reveal-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.reveal-on-scroll {
+  opacity: 1;
 }
 .mesh-gradient {
   background-color: #0a0a0a;
