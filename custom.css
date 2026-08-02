@@ -65,6 +65,23 @@ body { overflow-x: hidden; }
   100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
 }
 
+@media (max-width: 768px) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .star {
+    animation: floatStarMobile linear infinite;
+  }
+  @keyframes floatStarMobile {
+    0% { transform: translateY(100vh); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+  }
+}
+
 .nav-link {
   position: relative;
 }

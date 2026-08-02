@@ -3,7 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work | Ascend Labs</title>
+  <title>Work | Ascend Labs — Portfolio & Case Studies</title>
+  <meta name="description" content="View Ascend Labs' portfolio of web development, branding, and design projects. Real and concept work showcasing modern digital solutions.">
+  <meta name="keywords" content="Ascend Labs portfolio, web design projects, branding case studies, Chennai agency portfolio, website showcase">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ascendlabs-webs.github.io/Ascend-labs-the-final/work.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Work | Ascend Labs — Portfolio & Case Studies">
+  <meta property="og:description" content="Browse our portfolio of web, branding, and design projects built by Ascend Labs.">
+  <meta property="og:url" content="https://ascendlabs-webs.github.io/Ascend-labs-the-final/work.html">
+  <meta property="og:image" content="https://ascendlabs-webs.github.io/Ascend-labs-the-final/assets/work-previews/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work | Ascend Labs — Portfolio & Case Studies">
+  <meta name="twitter:description" content="Browse our portfolio of web, branding, and design projects built by Ascend Labs.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -203,7 +215,9 @@
       const container = document.createElement('div');
       container.className = 'stars-container';
       document.body.appendChild(container);
-      for (let i = 0; i < 80; i++) {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const starCount = isMobile ? 15 : 40;
+      for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star' + (i % 3 === 0 ? ' sm' : '') + (i % 7 === 0 ? ' lg' : '');
         star.style.left = Math.random() * 100 + '%';

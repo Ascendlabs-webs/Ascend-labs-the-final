@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.createElement('div');
   container.className = 'stars-container';
   document.body.appendChild(container);
-    for (let i = 0; i < 80; i++) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const starCount = isMobile ? 15 : 40;
+    for (let i = 0; i < starCount; i++) {
     const star = document.createElement('div');
     star.className = 'star' + (i % 3 === 0 ? ' sm' : '') + (i % 7 === 0 ? ' lg' : '');
     star.style.left = Math.random() * 100 + '%';

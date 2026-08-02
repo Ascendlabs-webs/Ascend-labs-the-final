@@ -3,6 +3,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ascend Labs | Services — Web Dev, Apps, Branding, SEO & AI</title>
+<meta name="description" content="Explore Ascend Labs' full range of digital services: website development, mobile apps, social media management, branding, SEO & AI automation in Chennai."/>
+<meta name="keywords" content="web development services Chennai, mobile app development, social media management, branding agency, SEO services, AI automation, digital services"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://ascendlabs-webs.github.io/Ascend-labs-the-final/services.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Ascend Labs | Services — Web Dev, Apps, Branding, SEO & AI"/>
+<meta property="og:description" content="Full-service digital agency in Chennai: websites, mobile apps, social media, branding, SEO & AI automation."/>
+<meta property="og:url" content="https://ascendlabs-webs.github.io/Ascend-labs-the-final/services.html"/>
+<meta property="og:image" content="https://ascendlabs-webs.github.io/Ascend-labs-the-final/assets/work-previews/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Ascend Labs | Services — Web Dev, Apps, Branding, SEO & AI"/>
+<meta name="twitter:description" content="Full-service digital agency in Chennai: websites, mobile apps, social media, branding, SEO & AI automation."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -509,7 +522,9 @@ Grow your brand with consistent, high-quality content across every platform.
         const starsContainer = document.createElement('div');
         starsContainer.className = 'stars-container';
         document.body.appendChild(starsContainer);
-        for (let i = 0; i < 80; i++) {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const starCount = isMobile ? 15 : 40;
+        for (let i = 0; i < starCount; i++) {
           const star = document.createElement('div');
           star.className = 'star' + (i % 3 === 0 ? ' sm' : '') + (i % 7 === 0 ? ' lg' : '');
           star.style.left = Math.random() * 100 + '%';
