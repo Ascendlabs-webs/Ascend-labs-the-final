@@ -13,12 +13,14 @@
 
 ## Key Pages
 
-- [Home](https://ascendlabs-webs.github.io/Ascend-labs-the-final/)
-- [Services](https://ascendlabs-webs.github.io/Ascend-labs-the-final/services.html)
-- [Work](https://ascendlabs-webs.github.io/Ascend-labs-the-final/work.html)
-- [Pricing](https://ascendlabs-webs.github.io/Ascend-labs-the-final/pricing.html)
-- [About](https://ascendlabs-webs.github.io/Ascend-labs-the-final/about.html)
-- [Contact](https://ascendlabs-webs.github.io/Ascend-labs-the-final/contact.html)
+- [Home](https://ascendlabs.space/)
+- [Services](https://ascendlabs.space/services.html)
+- [Work](https://ascendlabs.space/work.html)
+- [Pricing](https://ascendlabs.space/pricing.html)
+- [About](https://ascendlabs.space/about.html)
+- [Contact](https://ascendlabs.space/contact.html)
+- [Privacy](https://ascendlabs.space/privacy.html)
+- [Terms](https://ascendlabs.space/terms.html)
 
 ## Contact
 

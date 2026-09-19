@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('formName')?.value || '';
-      const email = document.getElementById('formEmail')?.value || '';
+      const name = document.getElementById('formName')?.value.trim() || '';
+      const email = document.getElementById('formEmail')?.value.trim() || '';
       const service = document.getElementById('formService')?.value || '';
-      const message = document.getElementById('formMessage')?.value || '';
-      const text = `Name: ${name}%0AEmail: ${email}%0AService: ${service}%0AMessage: ${message}`;
-      window.open(`https://wa.me/916385314684?text=${text}`, '_blank');
+      const message = document.getElementById('formMessage')?.value.trim() || '';
+      const text = `New enquiry — Ascend Labs%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AService: ${encodeURIComponent(service)}%0AMessage: ${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/916385314684?text=${text}`, '_blank', 'noopener');
     });
   }
 });
