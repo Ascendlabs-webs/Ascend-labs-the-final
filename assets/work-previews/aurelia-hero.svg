@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="aur-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1810"/>
+      <stop offset="50%" stop-color="#4a2820"/>
+      <stop offset="100%" stop-color="#1a0e0a"/>
+    </linearGradient>
+    <linearGradient id="aur-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5e6d3"/>
+      <stop offset="100%" stop-color="#d4b896"/>
+    </linearGradient>
+    <radialGradient id="aur-glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#f5e6d3" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#f5e6d3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#aur-bg)"/>
+  <circle cx="200" cy="150" r="180" fill="url(#aur-glow)"/>
+  <ellipse cx="200" cy="180" rx="60" ry="40" fill="none" stroke="#d4b896" stroke-width="0.5" opacity="0.2"/>
+  <ellipse cx="200" cy="180" rx="40" ry="28" fill="none" stroke="#d4b896" stroke-width="0.3" opacity="0.15"/>
+  <line x1="30" y1="30" x2="80" y2="30" stroke="#d4b896" stroke-width="0.5" opacity="0.2"/>
+  <text x="30" y="280" font-family="Georgia, serif" font-size="42" font-weight="400" fill="url(#aur-text)" letter-spacing="2">Aurelia</text>
+  <text x="30" y="320" font-family="Inter, sans-serif" font-size="10" fill="#d4b896" letter-spacing="6" opacity="0.6">CAFE</text>
+  <line x1="30" y1="340" x2="100" y2="340" stroke="#d4b896" stroke-width="0.5" opacity="0.3"/>
+  <text x="30" y="365" font-family="Inter, sans-serif" font-size="9" fill="#8a6f5a" letter-spacing="3">Artisan Coffee &amp; Pastry</text>
+  <circle cx="320" cy="400" r="60" fill="none" stroke="#d4b896" stroke-width="0.3" opacity="0.1"/>
+  <circle cx="320" cy="400" r="40" fill="none" stroke="#d4b896" stroke-width="0.3" opacity="0.08"/>
+  <path d="M340 120 Q350 140 340 160" stroke="#d4b896" stroke-width="0.5" fill="none" opacity="0.15"/>
+  <path d="M355 125 Q365 145 355 165" stroke="#d4b896" stroke-width="0.3" fill="none" opacity="0.1"/>
+  <rect x="30" y="430" width="20" height="1" fill="#d4b896" opacity="0.3"/>
+  <rect x="30" y="440" width="12" height="1" fill="#d4b896" opacity="0.15"/>
+</svg>

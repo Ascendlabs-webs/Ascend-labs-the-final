@@ -1,1200 +1,419 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="dark" lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKKEQJ0HRJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-RKKEQJ0HRJ');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Ascend Labs - Leading digital agency specializing in web design, branding, and web development. Premium digital studio creating exceptional websites, brand identities, and digital experiences for ambitious businesses.">
-    <meta name="keywords"
-        content="Ascend Labs, digital agency, web design agency, branding agency, web development company, digital studio, UI/UX design, brand strategy, digital marketing, website development">
-    <meta name="author" content="Ascend Labs">
-    <meta name="theme-color" content="#0a0a0f">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://ascendlabs.com/">
-
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="US">
-    <meta name="geo.placename" content="United States">
-
-    <!-- Language -->
-    <meta http-equiv="content-language" content="en-US">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ascendlabs.com/">
-    <meta property="og:site_name" content="Ascend Labs">
-    <meta property="og:title" content="Ascend Labs | Premier Digital Agency & Web Design Studio">
-    <meta property="og:description"
-        content="Ascend Labs - Leading digital agency crafting exceptional web experiences. Expert web design, branding, and development services for businesses that demand excellence.">
-    <meta property="og:image" content="https://ascendlabs.com/assets/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Ascend Labs - Digital Agency & Web Design Studio">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://ascendlabs.com/">
-    <meta name="twitter:site" content="@ascendlabs">
-    <meta name="twitter:creator" content="@ascendlabs">
-    <meta name="twitter:title" content="Ascend Labs | Premier Digital Agency & Web Design Studio">
-    <meta name="twitter:description"
-        content="Leading digital agency specializing in web design, branding, and development. Creating exceptional digital experiences.">
-    <meta name="twitter:image" content="https://ascendlabs.com/assets/og-image.jpg">
-    <meta name="twitter:image:alt" content="Ascend Labs - Digital Agency">
-
-    <title>Ascend Labs | Premier Digital Agency, Web Design & Branding Studio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preload" as="image" href="assets/work-previews/AscendLabs.jpg" fetchpriority="high">
-    <link rel="preload" as="style" href="styles.css">
-    <link rel="preload" as="script" href="script.js">
-
-    <!-- Fonts & Performance Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    </noscript>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-
-    <!-- Structured Data - Organization Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ascend Labs",
-      "alternateName": "AscendLabs",
-      "url": "https://ascendlabs.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ascendlabs.com/assets/work-previews/AscendLabs.jpg",
-        "width": 600,
-        "height": 600
-      },
-      "description": "Ascend Labs is a premier digital agency specializing in web design, branding, and web development. We create exceptional digital experiences through strategic design and scalable development for ambitious businesses.",
-      "foundingDate": "2024",
-      "founder": {
-        "@type": "Person",
-        "name": "Ascend Labs Team"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "email": "hello@ascendlabs.com",
-        "availableLanguage": ["English"]
-      },
-      "sameAs": [
-        "https://linkedin.com/company/ascendlabs",
-        "https://twitter.com/ascendlabs",
-        "https://dribbble.com/ascendlabs"
-      ],
-      "serviceType": [
-        "Web Design",
-        "Web Development",
-        "Branding",
-        "Digital Strategy",
-        "UI/UX Design",
-        "Digital Marketing",
-        "Social Media Management"
-      ]
-    }
-    </script>
-
-    <!-- Structured Data - LocalBusiness Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Ascend Labs",
-      "image": "https://ascendlabs.com/assets/work-previews/AscendLabs.jpg",
-      "url": "https://ascendlabs.com",
-      "telephone": "+1-XXX-XXX-XXXX",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 37.7749,
-        "longitude": -122.4194
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "87"
-      }
-    }
-    </script>
-
-    <!-- Structured Data - Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Digital Agency Services",
-      "provider": {
-        "@type": "Organization",
-        "name": "Ascend Labs",
-        "url": "https://ascendlabs.com"
-      },
-      "areaServed": "Worldwide",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Digital Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Web Design & Development",
-              "description": "Custom website design and development services"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascend Labs | Web Design, Branding & SEO Agency in Chennai</title>
+  <meta name="description" content="Chennai digital agency for websites, apps, branding, SEO & AI automation. Fast, mobile-first sites that turn visitors into customers.">
+  <meta name="keywords" content="digital agency Chennai, web development, branding, SEO, AI automation, mobile apps, social media management, Ascend Labs">
+  <meta name="author" content="Ascend Labs">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://ascendlabs.space/">
+  <link rel="alternate" type="text/plain" title="AI / LLM info" href="https://ascendlabs.space/llms.txt">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ascend Labs">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Ascend Labs | Web Design, Branding & SEO Agency in Chennai">
+  <meta property="og:description" content="Chennai digital agency for websites, apps, branding, SEO & AI automation. Fast, mobile-first sites that turn visitors into customers.">
+  <meta property="og:url" content="https://ascendlabs.space/">
+  <meta property="og:image" content="https://ascendlabs.space/assets/work-previews/og-image.png">
+  <meta property="og:image:alt" content="Ascend Labs — Chennai digital agency">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ascend Labs | Web Design, Branding & SEO Agency in Chennai">
+  <meta name="twitter:description" content="Chennai digital agency for websites, apps, branding, SEO & AI automation. Fast, mobile-first sites that turn visitors into customers.">
+  <meta name="twitter:image" content="https://ascendlabs.space/assets/work-previews/og-image.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    try {
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#191b23",
+              "surface": "#0a0a0a",
+              "primary-fixed-dim": "#ffffff",
+              "on-background": "#e1e1e1",
+              "primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#404040",
+              "surface-bright": "#1a1a1a",
+              "on-secondary": "#000000",
+              "on-primary-fixed-variant": "#404040",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#262626",
+              "on-tertiary-container": "#ffffff",
+              "tertiary": "#a3a3a3",
+              "secondary-fixed": "#e5e5e5",
+              "secondary": "#a3a3a3",
+              "surface-container": "#111111",
+              "secondary-container": "#262626",
+              "tertiary-fixed-dim": "#a3a3a3",
+              "surface-container-high": "#1a1a1a",
+              "primary-fixed": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-dim": "#0a0a0a",
+              "on-surface": "#ffffff",
+              "on-secondary-fixed-variant": "#404040",
+              "on-secondary-container": "#e5e5e5",
+              "on-primary-fixed": "#000000",
+              "on-primary": "#000000",
+              "on-error-container": "#ffffff",
+              "on-primary-container": "#000000",
+              "on-surface-variant": "#a3a3a3",
+              "inverse-on-surface": "#1a1a1a",
+              "error-container": "#404040",
+              "on-tertiary-fixed": "#000000",
+              "error": "#ffffff",
+              "surface-tint": "#ffffff",
+              "outline-variant": "#262626",
+              "secondary-fixed-dim": "#a3a3a3",
+              "surface-container-highest": "#262626",
+              "inverse-primary": "#000000",
+              "primary-container": "#ffffff",
+              "background": "#0a0a0a",
+              "on-secondary-fixed": "#000000",
+              "outline": "#404040",
+              "surface-variant": "#1a1a1a",
+              "surface-container-lowest": "#050505",
+              "tertiary-fixed": "#e5e5e5",
+              "inverse-surface": "#ffffff"
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: { unit: "8px", "margin-mobile": "20px", gutter: "32px", "container-max": "1280px", "section-gap": "160px" },
+            fontFamily: {
+              "display-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "label-caps": ["Geist"],
+              "headline-md": ["Inter"],
+              "body-lg": ["Inter"]
+            },
+            fontSize: {
+              "display-lg": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+              "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+              "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+              "headline-md": ["32px", { lineHeight: "1.3", letterSpacing: "-0.02em", fontWeight: "600" }],
+              "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }]
             }
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Branding & Strategy",
-              "description": "Brand identity and digital strategy services"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Digital Marketing",
-              "description": "SEO, analytics, and digital marketing services"
-            }
-          }
-        ]
+        },
       }
-    }
-    </script>
-
-    <!-- Structured Data - WebSite Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Ascend Labs",
-      "url": "https://ascendlabs.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://ascendlabs.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <!-- Structured Data - FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What services does Ascend Labs offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ascend Labs is a full-service digital agency offering web design, web development, branding and strategy, UI/UX design, digital marketing, SEO services, and social media management. We create exceptional digital experiences for ambitious businesses."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does a website cost at Ascend Labs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our web design and development packages start at ₹18,000 for a Starter website (up to 3 pages), ₹28,000 for Professional (4-6 pages), and ₹40,000+ for Enterprise solutions. All packages include 1 year of managed hosting."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What makes Ascend Labs different from other digital agencies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ascend Labs combines strategic design thinking with technical excellence. We focus on creating scalable, performance-optimized digital experiences that drive measurable business growth. Our work extends beyond websites to include comprehensive branding and digital strategy."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to build a website with Ascend Labs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Project timelines vary based on scope. Starter websites typically take 7-10 working days, Professional websites 10-14 working days, and Enterprise projects 14-21 working days. We provide detailed timelines during consultation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Ascend Labs provide ongoing support and maintenance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all our packages include 1 year of managed hosting. We also offer ongoing support plans, social media management, and digital marketing services to help your business grow continuously."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- Structured Data - BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ascendlabs.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Services",
-          "item": "https://ascendlabs.com/#services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Work",
-          "item": "https://ascendlabs.com/#work"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Pricing",
-          "item": "https://ascendlabs.com/#pricing"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "About",
-          "item": "https://ascendlabs.com/#about"
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "name": "Contact",
-          "item": "https://ascendlabs.com/#contact"
-        }
-      ]
-    }
-    </script>
-    <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
-    <link rel="apple-touch-icon" href="assets/favicon.jpg">
+    } catch (_e) {}
+  </script>
+  <link rel="stylesheet" href="custom.css">
+  <link rel="icon" type="image/x-icon" href="assets/work-previews/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="assets/work-previews/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/work-previews/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" href="assets/work-previews/favicon_io/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ascend Labs",
+    "url": "https://ascendlabs.space/",
+    "logo": "https://ascendlabs.space/assets/work-previews/AscendLabs.jpg",
+    "email": "ascendlabs.com@gmail.com",
+    "description": "Chennai-based digital agency specializing in web development, mobile apps, social media management, branding, SEO, and AI automation.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressCountry": "IN"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ascend Labs",
+    "url": "https://ascendlabs.space/"
+  }
+  </script>
 </head>
+<body class="bg-background text-on-surface selection:bg-white selection:text-black font-body-md mesh-gradient overflow-x-hidden">
+  <a href="#main" class="skip-link">Skip to content</a>
 
-<body>
-    <!-- Custom Cursor System -->
-    <div class="cursor">
-        <div class="cursor__inner"></div>
-        <div class="cursor__outer"></div>
+  <header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-2xl border-b border-white/10 h-20">
+    <div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+      <a href="index.html" class="header-logo flex items-center gap-3 font-display-lg text-headline-md tracking-tighter text-on-surface"><img src="assets/work-previews/photo_6264793174198915400_y.jpg" alt="Ascend Labs logo — Chennai digital agency" width="32" height="32" fetchpriority="high" decoding="async" class="h-7 w-auto rounded">Ascend Labs</a>
+      <nav class="nav-desktop flex gap-10">
+        <a href="index.html" class="nav-link font-label-caps text-sm text-white font-bold tracking-widest uppercase is-active">Home</a>
+        <a href="services.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Services</a>
+        <a href="work.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Work</a>
+        <a href="about.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">About</a>
+        <a href="pricing.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Pricing</a>
+        <a href="contact.html" class="nav-link font-label-caps text-sm text-on-surface-variant hover:text-white transition-colors tracking-widest uppercase">Contact</a>
+      </nav>
+      <a href="contact.html" class="hidden md:inline-block bg-white text-black px-8 py-2.5 rounded-full font-label-caps uppercase text-[11px] tracking-[0.15em] hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" role="dialog">
+    <a href="index.html" class="is-active">Home</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="mobile-cta">Book a Free Call</a>
+  </div>
 
-    <!-- Page Transition Overlay -->
-    <div class="page-transition"></div>
-
-    <!-- CINEMATIC WEBGL TRANSITION LAYER -->
-    <canvas class="cinematic-canvas" id="cinematicCanvas"></canvas>
-
-    <!-- Navigation -->
-    <nav class="nav" id="mainNav">
-        <div class="nav__container">
-            <a href="#" class="nav__logo">
-                <img src="assets/work-previews/AscendLabs.jpg"
-                    alt="Ascend Labs Digital Agency Logo - Web Design and Branding Studio" class="nav__logo-image"
-                    width="50" height="50" decoding="async" fetchpriority="high">
-                <span class="nav__logo-glow"></span>
-            </a>
-
-            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-            </button>
-
-            <ul class="nav__menu" id="navMenu">
-                <li class="nav__item"><a href="#home" class="nav__link" data-text="Home" data-nav-key="home">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#services" class="nav__link" data-text="Services" data-nav-key="services">Services</a>
-                </li>
-                <li class="nav__item"><a href="#work" class="nav__link" data-text="Work" data-nav-key="work">Work</a>
-                </li>
-                <li class="nav__item"><a href="#pricing" class="nav__link" data-text="Pricing"
-                        data-nav-key="pricing">Pricing</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link" data-text="About"
-                        data-nav-key="about">About</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta" data-text="Contact"
-                        data-nav-key="contact">Contact</a></li>
-            </ul>
+  <main id="main" class="relative">
+    <section class="hero-section pt-48 pb-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+      <div class="max-w-4xl">
+        <span class="font-label-caps text-white uppercase tracking-[0.3em] mb-6 block text-[12px]">Digital Agency</span>
+        <h1 class="font-display-lg text-display-lg-mobile md:text-[84px] mb-8 leading-[1] text-on-surface max-w-5xl">
+          Designing Digital Presence That <span class="text-neutral-400 italic font-light">Moves Brands Forward</span>
+        </h1>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed text-lg md:text-xl">
+          We build fast websites for shops and startups in Chennai. Clear design, easy to use on phones, and made to bring you more calls and sales.
+        </p>
+        <div class="hero-buttons flex gap-4 mt-12">
+          <a href="contact.html" class="bg-white text-black px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-neutral-200 active:scale-95 transition-all">Book a Free Strategy Call</a>
+          <a href="contact.html" class="border border-white/20 text-white px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-white/10 active:scale-95 transition-all">Get a Free Website Audit</a>
         </div>
-        <div class="nav__progress"></div>
-    </nav>
+      </div>
+    </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero scene-section" id="home" data-scene="hero">
-            <!-- WebGL Shader Background (PRESERVED) -->
-            <canvas class="hero__canvas" id="heroCanvas"></canvas>
-
-            <!-- NEW: 3D Scene Layer -->
-            <canvas class="hero__canvas-3d" id="heroCanvas3D"></canvas>
-
-            <!-- Particle Layer (PRESERVED) -->
-            <div class="hero__particles" id="heroParticles"></div>
-
-            <!-- Gradient Overlay for Depth (PRESERVED) -->
-            <div class="hero__gradient"></div>
-
-            <!-- Services / Products mega panel (Squarespace-style) -->
-            <div class="hero-products" id="heroProductsPanel" aria-hidden="true">
-                <div class="hero-products__inner">
-                    <div class="hero-products__grid">
-                        <div class="hero-products__column">
-                            <h3 class="hero-products__heading">Design</h3>
-                            <ul class="hero-products__list">
-                                <li><a href="#services" class="hero-products__link">Brand & Identity</a></li>
-                                <li><a href="#services" class="hero-products__link">UI/UX Design</a></li>
-                                <li><a href="#services" class="hero-products__link">Design Systems</a></li>
-                                <li><a href="#services" class="hero-products__link">Motion Design</a></li>
-                                <li><a href="#services" class="hero-products__link">Portfolios</a></li>
-                                <li><a href="#services" class="hero-products__link">View All Design</a></li>
-                            </ul>
-                        </div>
-                        <div class="hero-products__column">
-                            <h3 class="hero-products__heading">Development</h3>
-                            <ul class="hero-products__list">
-                                <li><a href="#services" class="hero-products__link">Web Applications</a></li>
-                                <li><a href="#services" class="hero-products__link">E‑commerce</a></li>
-                                <li><a href="#services" class="hero-products__link">APIs & Integrations</a></li>
-                                <li><a href="#services" class="hero-products__link">Performance</a></li>
-                                <li><a href="#services" class="hero-products__link">Mobile</a></li>
-                                <li><a href="#services" class="hero-products__link">View All Development</a></li>
-                            </ul>
-                        </div>
-                        <div class="hero-products__column">
-                            <h3 class="hero-products__heading">Strategy & Growth</h3>
-                            <ul class="hero-products__list">
-                                <li><a href="#services" class="hero-products__link">Digital Strategy</a></li>
-                                <li><a href="#services" class="hero-products__link">SEO & Analytics</a></li>
-                                <li><a href="#services" class="hero-products__link">Content Strategy</a></li>
-                                <li><a href="#services" class="hero-products__link">Research</a></li>
-                                <li><a href="#services" class="hero-products__link">Marketing</a></li>
-                                <li><a href="#services" class="hero-products__link">View All Strategy</a></li>
-                            </ul>
-                        </div>
-                        <div class="hero-products__column hero-products__column--cta">
-                            <h3 class="hero-products__heading">For Teams</h3>
-                            <div class="hero-products__cards">
-                                <a href="#contact" class="hero-products__card">
-                                    <strong class="hero-products__card-title">Ascend for Teams</strong>
-                                    <p class="hero-products__card-desc">Dedicated support and scalable delivery for
-                                        growing organizations.</p>
-                                </a>
-                                <a href="#pricing" class="hero-products__card">
-                                    <strong class="hero-products__card-title">Enterprise</strong>
-                                    <p class="hero-products__card-desc">Custom solutions and SLAs for enterprises that
-                                        demand the best.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero__container">
-                <div class="hero__content">
-                    <h1 class="hero__title" data-splitting>
-                        <span class="hero__title-line" data-aos="hero-reveal" data-aos-delay="200">
-                            <span class="hero__title-word">Designing</span>
-                            <span class="hero__title-word">Digital</span>
-                            <span class="hero__title-word">Presence</span>
-                        </span>
-                        <span class="hero__title-line" data-aos="hero-reveal" data-aos-delay="400">
-                            <span class="hero__title-word">That</span>
-                            <span class="hero__title-word">Moves</span>
-                            <span class="hero__title-word">Brands</span>
-                            <span class="hero__title-word">Forward</span>
-                        </span>
-                    </h1>
-                    <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="800">
-                        We partner with ambitious brands to create digital experiences that don't just look
-                        exceptional—they perform exceptionally. From strategic design to scalable development, we build
-                        platforms that drive measurable growth.
-                    </p>
-                    <div class="hero__cta-group" data-aos="fade-up" data-aos-delay="1000">
-                        <a href="#contact" class="btn btn--primary btn--magnetic">
-                            <span class="btn__text">Start Your Project</span>
-                            <span class="btn__glow"></span>
-                        </a>
-                        <a href="#work" class="btn btn--secondary btn--magnetic">
-                            <span class="btn__text">View Our Work</span>
-                            <span class="btn__glow"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll indicator with animated arrow -->
-            <div class="hero__scroll-indicator" data-aos="fade-up" data-aos-delay="1200">
-                <span class="hero__scroll-text">Scroll to explore</span>
-                <div class="hero__scroll-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M19 12l-7 7-7-7" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Ambient light orbs (PRESERVED) -->
-            <div class="hero__orb hero__orb--1"></div>
-            <div class="hero__orb hero__orb--2"></div>
-            <div class="hero__orb hero__orb--3"></div>
-        </section>
-
-        <!-- Our website work – LogoLoop-style infinite marquee -->
-        <section class="work-loop work-loop--logoloop section-parallax" id="work-loop" data-section-theme="dark">
-            <div class="work-loop__container">
-                <header class="section-header work-loop__header">
-                    <span class="section-header__label">Portfolio</span>
-                    <h2 class="section-header__title">Our Website Design & Development Work</h2>
-                    <p class="section-header__description">
-                        A selection of exceptional digital experiences and web design projects we've crafted for
-                        ambitious brands and businesses.
-                    </p>
-                </header>
-                <div class="work-loop__carousel" aria-label="Website showcase carousel">
-                    <div class="work-loop__track" id="workLoopTrack">
-                        <article class="work-loop__slide" data-index="3">
-                            <a href="https://ascendlabs-webs.github.io/RollsRoyce/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Rolls Royce website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/rolls-royce.png"
-                                        alt="Rolls Royce luxury automotive website design - Premium web design project by Ascend Labs"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Luxury Brand Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Rolls Royce Concept</span>
-                                <span class="work-loop__card-subtitle">High-end luxury presentation with premium visual
-                                    rhythm.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="8">
-                            <a href="https://ascendlabs-webs.github.io/salon-anti-package-2/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Aura Salon & Spa website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/Aura Salon.png"
-                                        alt="Aura Salon & Spa website design - Premium hair and beauty experience by Ascend Labs"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Beauty Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Aura Salon & Spa</span>
-                                <span class="work-loop__card-subtitle">Premium hair and beauty sanctuary with a focus on
-                                    luxury care and expert styling.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="9">
-                            <a href="https://ascendlabs-webs.github.io/Indian-Restaurant-demo/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Zaika Fine Dining website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/Zaika restuarant.png"
-                                        alt="Zaika fine Indian dining website design - Exquisite culinary presentation by Ascend Labs"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Dining Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Zaika Fine Dining</span>
-                                <span class="work-loop__card-subtitle">Exquisite Indian cuisine showcased through an
-                                    elegant and immersive digital experience.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="10">
-                            <a href="https://ascendlabs-webs.github.io/salon-package-2/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Lumière Salon website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/Lumiere salon.png"
-                                        alt="Lumière Salon website design - Fashion-forward hair styling and beauty services"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Salon Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Lumière Salon</span>
-                                <span class="work-loop__card-subtitle">Bespoke beauty and fashion-forward styling with a
-                                    polished, high-end visual aesthetic.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-
-                        <article class="work-loop__slide" data-index="5">
-                            <a href="https://ascendlabs-webs.github.io/Ascend-Demo-of-spatial-motion/"
-                                class="work-loop__card" target="_blank" rel="noopener"
-                                aria-label="View spatial motion demo website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/spatial-motion.png"
-                                        alt="Spatial motion demo - Interactive WebGL website design by Ascend Labs"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Spatial Motion Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Spatial Motion Demo</span>
-                                <span class="work-loop__card-subtitle">Experimental depth and interaction patterns for
-                                    immersive storytelling.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="6">
-                            <a href="https://ascendlabs-webs.github.io/example-of-Luxe-A-Salon/" class="work-loop__card"
-                                target="_blank" rel="noopener" aria-label="View Luxe A Salon website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/luxe-salon.png"
-                                        alt="Luxe A Salon website design - Beauty and wellness web design by Ascend Labs"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Salon Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Luxe A Salon</span>
-                                <span class="work-loop__card-subtitle">Elegant beauty and salon identity with refined
-                                    typography focus.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                        <article class="work-loop__slide" data-index="7">
-                            <a href="https://ascendlabs-webs.github.io/Gym/" class="work-loop__card" target="_blank"
-                                rel="noopener" aria-label="View gym website">
-                                <div class="work-loop__card-preview">
-                                    <img src="assets/work-previews/gym.png"
-                                        alt="Gym fitness center website design - Bold web design for fitness brands"
-                                        loading="lazy" decoding="async" fetchpriority="low" width="600" height="375"
-                                        onerror="this.style.display='none'">
-                                    <span class="work-loop__card-placeholder">Gym Theme</span>
-                                </div>
-                                <span class="work-loop__card-title">Gym Website</span>
-                                <span class="work-loop__card-subtitle">Bold fitness-focused layout built for energy and
-                                    conversion.</span>
-                                <span class="work-loop__card-cta">View site</span>
-                            </a>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services section-parallax scene-section" id="services" data-section-theme="dark"
-            data-scene="services">
-            <div class="services__container">
-                <header class="section-header" data-scroll-reveal="header">
-                    <span class="section-header__label" data-reveal="fade-slide">What We Do</span>
-                    <h2 class="section-header__title" data-reveal="chars">Digital Agency Services Built for Scale</h2>
-                    <p class="section-header__description" data-reveal="fade-up">
-                        Every engagement is tailored to your goals, but our core expertise remains consistent—strategic
-                        web design, branding, and development that's scalable and designed to last.
-                    </p>
-                </header>
-
-                <div class="services__grid" data-scroll-stagger>
-                    <!-- Service Card 1 -->
-                    <article class="service-card" data-tilt data-card-3d data-stagger-item>
-                        <div class="service-card__glow"></div>
-                        <div class="service-card__border"></div>
-                        <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Brand & Strategy</h3>
-                        <p class="service-card__description">
-                            Strategic positioning that defines your market presence. We craft identities that resonate
-                            deeply and differentiate decisively.
-                        </p>
-                        <ul class="service-card__features">
-                            <li>Brand Architecture</li>
-                            <li>Visual Identity Systems</li>
-                            <li>Digital Strategy</li>
-                        </ul>
-                    </article>
-
-                    <!-- Service Card 2 -->
-                    <article class="service-card" data-tilt data-card-3d data-stagger-item>
-                        <div class="service-card__glow"></div>
-                        <div class="service-card__border"></div>
-                        <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Digital Design</h3>
-                        <p class="service-card__description">
-                            Interfaces that feel native to each platform while maintaining a cohesive brand experience
-                            across all touchpoints.
-                        </p>
-                        <ul class="service-card__features">
-                            <li>UI/UX Design</li>
-                            <li>Design Systems</li>
-                            <li>Motion Design</li>
-                        </ul>
-                    </article>
-
-                    <!-- Service Card 3 -->
-                    <article class="service-card" data-tilt data-card-3d data-stagger-item>
-                        <div class="service-card__glow"></div>
-                        <div class="service-card__border"></div>
-                        <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Development</h3>
-                        <p class="service-card__description">
-                            We build structured, high-performance websites that are reliable, scalable, and built to
-                            last.
-                        </p>
-                        <ul class="service-card__features">
-                            <li>Web Applications</li>
-                            <li>Mobile Development</li>
-                            <li>Performance Optimization</li>
-                        </ul>
-                    </article>
-
-                    <!-- Service Card 4 -->
-                    <article class="service-card" data-tilt data-card-3d data-stagger-item>
-                        <div class="service-card__glow"></div>
-                        <div class="service-card__border"></div>
-                        <div class="service-card__icon" data-icon-float>
-                            <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="18" cy="5" r="3"></circle>
-                                <circle cx="6" cy="12" r="3"></circle>
-                                <circle cx="18" cy="19" r="3"></circle>
-                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Social Media Management</h3>
-                        <p class="service-card__description">
-                            We manage your brand’s social presence with clarity and consistency. From content creation
-                            to performance monitoring, we ensure your platforms reflect the level of your business.
-                        </p>
-                        <ul class="service-card__features">
-                            <li>Content Planning & Design</li>
-                            <li>Profile Optimization</li>
-                            <li>Performance Reporting</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Work Section -->
-        <section class="work section-parallax scene-section" id="work" data-scene="work">
-            <div class="work__container">
-                <header class="section-header" data-scroll-reveal="header">
-                    <span class="section-header__label">Case Studies</span>
-                    <h2 class="section-header__title">Selected Web Design & Development Projects</h2>
-                    <p class="section-header__description">
-                        A showcase of premium websites and digital platforms we've built for companies pushing the
-                        boundaries of their industries.
-                    </p>
-                </header>
-
-                <div class="work__grid" data-scroll-stagger>
-                    <a href="https://ascendlabs-webs.github.io/Apex-ultimate/" class="work-card work-card--apex"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open APEX Performance website">
-                        <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(8, 18, 20, 0.45) 0%, rgba(15, 39, 45, 0.35) 100%), url('assets/work-previews/apex-ultimate.png'); background-size: cover; background-position: top center;">
-                            </div>
-                            <div class="work-card__chrome">
-                                <span class="work-card__brand">APEX</span>
-                                <ul class="work-card__menu">
-                                    <li>Home</li>
-                                    <li>Programs</li>
-                                    <li>Gallery</li>
-                                </ul>
-                            </div>
-                            <div class="work-card__hero-text">
-                                <span class="work-card__kicker">Elite Performance Training</span>
-                                <h4 class="work-card__display">DOMINATE</h4>
-                            </div>
-                            <div class="work-card__hero-actions">
-                                <span class="work-card__chip">Start Journey</span>
-                                <span class="work-card__chip work-card__chip--ghost">Explore Programs</span>
-                            </div>
-                        </div>
-                        <div class="work-card__content">
-                            <span class="work-card__category">Fitness Brand Website</span>
-                            <h3 class="work-card__title">APEX Performance</h3>
-                            <p class="work-card__description">
-                                High-intensity performance theme built for premium gym and training brands.
-                            </p>
-                            <div class="work-card__tags">
-                                <span class="work-card__tag">Apex Ultimate</span>
-                                <span class="work-card__tag">Brand-Led UI</span>
-                                <span class="work-card__tag">Hero Motion</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="https://ascendlabs-webs.github.io/Aurela-cafe/" class="work-card work-card--aurelia"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open Aurelia Cafe website">
-                        <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(28, 18, 9, 0.45) 0%, rgba(58, 37, 18, 0.35) 100%), url('assets/work-previews/aurelia-cafe.png'); background-size: cover; background-position: top center;">
-                            </div>
-                            <div class="work-card__chrome">
-                                <span class="work-card__brand">Aurelia</span>
-                                <ul class="work-card__menu">
-                                    <li>Story</li>
-                                    <li>Menu</li>
-                                    <li>Contact</li>
-                                </ul>
-                            </div>
-                            <div class="work-card__hero-text">
-                                <span class="work-card__kicker">Est. 2024 - Artisanal Coffee Culture</span>
-                                <h4 class="work-card__display">Where Coffee<br>Becomes Culture</h4>
-                            </div>
-                            <div class="work-card__hero-actions">
-                                <span class="work-card__chip">Explore Menu</span>
-                                <span class="work-card__chip work-card__chip--ghost">Visit Us</span>
-                            </div>
-                        </div>
-                        <div class="work-card__content">
-                            <span class="work-card__category">Cafe Showcase Website</span>
-                            <h3 class="work-card__title">Aurelia Cafe</h3>
-                            <p class="work-card__description">
-                                Elegant coffee house experience with refined typography and editorial sections.
-                            </p>
-                            <div class="work-card__tags">
-                                <span class="work-card__tag">Aurela Cafe</span>
-                                <span class="work-card__tag">Editorial Grid</span>
-                                <span class="work-card__tag">Warm Palette</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="https://ascendlabs-webs.github.io/Ember-Grain/" class="work-card work-card--ember"
-                        data-stagger-item target="_blank" rel="noopener" aria-label="Open Ember and Grain website">
-                        <div class="work-card__image-wrapper">
-                            <div class="work-card__image" data-parallax-image
-                                style="background-image: linear-gradient(135deg, rgba(245, 236, 223, 0.62) 0%, rgba(227, 214, 196, 0.48) 100%), url('assets/work-previews/ember-grain.png'); background-size: cover; background-position: top center;">
-                            </div>
-                            <div class="work-card__chrome">
-                                <span class="work-card__brand">Ember &amp; Grain</span>
-                                <ul class="work-card__menu">
-                                    <li>Home</li>
-                                    <li>Menu</li>
-                                    <li>Gallery</li>
-                                </ul>
-                            </div>
-                            <div class="work-card__hero-text">
-                                <span class="work-card__kicker">Artisan Coffee &amp; Handcrafted Food</span>
-                                <h4 class="work-card__display">Where Every Sip<br>Tells a Story</h4>
-                            </div>
-                            <div class="work-card__hero-actions">
-                                <span class="work-card__chip">Explore Menu</span>
-                                <span class="work-card__chip work-card__chip--ghost">Visit Us</span>
-                            </div>
-                        </div>
-                        <div class="work-card__content">
-                            <span class="work-card__category">Artisan Cafe Website</span>
-                            <h3 class="work-card__title">Ember &amp; Grain</h3>
-                            <p class="work-card__description">
-                                Cozy artisan concept focused on handcrafted food storytelling and atmosphere.
-                            </p>
-                            <div class="work-card__tags">
-                                <span class="work-card__tag">Ember Grain</span>
-                                <span class="work-card__tag">Parallax Mood</span>
-                                <span class="work-card__tag">Artisan Visuals</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="pricing section-parallax scene-section" id="pricing" data-scene="pricing">
-            <div class="pricing__container">
-                <header class="section-header" data-scroll-reveal="header">
-                    <span class="section-header__label">Investment</span>
-                    <h2 class="section-header__title">Transparent Web Design & Development Pricing</h2>
-                    <p class="section-header__description">
-                        No hidden fees. No surprises. Just clear, straightforward pricing for exceptional web design,
-                        branding, and development work.
-                    </p>
-                </header>
-
-                <div class="pricing__grid" data-scroll-stagger>
-                    <!-- Pricing Card 1 -->
-                    <article class="pricing-card" data-stagger-item>
-                        <div class="pricing-card__header">
-                            <h3 class="pricing-card__name">Starter</h3>
-                            <div class="pricing-card__price">
-                                <span class="pricing-card__amount">18K</span>
-                            </div>
-                            <p class="pricing-card__description">A refined digital presence for businesses entering the
-                                online space</p>
-                        </div>
-                        <ul class="pricing-card__features">
-                            <li class="pricing-card__feature">Up to 3 Structured Pages</li>
-                            <li class="pricing-card__feature">Clean, Responsive Design</li>
-                            <li class="pricing-card__feature">Contact Integration</li>
-                            <li class="pricing-card__feature">Basic SEO Foundation</li>
-                            <li class="pricing-card__feature">1 Year Managed Hosting</li>
-                            <li class="pricing-card__feature">Estimated Delivery: 7–10 Working Days</li>
-                        </ul>
-                        <a href="#contact" class="pricing-card__cta">Get Started</a>
-                    </article>
-
-                    <!-- Pricing Card 2 (Featured) -->
-                    <article class="pricing-card pricing-card--featured" data-stagger-item>
-                        <div class="pricing-card__badge">Most Popular</div>
-                        <div class="pricing-card__header">
-                            <h3 class="pricing-card__name">Professional</h3>
-                            <div class="pricing-card__price">
-                                <span class="pricing-card__amount">28K</span>
-                            </div>
-                            <p class="pricing-card__description">A structured digital system designed for clarity,
-                                performance, and growth</p>
-                        </div>
-                        <ul class="pricing-card__features">
-                            <li class="pricing-card__feature">Everything in Starter</li>
-                            <li class="pricing-card__feature"> 4–6 Custom Pages</li>
-                            <li class="pricing-card__feature">Elevated Visual Direction</li>
-                            <li class="pricing-card__feature">Dedicated Service Pages</li>
-                            <li class="pricing-card__feature"> Lead Capture Integration</li>
-                            <li class="pricing-card__feature">Performance Optimization</li>
-                            <li class="pricing-card__feature"> 1 Year Managed Hosting</li>
-                            <li class="pricing-card__feature">Estimated Delivery: 10–14 Working Days</li>
-                        </ul>
-                        <a href="#contact" class="pricing-card__cta">Get Started</a>
-                    </article>
-
-                    <!-- Pricing Card 3 -->
-                    <article class="pricing-card" data-stagger-item>
-                        <div class="pricing-card__header">
-                            <h3 class="pricing-card__name">Enterprise</h3>
-                            <div class="pricing-card__price">
-                                <span class="pricing-card__amount">40K</span>
-                            </div>
-                            <p class="pricing-card__description">A refined digital experience crafted for brands that
-                                demand presence</p>
-                        </div>
-                        <ul class="pricing-card__features">
-                            <li class="pricing-card__feature">6+ Custom Designed Pages</li>
-                            <li class="pricing-card__feature">Advanced Visual Styling</li>
-                            <li class="pricing-card__feature">Scroll Interactions</li>
-                            <li class="pricing-card__feature"> Strategic CTA Structuring</li>
-                            <li class="pricing-card__feature">Smart System Integration</li>
-                            <li class="pricing-card__feature">1 Year Managed Hosting</li>
-                            <li class="pricing-card__feature">Estimated Delivery: 14–21 Working Days</li>
-                        </ul>
-                        <a href="#contact" class="pricing-card__cta">Contact Us</a>
-                    </article>
-                </div>
-
-                <!-- Enhanced Expandable Pricing Button -->
-                <div class="pricing-expand" id="pricingExpand">
-                    <div class="pricing-expand__menu" role="list">
-                        <a href="#contact" class="pricing-expand__item" style="--i:3">
-                            Managed support plans
-                        </a>
-                        <a href="#contact" class="pricing-expand__item" style="--i:2">
-                            Smart lead setup
-                        </a>
-                        <a href="#contact" class="pricing-expand__item" style="--i:1">
-                            Appointment booking system
-                        </a>
-                        <a href="#contact" class="pricing-expand__item" style="--i:0">
-                            Social media management
-                        </a>
-                    </div>
-                    <button class="pricing-expand__trigger btn btn--primary btn--magnetic" id="pricingExpandTrigger"
-                        aria-label="View more options">
-                        <span class="pricing-expand__label">Add on</span>
-                        <span class="btn__glow"></span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about section-parallax scene-section" id="about" data-scene="about">
-            <div class="about__container">
-                <header class="section-header" data-scroll-reveal="header">
-                    <span class="section-header__label">Our Story</span>
-                    <h2 class="section-header__title">Premier Digital Agency Built by Designers & Engineers</h2>
-                </header>
-
-                <div class="about__content" data-scroll-reveal>
-                    <div class="about__text-content">
-                        <div class="about__intro-copy" data-reveal="fade-up">
-                            <h3 class="about__headline">About Ascend Labs</h3>
-                            <p class="about__paragraph">Ascend Labs is a creative digital studio that specializes in
-                                creating structured, modern digital experiences for growing businesses.</p>
-
-                            <p class="about__paragraph">We believe good design is based on simplicity, not noise. Every
-                                project is crafted with intention, combining visual polish, technical accuracy, and
-                                performance.</p>
-
-                            <p class="about__paragraph">Our work extends beyond the website. We assist growing
-                                businesses in establishing their digital footprint with:</p>
-
-                            <ul class="about__service-list" data-scroll-stagger>
-                                <li data-stagger-item>Website design &amp; development</li>
-                                <li data-stagger-item>Booking &amp; automation solutions</li>
-                                <li data-stagger-item>Social media management</li>
-                                <li data-stagger-item>Digital marketing strategy</li>
-                            </ul>
-                            <p class="about__paragraph">
-                                We begin each project with structure. No unnecessary features. No overdesign. Just
-                                efficient systems to allow growing businesses to present themselves with confidence.
-                            </p>
-                            <p class="about__paragraph">
-                                From digital foundation to social media growth, we emphasize building foundational
-                                elements to ensure long-term business viability.
-                            </p>
-                            <p class="about__paragraph">
-                                At Ascend Labs, we don’t follow trends. We create digital systems that move growing
-                                businesses forward.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="about__visual-content">
-                        <div class="about__image-wrapper" data-stagger-item>
-                            <div class="about__image" data-parallax-image
-                                style="background-image: url('assets/work-previews/8eaab1ca-002d-4124-8af2-65178fbb88ff.png');">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section-parallax scene-section" id="contact" data-scene="contact">
-            <div class="contact__container">
-                <div class="contact__intro">
-                    <h2 class="contact__title" data-reveal="chars">Let's Build Something Great</h2>
-                    <p class="contact__description" data-reveal="fade-up">
-                        Tell us about your project and we'll get back to you within 24 hours with next steps. No sales
-                        pressure, just an honest conversation about what's possible.
-                    </p>
-                </div>
-
-                <form class="contact-form" id="contactForm" data-form-reveal>
-                    <input type="hidden" id="secure_token" name="secure_token" value="" />
-                    <p class="form-status" id="formStatus" role="status" aria-live="polite" aria-atomic="true" hidden>
-                    </p>
-                    <div class="contact-form__group" data-form-item>
-                        <label for="name" class="contact-form__label">Your Name</label>
-                        <input type="text" id="name" name="name" class="contact-form__input" required
-                            placeholder="Alex Morrison">
-                    </div>
-
-                    <div class="contact-form__group" data-form-item>
-                        <label for="email" class="contact-form__label">Email Address</label>
-                        <input type="email" id="email" name="email" class="contact-form__input" required
-                            placeholder="alex@company.com">
-                    </div>
-
-                    <div class="contact-form__group" data-form-item>
-                        <label for="company" class="contact-form__label">Company</label>
-                        <input type="text" id="company" name="company" class="contact-form__input"
-                            placeholder="Your Company Name">
-                    </div>
-
-                    <div class="contact-form__group" data-form-item>
-                        <label for="budget" class="contact-form__label">Estimated Budget</label>
-                        <select id="budget" name="budget" class="contact-form__select">
-                            <option value="">Select range</option>
-                            <option value="18-25k">₹18,000 - ₹25,000</option>
-                            <option value="25-50k">₹25,000 - ₹50,000</option>
-                            <option value="50-100k">₹50,000 - ₹100,000</option>
-                            <option value="100k+">₹100,000+</option>
-                        </select>
-                    </div>
-
-                    <div class="contact-form__group contact-form__group--full" data-form-item>
-                        <label for="message" class="contact-form__label">Project Details</label>
-                        <textarea id="message" name="message" class="contact-form__textarea" rows="6" required
-                            placeholder="Tell us about your project goals, timeline, and any specific requirements..."></textarea>
-                    </div>
-
-                    <button type="submit" class="contact-form__submit btn btn--primary" data-form-item>
-                        <span class="contact-form__submit-text">Send Your Message</span>
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Hidden SEO Content for Search Engines -->
-        <div class="visually-hidden" aria-hidden="true">
-            <h2>Ascend Labs - Leading Digital Agency Services</h2>
-            <p>Ascend Labs is a premier digital agency specializing in professional web design, custom web development,
-                brand identity design, and comprehensive digital marketing services. As a top-rated branding agency and
-                web development company, we serve businesses worldwide with exceptional digital studio services.</p>
-
-            <h3>Our Digital Agency Expertise</h3>
-            <p>Web design agency services, responsive website design, UI/UX design, user experience optimization,
-                mobile-first design, custom website development, e-commerce development, WordPress development, React
-                development, full-stack development.</p>
-
-            <h3>Branding & Strategy Services</h3>
-            <p>Brand identity design, logo design, brand strategy, visual identity systems, brand guidelines, corporate
-                branding, rebranding services, brand positioning, brand architecture.</p>
-
-            <h3>Digital Marketing & SEO</h3>
-            <p>Search engine optimization, SEO services, digital marketing strategy, content marketing, social media
-                marketing, social media management, email marketing, conversion rate optimization, Google Analytics,
-                performance tracking.</p>
-
-            <h3>Industries We Serve</h3>
-            <p>Digital agency for startups, enterprise web solutions, small business websites, e-commerce solutions,
-                SaaS companies, technology companies, creative agencies, professional services, healthcare, finance,
-                retail, hospitality.</p>
-
-            <h3>Why Choose Ascend Labs</h3>
-            <p>Award-winning digital agency, experienced web designers, expert developers, creative team, strategic
-                thinking, data-driven approach, measurable results, transparent pricing, dedicated support, fast
-                turnaround, quality assurance, ongoing maintenance.</p>
-
-            <h3>Our Process</h3>
-            <p>Discovery and research, strategy development, wireframing and prototyping, visual design, web
-                development, quality assurance testing, launch and deployment, ongoing support and maintenance,
-                performance optimization, continuous improvement.</p>
-
-            <h3>Technologies We Use</h3>
-            <p>HTML5, CSS3, JavaScript, React, Next.js, Node.js, WordPress, Shopify, Webflow, Figma, Adobe Creative
-                Suite, Git, responsive frameworks, modern web technologies, progressive web apps, API integrations.</p>
-
-            <h3>Service Areas</h3>
-            <p>Digital agency services worldwide, remote web design, global branding services, international clients,
-                North America, Europe, Asia, Australia, United States, United Kingdom, Canada, India.</p>
+    <section class="pb-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="value-props-container bg-surface-container-highest rounded-[32px] p-10 md:p-16 border border-white/10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">bolt</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Fast Turnaround</div>
+            <div class="text-on-surface-variant text-xs mt-1">Projects delivered within weeks</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">trending_up</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">SEO Optimized</div>
+            <div class="text-on-surface-variant text-xs mt-1">Built for search visibility</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">smartphone</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Mobile-First</div>
+            <div class="text-on-surface-variant text-xs mt-1">Every experience starts with mobile</div>
+          </div>
+          <div class="value-card text-center">
+            <span class="material-symbols-outlined text-white text-4xl mb-2">speed</span>
+            <div class="font-label-caps text-white text-sm font-semibold mt-2">Performance Focused</div>
+            <div class="text-on-surface-variant text-xs mt-1">Optimized for speed & conversions</div>
+          </div>
         </div>
-    </main>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer" data-footer-reveal>
-        <div class="footer__container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <a href="#" class="footer__logo">Ascend Labs</a>
-                    <p class="footer__tagline">Premier digital agency engineering excellence, delivering impact
-                        through web design and development.</p>
-                </div>
-
-                <nav class="footer__nav">
-                    <h4 class="footer__nav-title">Navigation</h4>
-                    <ul class="footer__nav-list">
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#services" class="footer__link">Services</a></li>
-                        <li><a href="#work" class="footer__link">Work</a></li>
-                        <li><a href="#pricing" class="footer__link">Pricing</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <div class="footer__social">
-                    <h4 class="footer__nav-title">Connect</h4>
-                    <ul class="footer__social-list">
-                        <li>
-                            <a href="#" class="footer__social-link" aria-label="LinkedIn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__social-link" aria-label="Twitter">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__social-link" aria-label="Dribbble">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.534 8.834c3.081-.028 5.784-.339 8.117-1.038.164.376.312.753.448 1.13-3.243.929-5.938 2.902-8.093 5.917-1.733-1.851-2.776-4.318-2.472-7.009zm4.42 8.674c1.924-2.805 4.321-4.662 7.178-5.565.695 1.797 1.296 3.646 1.804 5.548-1.159.48-2.43.746-3.764.746-2.137 0-4.107-.664-5.754-1.786-.037-.043-.074-.086-.111-.129zm10.651.141c-.443-1.725-.981-3.414-1.614-5.056 1.873-.297 3.905-.263 6.089.132-.479 2.14-1.86 3.967-3.697 5.149-.267-.073-.536-.144-.808-.215z" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+      <section class="reveal-on-scroll px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="branding">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="order-1 lg:order-1">
+            <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">02 / Narrative Craft</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile lg:text-headline-md mb-6 text-on-surface">Visual Identity & Branding</h2>
+            <p class="font-body-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">Identity is more than a logo—it's a language. We build comprehensive brand systems that communicate authority and innovation at every touchpoint.</p>
+            <a href="services.html" class="flex items-center gap-4 group text-white font-label-caps tracking-widest uppercase text-[12px] hover:text-neutral-400 transition-colors">Explore Services <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span></a>
+          </div>
+          <div class="branding-visual order-2 lg:order-2 grid grid-cols-2 gap-6 h-[400px]">
+            <div class="bg-surface-container rounded-2xl p-8 border border-white/10 flex flex-col justify-between">
+              <span class="material-symbols-outlined text-white text-4xl">pentagon</span>
+              <div class="space-y-2"><div class="h-1 w-full bg-white/20"></div><div class="h-1 w-2/3 bg-white/20"></div></div>
             </div>
-
-            <div class="footer__bottom">
-                <p class="footer__copyright">
-                    &copy; 2024 AscendLabs. All rights reserved.
-                </p>
-                <div class="footer__legal">
-                    <a href="#" class="footer__legal-link">Privacy Policy</a>
-                    <a href="#" class="footer__legal-link">Terms of Service</a>
-                </div>
+            <div class="bg-white rounded-2xl p-8 flex flex-col justify-between">
+              <span class="text-black font-display-lg text-2xl font-bold tracking-tighter">ASCEND</span>
+              <div class="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center">
+                <span class="material-symbols-outlined text-black">arrow_outward</span>
+              </div>
             </div>
+            <div class="col-span-2 bg-surface-container-high rounded-2xl p-8 border border-white/10">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Typography</span>
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Color Theory</span>
+                <span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-label-caps text-on-surface-variant uppercase">Design Systems</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </section>
 
-    <!-- Three.js for WebGL -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <section class="py-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll" id="why-ascend">
+      <div class="text-center mb-20">
+        <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">Why Ascend Labs</span>
+        <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile mb-6 text-on-surface">Why businesses choose Ascend Labs</h2>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">We don't just build websites — we build digital platforms that drive real business outcomes.</p>
+      </div>
+      <div class="why-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">psychology</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Strategy before design</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every project starts with research and strategy. We align design decisions with your business goals, audience needs, and market positioning.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">speed</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Performance-first development</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">We engineer for speed from the ground up. Fast load times, optimized assets, and clean code that scales with your business.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">devices</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Mobile-first experiences</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every interface is designed mobile-first and meticulously crafted to feel native across every device and screen size.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">search_insights</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">SEO-ready architecture</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Your site ships with semantic HTML, structured data, and technical SEO foundations so you're discoverable from day one.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">support</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Long-term support</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">We don't disappear after launch. Ongoing maintenance, updates, and scaling support ensure your site stays performant and secure.</p>
+        </div>
+        <div class="why-card bg-surface-container rounded-3xl p-10 border border-white/10 hover:border-white/30 transition-all group">
+          <span class="material-symbols-outlined text-white text-4xl mb-6 group-hover:scale-110 transition-transform">rocket_launch</span>
+          <h3 class="font-display-lg text-xl text-on-surface mb-4">Business-first thinking</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">Every design decision ties back to conversion, retention, and growth. We build systems that serve your bottom line, not just your brand.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <section class="pb-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="text-center mb-16">
+        <span class="font-label-caps text-outline mb-4 block uppercase tracking-widest text-[10px]">Featured Work</span>
+        <h2 class="font-display-lg text-headline-md md:text-display-lg-mobile mb-6 text-on-surface">Selected projects</h2>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">Explore a selection of our design concepts and demo projects showcasing our approach to modern digital experiences.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <a href="https://ascendlabs-webs.github.io/Gym/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0s">
+          <div class="portfolio-glow" style="background:#00ff88;top:30%;left:20%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/apex-hero.svg" alt="APEX Performance" loading="lazy" decoding="async" width="640" height="360">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Fitness</span>
+            <h3>APEX Performance</h3>
+            <p>High-intensity fitness brand with bold typography and dynamic layouts.</p>
+            <div class="portfolio-tags">
+              <span>Next.js</span>
+              <span>Framer Motion</span>
+              <span>Tailwind</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+        <a href="https://ascendlabs-webs.github.io/Indian-Restaurant-demo/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.1s">
+          <div class="portfolio-glow" style="background:#c9a84c;top:30%;left:10%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/zaika-hero.svg" alt="Zaika Fine Dining" loading="lazy" decoding="async" width="640" height="360">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Restaurant</span>
+            <h3>Zaika Fine Dining</h3>
+            <p>Indian cuisine restaurant demo with immersive hero and table reservation flow.</p>
+            <div class="portfolio-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>GSAP</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+        <a href="https://ascendlabs-webs.github.io/salon-anti-package-2/" target="_blank" rel="noopener" class="portfolio-card reveal-on-scroll" style="transition-delay: 0.2s">
+          <div class="portfolio-glow" style="background:#e8a0b5;top:25%;left:30%"></div>
+          <div class="portfolio-thumb aspect-video">
+            <img src="assets/work-previews/aura-hero.svg" alt="Aura Salon & Spa" loading="lazy" decoding="async" width="640" height="360">
+          </div>
+          <div class="portfolio-info">
+            <span class="category">Salon &amp; Spa</span>
+            <h3>Aura Salon &amp; Spa</h3>
+            <p>Luxury salon concept with service catalog and integrated booking.</p>
+            <div class="portfolio-tags">
+              <span>Next.js</span>
+              <span>Tailwind</span>
+              <span>GSAP</span>
+            </div>
+            <div class="portfolio-cta">View Case Study <span class="arrow">→</span></div>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-12">
+        <a href="work.html" class="border border-white/20 text-white px-10 py-4 rounded-full font-label-caps uppercase tracking-[0.15em] text-sm hover:bg-white/10 active:scale-95 transition-all inline-block">View All Projects</a>
+      </div>
+    </section>
 
-    <!-- ⭐ CINEMATIC SCROLL MOTION ENGINE ⭐ -->
-    <script src="cinematic-scroll-engine.js" defer></script>
-    <script src="cinematic-transitions-fx.js" defer></script>
+    <section class="pb-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="bg-surface-container rounded-[32px] p-10 md:p-16 border border-white/10">
+        <h2 class="font-display-lg text-headline-md mb-6 text-on-surface">Websites that help Chennai shops get more work</h2>
+        <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">Ascend Labs is based in Chennai, India. We make sites for salons, cafes, gyms, clinics and small shops. Each site is simple to use, quick to load, and clear on the phone.</p>
+        <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">Need a new site, a new logo, or help with Google search? We can help with design, setup, and care after launch. Prices start at ₹15K with one year of hosting. Most small sites are ready in 7 to 14 days.</p>
+        <p class="font-body-lg text-on-surface-variant leading-relaxed">Call or message us for a free quote. We reply within 24 hours on work days. See our <a href="services.html" class="text-white underline">services</a>, <a href="work.html" class="text-white underline">past work</a>, and <a href="pricing.html" class="text-white underline">clear prices</a>.</p>
+      </div>
+    </section>
 
-    <!-- Main Script -->
-    <script src="script.js" defer></script>
+    <section class="cta-section py-32 px-margin-mobile md:px-gutter max-w-container-max mx-auto reveal-on-scroll">
+      <div class="cta-inner bg-surface-container-highest rounded-[48px] p-16 md:p-32 text-center relative overflow-hidden border border-white/10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_60%)]"></div>
+        <div class="relative z-10">
+          <h2 class="font-display-lg text-headline-md md:text-display-lg mb-8 text-on-surface tracking-tighter">Ready to Ascend?</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-14 text-lg">Book a free strategy call and discover how we can transform your digital presence into a growth engine.</p>
+          <div class="cta-buttons flex flex-col md:flex-row gap-4 justify-center items-center">
+            <a href="contact.html" class="bg-white text-black px-12 py-5 rounded-full font-label-caps uppercase tracking-[0.2em] text-sm hover:bg-neutral-200 hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-white/10 inline-block">Book a Free Strategy Call</a>
+            <a href="contact.html" class="border border-white/20 text-white px-12 py-5 rounded-full font-label-caps uppercase tracking-[0.2em] text-sm hover:bg-white/10 hover:scale-105 active:scale-95 transition-all inline-block">Get a Free Website Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-surface-container-lowest border-t border-white/10 py-24">
+    <div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+      <div class="footer-grid grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-gutter">
+        <div class="col-span-1 md:col-span-1">
+          <div class="font-display-lg text-headline-md text-on-surface mb-8 tracking-tighter">Ascend Labs</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed max-w-xs">Precision in digital craft. We build the interfaces of tomorrow with the engineering standards of today.</p>
+        </div>
+        <div>
+          <h3 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Pages</h3>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Home</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Services</a></li>
+            <li><a href="work.html" class="font-body-md text-white font-semibold">Work</a></li>
+            <li><a href="pricing.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="about.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">About</a></li>
+            <li><a href="contact.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Services</h3>
+          <ul class="space-y-4">
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Web Design</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Development</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">App Development</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Branding</a></li>
+            <li><a href="services.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">UI/UX Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-label-caps text-on-surface mb-8 uppercase tracking-widest text-[11px] opacity-50">Contact</h3>
+          <ul class="space-y-4">
+            <li><a href="mailto:ascendlabs.com@gmail.com" class="font-body-md text-on-surface-variant hover:text-white transition-colors">ascendlabs.com@gmail.com</a></li>
+            <li class="font-body-md text-on-surface-variant">Chennai, Tamil Nadu, India</li>
+            <li><a href="contact.html" class="font-body-md text-on-surface-variant hover:text-white transition-colors">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="font-body-md text-on-surface-variant/40 text-xs uppercase tracking-widest">&copy; 2026 Ascend Labs, Chennai. All Rights Reserved.</p>
+        <p class="font-body-md text-on-surface-variant/40 text-xs uppercase tracking-widest"><a href="privacy.html" class="hover:text-white transition-colors">Privacy</a> · <a href="terms.html" class="hover:text-white transition-colors">Terms</a> · Updated Sept 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="chatbot.js" defer></script>
 </body>
-
 </html>

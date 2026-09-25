@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="aura-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0a12"/>
+      <stop offset="30%" stop-color="#3d1a2e"/>
+      <stop offset="60%" stop-color="#5c2d4a"/>
+      <stop offset="100%" stop-color="#2a1020"/>
+    </linearGradient>
+    <linearGradient id="aura-rose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5c6d0"/>
+      <stop offset="50%" stop-color="#e8a0b5"/>
+      <stop offset="100%" stop-color="#d4809a"/>
+    </linearGradient>
+    <linearGradient id="aura-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0d68a"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+    <radialGradient id="aura-glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#e8a0b5" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#e8a0b5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#aura-bg)"/>
+  <circle cx="400" cy="180" r="250" fill="url(#aura-glow)"/>
+  <ellipse cx="400" cy="200" rx="120" ry="60" fill="none" stroke="url(#aura-rose)" stroke-width="0.3" opacity="0.1"/>
+  <ellipse cx="400" cy="200" rx="80" ry="40" fill="none" stroke="url(#aura-rose)" stroke-width="0.3" opacity="0.08"/>
+  <text x="60" y="280" font-family="Georgia, serif" font-size="56" font-weight="400" fill="url(#aura-rose)" letter-spacing="3">Aura</text>
+  <text x="60" y="325" font-family="Inter, sans-serif" font-size="10" fill="url(#aura-gold)" letter-spacing="8" opacity="0.6">SALON &amp; SPA</text>
+  <line x1="60" y1="345" x2="160" y2="345" stroke="url(#aura-rose)" stroke-width="0.5" opacity="0.2"/>
+  <text x="60" y="375" font-family="Inter, sans-serif" font-size="9" fill="#8a6a7a" letter-spacing="3">Hair · Beauty · Wellness</text>
+  <path d="M680 100 Q700 80 720 100 Q700 120 680 100Z" fill="none" stroke="url(#aura-rose)" stroke-width="0.5" opacity="0.12"/>
+  <path d="M690 110 Q710 90 730 110 Q710 130 690 110Z" fill="none" stroke="url(#aura-rose)" stroke-width="0.3" opacity="0.08"/>
+  <circle cx="700" cy="380" r="60" fill="none" stroke="url(#aura-rose)" stroke-width="0.3" opacity="0.08"/>
+  <rect x="60" y="420" width="12" height="12" fill="url(#aura-rose)" opacity="0.15"/>
+  <rect x="82" y="420" width="12" height="12" fill="url(#aura-rose)" opacity="0.08"/>
+  <rect x="104" y="420" width="12" height="12" fill="url(#aura-gold)" opacity="0.05"/>
+  <line x1="60" y1="60" x2="130" y2="60" stroke="url(#aura-rose)" stroke-width="0.5" opacity="0.15"/>
+</svg>

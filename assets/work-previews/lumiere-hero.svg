@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="lum-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0015"/>
+      <stop offset="30%" stop-color="#1a0030"/>
+      <stop offset="70%" stop-color="#2d0050"/>
+      <stop offset="100%" stop-color="#100020"/>
+    </linearGradient>
+    <linearGradient id="lum-violet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="lum-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="lum-glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#lum-bg)"/>
+  <circle cx="200" cy="150" r="200" fill="url(#lum-glow)"/>
+  <circle cx="150" cy="120" r="2" fill="#c084fc" opacity="0.4"/>
+  <circle cx="250" cy="90" r="1.5" fill="#c084fc" opacity="0.3"/>
+  <circle cx="180" cy="70" r="1" fill="#c084fc" opacity="0.2"/>
+  <circle cx="280" cy="150" r="1.5" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="130" cy="160" r="1" fill="#fbbf24" opacity="0.2"/>
+  <text x="200" y="270" font-family="Georgia, serif" font-size="34" font-weight="300" fill="white" text-anchor="middle" letter-spacing="6">LUMIERE</text>
+  <text x="200" y="300" font-family="Inter, sans-serif" font-size="9" fill="url(#lum-violet)" text-anchor="middle" letter-spacing="8" opacity="0.7">BEAUTY &amp; COSMETICS</text>
+  <rect x="100" y="320" width="200" height="1" fill="url(#lum-violet)" opacity="0.15"/>
+  <rect x="140" y="330" width="120" height="1" fill="url(#lum-violet)" opacity="0.08"/>
+  <text x="200" y="360" font-family="Inter, sans-serif" font-size="9" fill="#6a4a8a" text-anchor="middle" letter-spacing="3">Premium Beauty Experience</text>
+  <circle cx="320" cy="420" r="45" fill="none" stroke="#8b5cf6" stroke-width="0.3" opacity="0.08"/>
+  <path d="M60 400 Q80 380 100 400 Q80 420 60 400Z" fill="none" stroke="url(#lum-violet)" stroke-width="0.5" opacity="0.1"/>
+  <path d="M70 410 Q90 390 110 410 Q90 430 70 410Z" fill="none" stroke="url(#lum-violet)" stroke-width="0.3" opacity="0.08"/>
+  <line x1="50" y1="50" x2="90" y2="50" stroke="url(#lum-violet)" stroke-width="0.5" opacity="0.15"/>
+  <rect x="170" y="400" width="8" height="8" rx="4" fill="#c084fc" opacity="0.2"/>
+  <rect x="190" y="400" width="8" height="8" rx="4" fill="#c084fc" opacity="0.1"/>
+</svg>
