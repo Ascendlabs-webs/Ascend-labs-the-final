@@ -39,7 +39,7 @@
     radial-gradient(at 0% 100%, hsla(0,0%,12%,1) 0, transparent 50%);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 body { overflow-x: hidden; }
 
 /* Skip link for accessibility / SEO audit */
@@ -369,7 +369,7 @@ body { overflow-x: hidden; }
   .header-logo img { height: 20px !important; width: auto !important; }
 
   /* ===== HERO ===== */
-  .hero-section { padding-top: 88px !important; padding-bottom: 32px !important; }
+  .hero-section { padding-top: 128px !important; padding-bottom: 32px !important; }
   .hero-section h1 { font-size: 26px !important; word-break: break-word !important; hyphens: auto !important; }
   .hero-section p { font-size: 14px !important; }
   .hero-buttons { flex-direction: column !important; align-items: stretch !important; margin-top: 32px !important; }
