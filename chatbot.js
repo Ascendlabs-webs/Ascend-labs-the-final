@@ -58,10 +58,25 @@
   var ICON_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
   var DEFAULT_CHIPS = ['Our services', 'Pricing', 'Timelines', 'Get a quote'];
 
+  var NUDGES = {
+    'pricing.html': 'Starter 15K, Pro 25K - not sure which fits? Ask me.',
+    'services.html': 'Which service do you need? Ask me anything.',
+    'contact.html': 'Want a faster reply? Start here and I will prep your quote.',
+    'work.html': 'Like something you see? I can scope the same for you.'
+  };
+  var DEFAULT_NUDGE = 'Need a website? Ask me about services and pricing.';
+
+  function nudgeForPage() {
+    try {
+      var page = (window.location.pathname || '').split('/').pop() || 'index.html';
+      return NUDGES[page] || DEFAULT_NUDGE;
+    } catch (e) { return DEFAULT_NUDGE; }
+  }
+
   var RULES = [
     { keys: ['starter', '15k', '15000', 'basic plan', 'small site', '3 page'], reply: '<b>Starter - Rs 15,000.</b><br>Up to 3 pages, mobile-friendly design, contact form with WhatsApp, basic SEO, and 1 year of hosting. Ready in 7-10 days.<br><br>Want this plan? Tap <b>Get a quote</b> or <a href="pricing.html">see all plans</a>.' },
-    { keys: ['professional', '25k', '25000', 'pro plan', 'most popular', '4-6', '4 to 6'], reply: '<b>Professional - Rs 25,000</b> (most popular).<br>4-6 custom pages, better design, lead capture forms, speed tuning, and 1 year of hosting. Ready in 10-14 days.<br><br>Shall I start your free quote?' },
-    { keys: ['enterprise', '40k', '40000', 'custom plan', 'ecommerce', 'e-commerce', 'online store', 'shop online', 'unlimited'], reply: '<b>Enterprise - Rs 40,000+.</b><br>Unlimited pages, online shop with payments, custom features, priority support, and 1 year of hosting. Ready in 14-21 days.<br><br>Tell me what you need and I will arrange a free call.' },
+    { keys: ['professional', '25k', '25000', 'pro plan', 'most popular', '4 6', '4 to 6'], reply: '<b>Professional - Rs 25,000</b> (most popular).<br>4-6 custom pages, better design, lead capture forms, speed tuning, and 1 year of hosting. Ready in 10-14 days.<br><br>Shall I start your free quote?' },
+    { keys: ['enterprise', '40k', '40000', 'custom plan', 'ecommerce', 'e commerce', 'online store', 'shop online', 'unlimited'], reply: '<b>Enterprise - Rs 40,000+.</b><br>Unlimited pages, online shop with payments, custom features, priority support, and 1 year of hosting. Ready in 14-21 days.<br><br>Tell me what you need and I will arrange a free call.' },
     { keys: ['how much', 'price', 'pricing', 'cost', 'charge', 'much', 'rate', 'package', 'plan'], reply: 'Simple pricing, no hidden fees:<br><br><b>Starter Rs 15K</b> - up to 3 pages, 7-10 days<br><b>Professional Rs 25K</b> - 4-6 pages, 10-14 days<br><b>Enterprise Rs 40K+</b> - custom, 14-21 days<br><br>Every plan includes 1 year of hosting. Full list on our <a href="pricing.html">pricing page</a>.<br><br>Want a free quote for your work?' },
     { keys: ['website', 'site', 'web design', 'web development', 'landing page', 'redesign', 'rebuild'], reply: 'We build fast, mobile-first websites for shops, salons, cafes, gyms and clinics. Clear design, quick to load, made to bring calls and sales.<br><br>Starter (Rs 15K) suits a simple site, Professional (Rs 25K) suits growing shops. See <a href="services.html">services</a>.' },
     { keys: ['app', 'mobile app', 'android', 'ios', 'iphone', 'play store', 'flutter', 'react native'], reply: 'Yes, we build apps for iOS and Android with React Native or Flutter, backend on Firebase or Supabase, and we handle Play Store and App Store upload.<br><br>App work is quoted custom (Enterprise range). Tell me your app idea?' },
@@ -78,7 +93,10 @@
     { keys: ['email', 'mail'], reply: 'You can email us at <b>' + EMAIL + '</b>. We reply within 24 hours on work days.' },
     { keys: ['phone', 'number', 'call', 'whatsapp', 'contact', 'talk', 'human', 'person', 'book'], reply: 'You can reach us fastest on <a href="' + WA_LINK + '?text=Hi%20Ascend%20Labs" target="_blank" rel="noopener">WhatsApp (+91 63853 14684)</a> or email <b>' + EMAIL + '</b>. We are in Chennai and reply within 24 hours on work days.<br><br>Or tap <b>Get a quote</b> and I will take your details now.' },
     { keys: ['where', 'location', 'address', 'chennai', 'city'], reply: 'We are based in <b>Chennai, Tamil Nadu, India</b> and work with clients anywhere online.' },
-    { keys: ['quote', 'estimate', 'enquiry', 'enquire', 'interested', 'get started', 'sign up'], reply: '__LEAD_START__' },
+    { keys: ['quote', 'estimate', 'enquiry', 'enquire', 'interested', 'get started', 'sign up', 'hire', 'start a project', 'want a website', 'need a website', 'build me', 'make me'], reply: '__LEAD_START__' },
+    { keys: ['payment', 'upi', 'advance', 'how to pay', 'bank transfer', 'pay you'], reply: 'Payment is simple: an advance to start and the rest on launch. We take <b>UPI and bank transfer</b>. Your quote is fixed - no hidden fees.' },
+    { keys: ['support', 'maintain', 'maintenance', 'update my', 'care plan', 'fix my site', 'bug'], reply: 'After launch you get <b>30 days of free bug fixes</b>. After that we have simple care plans for updates and upkeep.<br><br>What needs fixing?' },
+    { keys: ['are you open', 'timing', 'timings', 'hours', 'available now', 'when do you reply', 'working hours', 'open today'], reply: 'We reply <b>within 24 hours on work days</b>. For anything urgent, <a href="' + WA_LINK + '?text=Hi%20Ascend%20Labs" target="_blank" rel="noopener">WhatsApp</a> is fastest.' },
     { keys: ['thank', 'thanks', 'great', 'nice', 'awesome', 'super'], reply: 'You are welcome! Anything else - services, prices, or timelines?' },
     { keys: ['bye', 'see you', 'goodbye', 'later'], reply: 'Goodbye! When ready, message us on <a href="' + WA_LINK + '" target="_blank" rel="noopener">WhatsApp</a> or email <b>' + EMAIL + '</b>.' },
     { keys: ['hi', 'hello', 'hey', 'vanakkam', 'morning', 'evening'], reply: 'Hi! I am the Ascend Labs assistant. Ask me about our websites, prices, or timelines - or tap below.' },
@@ -93,27 +111,54 @@
     return (' ' + (s || '').toLowerCase() + ' ').replace(/[^a-z0-9+ ]/g, ' ');
   }
 
-  function findReply(text) {
+  function keyHit(t, key) {
+    var k = key.toLowerCase();
+    if (k.length <= 3) {
+      var safe = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return new RegExp('\\b' + safe + '\\b').test(t);
+    }
+    return t.indexOf(k) !== -1;
+  }
+
+  function findBest(text) {
     var t = normalize(text);
     var best = null, bestScore = 0;
     for (var i = 0; i < RULES.length; i++) {
       var score = 0;
       for (var j = 0; j < RULES[i].keys.length; j++) {
-        if (t.indexOf(RULES[i].keys[j].toLowerCase()) !== -1) score += RULES[i].keys[j].length;
+        if (keyHit(t, RULES[i].keys[j])) score += RULES[i].keys[j].length;
       }
       if (score > bestScore) { bestScore = score; best = RULES[i]; }
     }
-    return bestScore > 0 ? best.reply : FALLBACK;
+    return { rule: best, score: bestScore };
   }
+
+  var lastTopic = null;
+  var FOLLOWUP = /^(what about|how about|and what about|more|tell me more|about (it|that|this)|for (it|that)|why)[\s?]*$/;
 
   function waQuoteLink() {
     var msg = 'Hi Ascend Labs, I am ' + state.name + '. I need: ' + state.need + '. My contact: ' + state.contact;
     return WA_LINK + '?text=' + encodeURIComponent(msg);
   }
 
+  function looksLikeContact(s) {
+    if (/^\S+@\S+\.\S+$/.test(s)) return true;
+    return s.replace(/\D/g, '').length >= 7;
+  }
+
+  function mailtoQuoteLink() {
+    var subject = encodeURIComponent('New enquiry - ' + state.name);
+    var body = encodeURIComponent('Name: ' + state.name + '\nNeed: ' + state.need + '\nContact: ' + state.contact);
+    return 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
+  }
+
+  function rememberName(n) { try { localStorage.setItem('ascend_name', n); } catch (e) {} }
+  function recalledName() { try { return localStorage.getItem('ascend_name'); } catch (e) { return null; } }
+
   function handleFlow(text) {
     if (state.flow === 'awaitName') {
       state.name = text.trim().slice(0, 60) || 'Friend';
+      rememberName(state.name);
       state.flow = 'awaitNeed';
       return 'Nice to meet you, <b>' + escapeHtml(state.name) + '</b>. What do you need - a new website, an app, branding, or something else?';
     }
@@ -123,9 +168,15 @@
       return 'Got it. Lastly, share your <b>phone number or email</b> so we can reply within 24 hours.';
     }
     if (state.flow === 'awaitContact') {
-      state.contact = text.trim().slice(0, 80);
+      var contact = text.trim().slice(0, 80);
+      if (!looksLikeContact(contact) && !state.retried) {
+        state.retried = true;
+        return 'That does not look like a phone number or email - please check and send it again.';
+      }
+      state.contact = contact;
       state.flow = null;
-      return 'Thanks <b>' + escapeHtml(state.name) + '</b>! Noted: <i>' + escapeHtml(state.need) + '</i>.<br><br>Tap here to send it to us now on <a href="' + waQuoteLink() + '" target="_blank" rel="noopener"><b>WhatsApp</b></a>, or just wait - we reply within 24 hours on work days.';
+      state.retried = false;
+      return 'Thanks <b>' + escapeHtml(state.name) + '</b>! Noted: <i>' + escapeHtml(state.need) + '</i>.<br><br>Send it to us now on <a href="' + waQuoteLink() + '" target="_blank" rel="noopener"><b>WhatsApp</b></a> or by <a href="' + mailtoQuoteLink() + '"><b>email</b></a> - or just wait, we reply within 24 hours on work days.';
     }
     return null;
   }
@@ -138,18 +189,20 @@
     var fab = document.createElement('button');
     fab.className = 'ascend-fab';
     fab.setAttribute('aria-label', 'Chat with Ascend Labs');
+    fab.setAttribute('aria-expanded', 'false');
     fab.innerHTML = ICON_OPEN;
 
     var nudge = document.createElement('div');
     nudge.className = 'ascend-nudge';
-    nudge.innerHTML = '<span>Need a website? Ask me about services and pricing.</span><button aria-label="Dismiss">x</button>';
+    nudge.innerHTML = '<span></span><button aria-label="Dismiss">x</button>';
+    nudge.querySelector('span').textContent = nudgeForPage();
 
     var panel = document.createElement('div');
     panel.className = 'ascend-panel';
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-label', 'Ascend Labs chat');
     panel.innerHTML =
-      '<div class="ascend-head"><span class="dot"></span><div><b>Ascend Assistant</b><small>Typically replies instantly - human follow-up in 24h</small></div><button aria-label="Close chat">x</button></div>' +
+      '<div class="ascend-head"><img src="assets/work-previews/photo_6264793174198915400_y.jpg" alt="" width="34" height="34" style="border-radius:50%;flex-shrink:0"><div><b>Ascend Assistant</b><small>Typically replies instantly - human follow-up in 24h</small></div><button aria-label="Close chat">x</button></div>' +
       '<div class="ascend-body"></div>' +
       '<div class="ascend-chips"></div>' +
       '<div class="ascend-input"><input type="text" placeholder="Ask about services, pricing..." aria-label="Type your message"><button aria-label="Send">></button></div>';
@@ -208,30 +261,47 @@
       input.value = '';
       var flowReply = handleFlow(clean);
       if (flowReply) { botSay(flowReply); return; }
-      var reply = findReply(clean);
-      if (reply === '__LEAD_START__') {
-        state.flow = 'awaitName';
-        botSay('Sure, I can start your free quote. What is <b>your name</b>?');
+      var found = findBest(clean);
+      if (found.score > 0) {
+        if (found.rule.reply === '__LEAD_START__') {
+          state.flow = 'awaitName';
+          botSay('Sure, I can start your free quote. What is <b>your name</b>?');
+          return;
+        }
+        lastTopic = found.rule.reply;
+        botSay(found.rule.reply);
         return;
       }
-      botSay(reply);
+      if (lastTopic && FOLLOWUP.test(clean.toLowerCase().replace(/[?.!]+$/, ''))) {
+        botSay('More on that:<br><br>' + lastTopic);
+        return;
+      }
+      botSay(FALLBACK);
     }
 
     function open() {
       ui.panel.classList.add('open');
+      ui.fab.setAttribute('aria-expanded', 'true');
       ui.nudge.classList.remove('show');
       try { localStorage.setItem('ascend_chat_seen', '1'); } catch (e) {}
       if (!opened) {
         opened = true;
-        botSay('Hi! I am the Ascend Labs assistant. Ask me about our <b>services</b>, <b>prices</b>, or <b>timelines</b> - or tap below.');
+        var known = recalledName();
+        if (known) botSay('Welcome back, <b>' + escapeHtml(known) + '</b>! What can I help with today?');
+        else botSay('Hi! I am the Ascend Labs assistant. Ask me about our <b>services</b>, <b>prices</b>, or <b>timelines</b> - or tap below.');
       }
       setTimeout(function () { input.focus(); }, 100);
     }
 
+    function close() {
+      ui.panel.classList.remove('open');
+      ui.fab.setAttribute('aria-expanded', 'false');
+    }
+
     ui.fab.onclick = function () {
-      ui.panel.classList.contains('open') ? ui.panel.classList.remove('open') : open();
+      ui.panel.classList.contains('open') ? close() : open();
     };
-    ui.panel.querySelector('.ascend-head button').onclick = function () { ui.panel.classList.remove('open'); };
+    ui.panel.querySelector('.ascend-head button').onclick = function () { close(); };
     ui.nudge.querySelector('button').onclick = function (e) {
       e.stopPropagation();
       ui.nudge.classList.remove('show');
@@ -240,6 +310,7 @@
     ui.nudge.onclick = function () { open(); };
     sendBtn.onclick = function () { send(input.value); };
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') send(input.value); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
     var seen = null;
     try { seen = localStorage.getItem('ascend_chat_seen'); } catch (e) {}
